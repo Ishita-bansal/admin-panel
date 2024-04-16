@@ -1,0 +1,138 @@
+.login-container{
+    width:100%;
+    height:100vh;
+    background-image:linear-gradient(rgba(0,0,50,0.8) , rgba(0,0,50,0.8)),url("/public/image/background.png");
+    background-size:cover;
+    background-position: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-login-container{
+    width:50%;
+    height:70vh;
+    background-color: #fff;
+    border-radius:20px;
+    position: relative;
+}
+
+.login-box{
+    width:100%;
+    height:70vh;
+    padding:30px;
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.login-box h4{
+    color:rgba(0,0,50,0.8);
+    font-size: 2rem;
+}
+
+.login-box h1{
+    color:rgba(0,0,50,0.8);
+    font-size: 3rem;
+    font-weight:bolder;
+}
+
+.login-inputs{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between ;
+   padding:10px 5px;
+}
+
+.login-input-field{
+     background:rgba(0,0,50,0.6);
+     margin:15px 0;
+     border-radius:3px;
+     display:flex;
+     align-items: center;
+     font-size: 1.5rem;
+}
+
+.login-input-field input::placeholder {
+    color: white;
+    opacity: 1; 
+  }
+
+
+.login-input-field .login-fonticon{
+    margin-left:15px;
+    color:white;
+}
+
+.login-input-field .login-eyeicon{
+    margin-right: 15px;
+    color:white;
+    cursor:pointer;
+}
+
+.login-eyeicon:hover{
+    color:black
+}
+
+.logineyebtn{
+    margin-right:15px ;
+    background-color:rgba(0,0,50,0.3);
+    border:0;
+    width:40px;
+    border-radius:60%;
+}
+.login-btn{
+    border:none;
+    outline:none;
+    padding-left:30%;
+}
+
+.login-btn button{
+     width:150px;
+     height:45px;
+     border-radius:20px;
+     background-color: rgba(0,0,50,0.6);
+     border:none;
+     outline:none;
+     color:white;
+     font-size:1.3rem;
+    cursor:pointer;
+}
+
+.login-btn button:hover{
+    background-color: rgba(0,0,50,0.3);
+}
+
+.login-part2{
+    display:flex;
+    justify-content: end;
+ 
+}
+
+.register-first{
+    display:flex;
+    gap:10px;
+    color: rgba(0,0,50,0.7);
+    padding:10px 30px;
+}
+
+.register-first a{
+    text-decoration: none;
+    color:rgba(0,0,50,0.7);
+    font-size:1.2rem;
+    font-weight: bold;
+}
+
+.sub-login-part2{
+    width:60%;
+    height:70vh;
+    background-color: rgba(0,0,50,0.7);
+    border-top-left-radius: 50px;
+}
+
+.sub-login-part2 img{
+    width:35%;
+    position:absolute;
+    right:10%;
+    bottom:0%;
+}

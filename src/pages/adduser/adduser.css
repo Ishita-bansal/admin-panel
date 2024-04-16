@@ -1,0 +1,78 @@
+
+
+.adduser-inputs{
+    width:1200px;
+    height:300px;
+    display:flex;
+    flex-direction:column;
+    margin-top: 100px;
+    gap:60px;
+     justify-content:center;
+    
+}
+
+.adduser-input-fields{
+     border: 2px solid;
+     width:400px;
+     height:73px;
+     display:flex;
+     gap:5px;
+     justify-content: flex-start;
+     align-items: baseline;
+     border-radius: 30px;
+     margin-left: 40px;
+     padding-left:40px ;
+
+
+}
+
+.adduser-input-fields input{
+     width:400px;
+     height:69px;
+     border-top-right-radius:30px ;
+     border-bottom-right-radius: 30px;
+     border:none;
+     outline:none;
+     font-size: 20px;
+}
+
+.adduser-input-fields input[type=checkbox]{
+     width:25px;
+     margin-left: 50px;
+}
+
+label{
+    font-size: 20px;
+}
+
+.part1,.part2{
+    display:flex;
+    gap:50px;
+}
+
+
+
+.adduser-btn{
+    display:flex;
+    justify-content:end;
+    margin-top:70px;
+    margin-right: 650px;
+    
+}
+
+.adduser-btn button{
+    width:150px;
+    height:50px;
+    border-radius:23px;
+    border:none;
+    outline:none;
+    background-color: #15313cea;
+    color:white;
+    font-size:23px;
+}
+
+.error-handle{
+    margin-top:40px;
+    margin-right:100px;
+ 
+}

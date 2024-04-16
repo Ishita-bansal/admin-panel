@@ -1,0 +1,31 @@
+.main-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url(../../../public/image/background.png);
+}
+
+.forms-input-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    width: 500px;
+    height: 830px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.muifields {
+    width: 350px;
+
+}
+
+.forms-btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 35px;
+}
