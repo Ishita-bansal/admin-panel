@@ -3,7 +3,7 @@ import React from "react";
 import {Register,Login,Dashboard,Profile,Tabledashboard,Page404, Adduser, Edituser,Uipage, Formsformik,View} from "../pages"
 import { useSelector } from "react-redux";
 import Maincontainer from "../components/maincontainer";
-
+import Demofirebase from "../demofirebase";
 function Router(){
  const logedUser = useSelector((state)=>state.Loginreducer);
  
@@ -29,6 +29,7 @@ function Router(){
                 <Route path="/*" element={<Page404/>} />
                 <Route path="/uipage" element={<Uipage/>} />
                 <Route path="/formsformik" element={<Formsformik/>}/>
+                <Route path="/demofirebase" element={<Demofirebase/>} />
             </Routes>
           </BrowserRouter>
         </>
