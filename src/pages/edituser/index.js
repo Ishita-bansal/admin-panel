@@ -13,8 +13,7 @@ import { toast } from "react-toastify";
 import TOASTMESSAGE from "../../constants";
 import { useParams } from "react-router-dom";
 import {useNavigate} from "react-router-dom";
-const emailregex =
-  /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const emailregex =/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 const validationSchema = yup.object().shape({
   name: yup
@@ -43,30 +42,31 @@ const Edituser = () => {
 
     
     const loggedUser = useSelector((state)=>state?.Loginreducer);
-  
+  // console.log("login user========>",loggedUser);
 
     const { email } = useParams();
-    const currentUser = userdetail.find((user)=>user.email === email)
+    const currentUser = userdetail.find((user)=>user.email === email);
 
   const onSubmit = (values) => {
-         const editarray = userdetail.filter((users)=>{
-            return  users.email !== loggedUser.email && users.email !== email
-         })
-         console.log("values of edit array====>",editarray);
-         if(editarray.length === 0){
-         editarray.push(values);
-        dispatch(registerupdate(editarray));
-        dispatch(update(values));
-         }
-         else{
-           const edituser = userdetail.filter((users)=>{
-           return users.email !== email
-         });
-       edituser.push(values)
-       dispatch(registerupdate(edituser));
+     if(loggedUser.email === email ){
+      const editarray = userdetail.filter((users)=>{
+        return loggedUser.email !== email || users.email !== email
+        })
+       editarray.push(values);
+       dispatch(update(values));
+       dispatch(registerupdate(editarray));
+       console.log("logged user values of edit array====>",editarray); 
+     }
+    else{     
+      const filteruser =  userdetail.filter((user)=>{
+        return user.email !== email
+       })
+      filteruser.push(values);
+      dispatch(register(filteruser));
+      console.log("filteruser========>",filteruser);
+    }
       toast.success(TOASTMESSAGE.EDIT);   
-       navigate('/tabledashboard');
-      }
+      navigate('/tabledashboard');
   };
 
 

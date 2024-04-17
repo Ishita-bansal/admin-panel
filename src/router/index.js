@@ -1,6 +1,6 @@
 import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
 import React from "react";
-import {Register,Login,Dashboard,Profile,Tabledashboard,Page404, Adduser, Edituser,Uipage, Formsformik} from "../pages"
+import {Register,Login,Dashboard,Profile,Tabledashboard,Page404, Adduser, Edituser,Uipage, Formsformik,View} from "../pages"
 import { useSelector } from "react-redux";
 import Maincontainer from "../components/maincontainer";
 
@@ -14,7 +14,7 @@ function Router(){
    const PublicRouter = ({element})=>{
      return !logedUser?.isLoggedIn ? element : Navigate('/dashboard');
    }
-    return(
+    return (
         <>
           <BrowserRouter>
             <Routes>
@@ -25,10 +25,10 @@ function Router(){
                 <Route path="/tabledashboard" element={<PrivateRouter element={<Tabledashboard/>}/>}/>
                 <Route path="/adduser" element = {<PrivateRouter element={<Adduser/>} /> } />
                 <Route path="/edituser/:email" element= {<PrivateRouter element={<Edituser/>} />} />
+                <Route path="/view/:email" element = {<PrivateRouter element={<View/>} /> } />
                 <Route path="/*" element={<Page404/>} />
                 <Route path="/uipage" element={<Uipage/>} />
-                <Route path="/formsformik" element={<Formsformik/>} />
-
+                <Route path="/formsformik" element={<Formsformik/>}/>
             </Routes>
           </BrowserRouter>
         </>

@@ -47,7 +47,23 @@ const Sidenav = () => {
             </div>
             <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
-              <p>List</p>
+              <p>Blog</p>
+            </div>
+            <div className="sub-inputs">
+                <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
+              <p>News</p>
+            </div>
+            <div className="sub-inputs">
+                <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
+              <p>Category</p>
+            </div>
+            <div className="sub-inputs">
+                <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
+              <p>Product</p>
+            </div>
+            <div className="sub-inputs">
+                <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
+              <p>Order</p>
             </div>
           </div>
         </div>

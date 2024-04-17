@@ -45,18 +45,17 @@ const Adduser = () => {
     const dispatch = useDispatch();
     const userData = useSelector((state)=>state?.Registerreducer);
     const userdetail = userData?.registerUser || []
-    console.log("users data====>",userdetail);
+    // console.log("users data====>",userdetail);
 
   const onSubmit = (values) => {
    const addusers = userdetail?.some((users)=>{
        return users.email === values.email
    })
- console.log("add users=========>",addusers);
+//  console.log("add users=========>",addusers);
    if(addusers){
       toast.error(TOASTMESSAGE.EXISTUSER);
   }  
   else{
-
        dispatch(register([...userdetail, values]));
        toast.success(TOASTMESSAGE.ADD);
        navigate('/tabledashboard')
@@ -137,11 +136,8 @@ const Adduser = () => {
             <div className="error-handle">
             <Errorhandle touched={touched} errors={errors} fieldName="confirmpass"/>
             </div>
-           
           </div>
-        </div>
-        
-       
+        </div> 
         <div className="adduser-btn">
           <button type="submit">Add</button>
         </div>
