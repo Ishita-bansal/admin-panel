@@ -10,6 +10,7 @@ where} from "firebase/firestore";
 import { app } from "./firebase/firebaseconfig";
 const firestore = getFirestore(app);
 
+
 function Demofirebase(){
     const writeData = async () => {
         const result = await addDoc(collection(firestore, "games"), {

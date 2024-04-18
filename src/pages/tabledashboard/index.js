@@ -134,10 +134,10 @@ function Tabledashboard() {
       </div>
       <TableContainer
         sx={{
-          width: "75%",
+          width: "85%",
           height: "650px",
           backgroundColor: "#f2f2f2",
-          margin: "50px",
+          marginTop: "80px",
           borderRadius: "20px",
         }}
       >

@@ -1,0 +1,53 @@
+.blog-form-container{
+      padding-top: 40px;
+      height:600px;
+}
+
+
+.blog-input-fields{
+    padding:20px;
+    height:400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:20px;
+}
+
+.blog-input input{
+    width:fit-content;
+    width:450px;
+    height:50px;
+    border-radius: 10px;
+    padding:20px;
+}
+
+.blog-input input[type="file"]{
+    width:400px;
+    height:60px;
+}
+
+.blog-input textarea{
+     border-radius: 10px;
+     padding:20px;
+     overflow-y: scroll;
+   
+    resize: none;
+}
+
+.blog-btn{ 
+    display:flex;
+    justify-content: center;
+    border:none;
+    outline:none;
+}
+
+.blog-btn button{
+    width:150px;
+    height:50px;
+    background-color:#15283c;
+    color:white;
+    font-size:22px;
+    border-radius: 40px;
+    margin-top: 60px;
+}
+

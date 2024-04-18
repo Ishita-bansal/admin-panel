@@ -1,6 +1,6 @@
 import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
 import React from "react";
-import {Register,Login,Dashboard,Profile,Tabledashboard,Page404, Adduser, Edituser,Uipage, Formsformik,View} from "../pages"
+import {Register,Login,Dashboard,Profile,Tabledashboard,Page404, Adduser, Edituser,Uipage, Formsformik,View,Blog, Blogdetail, Addblog} from "../pages"
 import { useSelector } from "react-redux";
 import Maincontainer from "../components/maincontainer";
 import Demofirebase from "../demofirebase";
@@ -26,10 +26,13 @@ function Router(){
                 <Route path="/adduser" element = {<PrivateRouter element={<Adduser/>} /> } />
                 <Route path="/edituser/:email" element= {<PrivateRouter element={<Edituser/>} />} />
                 <Route path="/view/:email" element = {<PrivateRouter element={<View/>} /> } />
+                <Route path="/blogdetail" element={<PrivateRouter element={<Blogdetail/>} />} />
+                <Route path="/addblog" element={<PrivateRouter element={<Addblog/>} />} />
                 <Route path="/*" element={<Page404/>} />
                 <Route path="/uipage" element={<Uipage/>} />
                 <Route path="/formsformik" element={<Formsformik/>}/>
                 <Route path="/demofirebase" element={<Demofirebase/>} />
+              
             </Routes>
           </BrowserRouter>
         </>

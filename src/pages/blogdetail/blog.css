@@ -1,0 +1,34 @@
+.table-container{
+    width:100%;
+   height:700px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.table-header{
+    display:flex;
+    justify-content: space-between;
+
+}
+
+.table-header .table-btn{
+    border:none;
+    outline:none;
+    cursor: pointer;
+    background-color: #15313cbd;
+    border-radius: 30px;
+    width: 140px;
+    height: 50px;
+    color: white;
+    margin-right: 80px;
+    font-size: 20px;
+}
+
+
+.sub-table-container{
+    background-color: #f2f2f2;
+    height:700px;
+
+}

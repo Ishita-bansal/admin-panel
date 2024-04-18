@@ -47,7 +47,9 @@ const Sidenav = () => {
             </div>
             <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
-              <p>Blog</p>
+                <Link to="/blogdetail" className="table-link">
+                <p>Blog</p>
+                </Link>
             </div>
             <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
