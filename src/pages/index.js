@@ -9,3 +9,4 @@ export  {default as Edituser} from "./edituser";
 export {default as Uipage} from "./uipage";
 export  {default as Formsformik} from "./formsformik";
 export {default as View} from "./view";
+export {default as Blog} from "./blog";
