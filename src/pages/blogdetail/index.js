@@ -34,6 +34,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { app } from "../../firebase/firebaseconfig";
+import { deleteDoc } from "firebase/firestore";
 const firestore = getFirestore(app);
 
 const style = {
@@ -80,11 +81,18 @@ function Blogdetail() {
   const [rowsperPage, setrowsperPage] = useState(5);
   const [reciveData, setReciveData] = useState([]);
   const [open, setOpen] = useState(false);
+  const [selecteddata , setSelecteddata] = useState({});
  
-  const handleDel = () => {
-    
-    // console.log(selectedData)
-   
+  const handleDel = async() => {
+       console.log("recieved data=====>",reciveData);
+       const data = reciveData.filter((info)=>{
+             return info.id !== selecteddata.id;
+        }) 
+     console.log("data filtered=====>",data);
+     setReciveData(data);
+     setSelecteddata({});
+     const docRef = doc(firestore, "Tic-tacs-games", selecteddata.id);
+     await deleteDoc(docRef);
   };
 
   const onChangePage = (event, nextPage) => {
@@ -128,14 +136,15 @@ function Blogdetail() {
     fetchData();
   }, []);
 
-  const onActionsHandler = (obj, user) => {
+  const onActionsHandler = (obj, detail) => {
+   console.log("details=======>",detail);
     if (obj.indetifier === "edit") {
-      //   navigate(`/edituser/${user.email}`);
+        navigate(`/editblog/${detail.id}`);
     }
 
     if (obj.indetifier === "delete") {
       handleDel();
-     
+      setSelecteddata(detail);
       setOpen(true);
 
     }
@@ -156,9 +165,9 @@ function Blogdetail() {
         </div>
         <TableContainer
           sx={{
-            width: "950px",
+            width: "1000px",
             backgroundColor: "#f2f2f2",
-            marginTop: "20px",
+            marginTop: "50px",
             borderRadius: "20px",
             border:"4px solid"
           }}
@@ -231,14 +240,13 @@ function Blogdetail() {
                       {detail.desc}
                       </div>
                     </TableCell>
-
                     <TableCell style={{ textAlign: "center" }}>
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
                         {icons.map((obj, index) => (
                           <button
-                            onClick={() => onActionsHandler(obj)}
+                            onClick={() => onActionsHandler(obj,detail)}
                             key={index}
                             style={{
                               border: "none",

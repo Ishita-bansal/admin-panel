@@ -11,3 +11,4 @@ export  {default as Formsformik} from "./formsformik";
 export {default as View} from "./view";
 export {default as Blogdetail} from "./blogdetail";
 export {default as Addblog} from "./addblog";
+export {default as Editblog} from "./editblog";
