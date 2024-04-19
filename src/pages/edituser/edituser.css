@@ -1,14 +1,14 @@
 
 
 .adduser-inputs{
-    width:1200px;
+    width:1050px;
     height:300px;
     display:flex;
     flex-direction:column;
     margin-top: 100px;
-    gap:60px;
+    gap:40px;
      justify-content:center;
-    
+     align-items: flex-start;
 }
 
 .adduser-input-fields{
@@ -20,10 +20,8 @@
      justify-content: flex-start;
      align-items: baseline;
      border-radius: 30px;
-     margin-left: 40px;
-     padding-left:40px ;
-
-
+     margin-left: 20px;
+     padding-left:20px ;
 }
 
 .adduser-input-fields input{
@@ -36,25 +34,21 @@
      font-size: 20px;
 }
 
-.adduser-input-fields input[type=checkbox]{
-     width:25px;
-     margin-left: 50px;
-}
-
 label{
     font-size: 20px;
 }
 
 .part1,.part2{
     display:flex;
-    gap:50px;
+    gap:20px;
 }
 
 
 
 .adduser-btn{
+    width:100%;
     display:flex;
-    justify-content:end;
+    justify-content:flex-end;
     margin-top:70px;
     margin-right: 650px;
     

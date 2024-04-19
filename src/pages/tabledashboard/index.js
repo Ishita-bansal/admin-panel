@@ -137,7 +137,7 @@ function Tabledashboard() {
           width: "85%",
           height: "650px",
           backgroundColor: "#f2f2f2",
-          marginTop: "80px",
+          marginTop: "20px",
           borderRadius: "20px",
         }}
       >

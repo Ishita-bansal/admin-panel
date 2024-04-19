@@ -8,6 +8,9 @@ import {
   TableRow,
   TablePagination,
   Button,
+  Modal,
+  Box,
+  Typography
 } from "@mui/material";
 
 import {
@@ -76,6 +79,13 @@ function Blogdetail() {
   const [page, setPage] = useState(0);
   const [rowsperPage, setrowsperPage] = useState(5);
   const [reciveData, setReciveData] = useState([]);
+  const [open, setOpen] = useState(false);
+ 
+  const handleDel = () => {
+    
+    // console.log(selectedData)
+   
+  };
 
   const onChangePage = (event, nextPage) => {
     setPage(nextPage);
@@ -86,6 +96,10 @@ function Blogdetail() {
     setrowsperPage(newRowsPerPage);
     setPage(0);
   };
+
+  const onModalClose=()=>{
+    setOpen(false);
+  }
 
   const getdocument = async () => {
     try {
@@ -120,6 +134,10 @@ function Blogdetail() {
     }
 
     if (obj.indetifier === "delete") {
+      handleDel();
+     
+      setOpen(true);
+
     }
 
     if (obj.indetifier === "view") {
@@ -138,11 +156,11 @@ function Blogdetail() {
         </div>
         <TableContainer
           sx={{
-            width: "1200px",
-            // height: "800px",
+            width: "950px",
             backgroundColor: "#f2f2f2",
-            marginTop: "10px",
+            marginTop: "20px",
             borderRadius: "20px",
+            border:"4px solid"
           }}
         >
           <Table>
@@ -257,6 +275,47 @@ function Blogdetail() {
             />
           </div>
         </TableContainer>
+        <div>
+        <Modal
+          open={open}
+          onClose={(event, reason) => {
+            if (reason !== 'backdropClick') {
+              onModalClose();
+            }
+          }}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          disableBackdropClick 
+        >
+          <Box sx={style}>
+            <Typography
+              style={{
+                textAlign: "center",
+                padding: "10px",
+                fontWeight: "bolder",
+              }}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2">
+              Are you sure you want to delete?
+            </Typography>
+            <div
+              style={{ display: "flex", justifyContent: "center", gap: "20px" }}
+            >
+              <Button onClick={handleDel} variant="contained" sx={{ mt: 2 }}>
+                Yes
+              </Button>
+              <Button
+                onClick={onModalClose}
+                variant="contained"
+                sx={{ mt: 2 }}
+              >
+                No
+              </Button>
+            </div>
+          </Box>
+        </Modal>
+      </div>
       </div>
     </>
   );
