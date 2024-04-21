@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./addblog.css";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import {updateDoc, addDoc, collection, getFirestore, doc } from "firebase/firestore";
 import { app } from "../../firebase/firebaseconfig";
+import {getStorage , ref as storageRef , uploadBytes , getDownloadURL} from "firebase/storage";
+import { useNavigate } from "react-router-dom";
+import JoditEditor from "jodit-react";
+const storage = getStorage(app);
 const firestore = getFirestore(app);
+
 const defaultvalues = {
   title: "",
   img: "",
@@ -13,21 +18,51 @@ const defaultvalues = {
 
 const validationSchema = yup.object().shape({
   title: yup.string().required("Required*"),
-  img: yup.mixed().required("File is required"),
+  img:yup.mixed().test("fileType", "Only jpg, jpeg, or png files are allowed", (value) => {
+    if (!value) return true; 
+    const supportedFormats = ["image/jpeg","image/jpg", "image/png"];
+    return supportedFormats.includes(value.type);
+  }).required("File is required"),
   desc: yup.string().required("Required*"),
 });
 
 function Addblog() {
+  const navigate = useNavigate();
+     const [imagefile , setimagefile] = useState(null);
+     const [imageUrl, setImageUrl] = useState("");
+
+     const handleimagefile = (e) =>{
+         setimagefile(e.target.files[0]);
+    }
+
   const writeData = async () => {
-    const result = await addDoc(collection(firestore, "Tic-tacs-games"), {
-      title: values.title,
-      img: values.img,
-      desc: values.desc,
-    });
-    console.log("values",result);
-  };
-  const onSubmit = (values) => {
+     try{
+      const result = await addDoc(collection(firestore, "Tic-tacs-games"), {
+        title: values.title,
+        img: "",
+        desc: values.desc,
+      });
+      const imageRef = storageRef(storage,`images/${result.id}`)
+       await uploadBytes(imageRef,imagefile);
+      const url = await getDownloadURL(imageRef);
+       
+
+        console.log("imageUrl=====>",url);
+       await updateDoc(doc(firestore, "Tic-tacs-games",result.id), {
+        img: url,
+      });
+      setImageUrl(url);
+      
+      }
+     catch(error){
+      console.error("Error adding blog: ", error);
+     }
+    }
+    
+  const onSubmit = async(values) => {
     console.log("add blog values", values);
+     await writeData();
+     navigate('/blogdetail');
   };
 
   const formik = useFormik({
@@ -40,7 +75,7 @@ function Addblog() {
     formik;
   return (
     <>
-      <h1>Add Blog</h1>
+      <h1 style={{marginTop:"60px"}}>Add Blog</h1>
       <div className="blog-form-container">
         <form onSubmit={handleSubmit}>
           <div className="blog-input-fields">
@@ -48,7 +83,7 @@ function Addblog() {
               <input
                 type="text"
                 value={values.title}
-                onChange={(e) => setFieldValue("title", e.target.value)}
+                onChange={(e)=>{setFieldValue("title",e.target.value)}}
                 onBlur={() => setTouched({ ...touched, title: true })}
                 placeholder="title"
               />
@@ -71,10 +106,10 @@ function Addblog() {
               <input
                 id="inputTag"
                 type="file"
-                value={values.img}
-                onChange={(e) => setFieldValue("img", e.target.value)}
-                onBlur={() => setTouched({ ...touched, img: true })}
-              />
+                onChange={(e)=>{handleimagefile(e);
+                  setFieldValue("img", e.currentTarget.files[0]);
+                  setTouched({ ...touched, img: true })
+                }} />
               {touched.img && errors.img ? (
                 <p
                   style={{
@@ -90,14 +125,12 @@ function Addblog() {
               )}
             </div>
             <div className="blog-input">
-              <textarea
-                rows="5"
-                cols="50"
-                placeholder="description here"
+            <JoditEditor
                 value={values.desc}
-                onChange={(e) => setFieldValue("desc", e.target.value)}
+                onChange={(content) => setFieldValue("desc", content)}
                 onBlur={() => setTouched({ ...touched, desc: true })}
-              ></textarea>
+              />
+              
               {touched.desc && errors.desc ? (
                 <p
                   style={{
@@ -114,7 +147,7 @@ function Addblog() {
             </div>
           </div>
           <div className="blog-btn">
-            <button type="submit" onClick={writeData}>
+            <button type="submit">
               ADD
             </button>
           </div>

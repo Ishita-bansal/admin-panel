@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import {faDashboard ,faTable ,faDiamond} from  "@fortawesome/free-solid-svg-icons";
 import { Avatar } from "@mui/material";
 import "./sidenav.css";
+import { useSelector } from "react-redux";
 const Sidenav = () => {
 
     const [sidenavopen , setsidenavopen] = useState(false);
+    const userDetail = useSelector((state) => state?.Loginreducer);
 
     const handlesidenavOpen = () =>{
         setsidenavopen(true);
@@ -16,6 +18,8 @@ const Sidenav = () => {
     const handlesidenavClose = () =>{
         setsidenavopen(false);
     }
+
+
 
   return (
     <>   
@@ -28,8 +32,8 @@ const Sidenav = () => {
           </button>  
          }
           <div className="avatar">
-          <Avatar sx={{width:"90px" ,height:"90px"}}></Avatar>
-           <h2 style={{color:"white",marginTop:"20px"}}>User</h2>
+          <Avatar sx={{width:"90px" ,height:"90px",fontSize:"25px"}}>{userDetail?.name[0]}</Avatar>
+           <h2 style={{color:"white",marginTop:"20px"}}>{userDetail?.name}</h2>
           </div>
           <div className="inputs">
          

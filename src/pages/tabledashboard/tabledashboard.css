@@ -7,13 +7,15 @@
 
 }
 
+.table-head{
+   padding-top:40px;
+
+}
 .table-header{
     display:flex;
     justify-content: space-between;
-
 }
-
-.table-header .table-btn{
+ .table-btn{
     border:none;
     outline:none;
     cursor: pointer;
@@ -22,8 +24,9 @@
     width: 140px;
     height: 50px;
     color: white;
-    margin-right: 50px;
+    margin: 10px;
     font-size: 20px;
+    
 }
 
 

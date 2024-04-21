@@ -10,6 +10,7 @@ import {
   Typography,
   Modal,
   Box,
+  TextField
 } from "@mui/material";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
@@ -70,7 +71,8 @@ function Tabledashboard() {
   const [page, setPage] = useState(0);
   const [rowsperPage, setrowsperPage] = useState(5);
   const [open, setOpen] = useState(false);
-  const [selectedData,setSelecteData]=useState({})
+  const [selectedData,setSelecteData]=useState({});
+  const [searchQuery, setSearchQuery] = useState("");
   const handleDel = () => {
     
     // console.log(selectedData)
@@ -122,25 +124,38 @@ function Tabledashboard() {
     setSelecteData({})
   }
 
+  const filteredData = userdata.filter(item =>
+    item.email.includes(searchQuery)
+  );
 
   return (
     <div className="table-container">
-      <div className="table-header">
+      <div className="table-head">
         <h1>User Management</h1>
-
-        <button onClick={() => navigate("/adduser")} className="table-btn">
-          <FontAwesomeIcon icon={faPlus} /> Add User
-        </button>
       </div>
       <TableContainer
         sx={{
-          width: "85%",
-          height: "650px",
+          width: "fit-content",
+          // height: "650px",
           backgroundColor: "#f2f2f2",
           marginTop: "20px",
           borderRadius: "20px",
+          overflowY: "scroll",
+            maxHeight: "100%"
         }}
       >
+        <div className="table-header">
+        <TextField
+          label="Search"
+          variant="outlined"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{ margin: "10px" }}
+        />
+        <button onClick={() => navigate("/adduser")} className="table-btn">
+          <FontAwesomeIcon icon={faPlus} /> Add User
+        </button>
+        </div>
         <Table>
           <TableHead>
             <TableRow>
@@ -192,7 +207,7 @@ function Tabledashboard() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {userdata
+            {filteredData
               ?.slice(page * rowsperPage, page * rowsperPage + rowsperPage)
               ?.map((users) => (
                 <TableRow key={users.email}

@@ -80,7 +80,7 @@ const icons = [
 ];
 
 function Blogdetail() {
-  const dispatch = useDispatch();
+  
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [rowsperPage, setrowsperPage] = useState(5);
@@ -110,7 +110,7 @@ function Blogdetail() {
      setOpen(false);
     }
     catch(error){
-      console.error("Error deleting blog: ", error);
+      console.error("Error deleting product: ", error);
     }
   }
   const onChangePage = (event, nextPage) => {
@@ -181,7 +181,7 @@ function Blogdetail() {
     <>
       <div className="table-container">
           <div className="table-head">
-          <h1>Blog Management</h1>
+          <h1>Product Management</h1>
           </div>
     
         <TableContainer

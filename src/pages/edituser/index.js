@@ -85,7 +85,7 @@ const Edituser = () => {
   const { values,setFieldValue,setTouched,touched,errors,handleSubmit} = formik;
   return (
     <>
-      <h1>EDIT USER</h1>
+      <h1 style={{marginTop:"60px"}}>EDIT USER</h1>
       <form onSubmit={handleSubmit}>
         <div className="adduser-inputs">
           <div className="part1">
