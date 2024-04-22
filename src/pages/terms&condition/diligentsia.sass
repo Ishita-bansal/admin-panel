@@ -1,0 +1,5101 @@
+body
+	color: #002d63
+b
+	font-weight: 600
+@for $i from 1 through 24
+	.tr#{$i*15}deg
+		transform: rotate(#{$i*15}deg)
+::-webkit-scrollbar-track
+	border: 5px solid white
+	background-color: #4a67ff44
+::-webkit-scrollbar
+	width: 15px
+	background-color: #fff
+::-webkit-scrollbar-thumb
+	background-color: #fc7785
+h1, h2, h3, h4, h5, h6
+	font-weight: 600
+.bg-gradient
+	background: -webkit-linear-gradient(45deg, #002d63, #4A67FF)
+.text-gradient
+	background: -webkit-linear-gradient(45deg, #002d63, #4A67FF)
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+
+.gradient-shadow:before
+	content: ""
+	/*z-index: -1*/
+	position: absolute
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background: linear-gradient(-45deg, #4a67ff 0%, #fc7785 100%	)
+	transform: translate3d(0px, 0px, 0) scale(1.05)
+	filter: blur(20px)
+	opacity: 0.7
+	transition: opacity 0.3s
+	border-radius: inherit
+
+$weights: ( 100: "thin", 200: "extra_light", 300: "light", 400: "regular", 500: "medium", 600: "semi_bold", 700: "bold" )
+@each $key, $text in $weights
+	@font-face
+		font-family: "Kanit"
+		font-style: normal
+		src: url('../fonts/kanit_#{$text}.ttf')
+		font-weight: #{$key}
+		font-display: swap
+
+$weights: ( 100: "thin", 200: "extra_light", 300: "light", 400: "regular", 500: "medium", 600: "semi_bold", 700: "bold" )
+@each $key, $text in $weights
+	@font-face
+		font-family: "Poppins"
+		font-style: normal
+		src: url('../fonts/poppins_#{$text}.ttf')
+		font-weight: #{$key}
+		font-display: swap
+
+*
+	margin: 0
+	font-family: "Kanit", sans-serif
+
+.landing-page-font * 
+	margin: 0
+	font-family: "Poppins" ,sans-serif
+
+h1, h2, h3, h4, h5, h6, p, span, li, strong, input, textarea, select, a, i
+	align-self: center
+a
+	text-decoration: none
+	display: inline-block
+	color: inherit
+input, textarea, select, button
+	border: none
+	outline: none
+	box-sizing: border-box
+	font-size: 1rem
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+	-webkit-appearance: none
+hr
+	border-style: solid
+.fi
+	filter: invert(1)
+.backdrop
+	backdrop-filter: brightness(0.5) blur(5px) drop-shadow(0 4px 8px #000)
+	height: 100vh
+	&.td100
+		&.zi5
+			height: auto
+.fa-secondary
+	opacity: 0.4
+.wsn
+	white-space: nowrap
+.bsbb
+	box-sizing: border-box
+.cp
+	cursor: pointer
+.cg
+	cursor: grab
+.pen
+	pointer-events: none
+.pea
+	pointer-events: auto
+.tdu
+	text-decoration: underline
+.ttu
+	text-transform: uppercase
+.ttc
+	text-transform: capitalize
+.tti
+	text-transform: initial
+.usn
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+.brnr
+	background-repeat: no-repeat
+.oh
+	overflow: hidden
+.oxh
+	overflow-x: hidden
+.oyh
+	overflow-y: hidden
+.ov
+	overflow: visible
+.oxv
+	overflow-x: visible
+.oyv
+	overflow-y: visible
+.op1
+	opacity:1
+.op0
+	opacity:0
+.oa
+	overflow: auto
+.oxa
+	overflow-x: auto
+.oya
+	overflow-y: auto
+.bpl
+	background-position: left
+.bpc
+	background-position: center
+.bpr
+	background-position: right
+.bscov
+	background-size: cover
+.bscon
+	background-size: contain
+.opc
+	object-position: center
+.ofcov
+	object-fit: cover
+.ofcon
+	object-fit: contain
+.tpa
+	transition-property: all
+.tph
+	transition-property: height
+.tpw
+	transition-property: width
+.tpo
+	transition-property: opacity
+.tpb
+	transition-property: background
+.tslp
+	transition: opacity 0.5s, transform 0.9s
+.tty0
+	transform: translateY(0)
+.ttx20
+	transform: translateY(20px)
+.ar
+	animation: rotate 10s linear infinite
+
+
+@for $i from 1 through 5
+	.zi-#{$i}
+		z-index: -#{$i}
+	.zi#{$i}
+		z-index: #{$i}
+.td50
+	transition-duration: 50ms
+.td100
+	transition-duration: 100ms
+	-webkit-transition-duration: 100ms
+	-moz-transition-duration: 100ms
+	-o-transition-duration: 100ms
+.td300
+	transition-duration: 300ms
+	-webkit-transition-duration: 300ms
+	-moz-transition-duration: 300ms
+	-o-transition-duration: 300ms
+	
+@for $i from 1 through 9
+	.td#{$i}50
+		transition-duration: #{$i}50ms
+	.td#{$i + 1}00
+		transition-duration: #{$i + 1}00ms
+.bsd
+	border-style: dashed
+.bss
+	border-style: solid
+.brss
+	border-right-style: solid
+@for $i from 0 through 9
+	.bs#{$i}px
+		border: #{$i}px solid
+	.bw#{$i}px
+		border-width: #{$i}px
+	.btw#{$i}px
+		border-top-width: #{$i}px
+	.brw#{$i}px
+		border-right-width: #{$i}px
+	.bbw#{$i}px
+		border-bottom-width: #{$i}px
+	.blw#{$i}px
+		border-left-width: #{$i}px
+@for $i from 1 through 9
+	.fw#{$i}00 
+		font-weight: #{$i}00
+		
+.lh0
+	line-height: 0
+@for $i from 1 through 5
+	.lh#{$i}
+		line-height: #{$i * 0.25 + 0.75}
+@for $i from 0 through 20
+	.op#{$i * 5}
+		opacity: #{calc($i / 20)}
+
+
+
+.container
+	box-sizing: border-box
+	margin-left: auto
+	margin-right: auto
+	max-width: calc(100vw)
+	padding-left: 1rem
+	padding-right: 1rem
+.center
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	.center-vertically
+		top: 50%
+		transform: translateY(-50%)
+.center-horizontally
+	left: 50%
+	transform: translateX(-50%)
+.center-vertically
+	top: 50%
+	transform: translateY(-50%)
+	-webkit-transform: -webkit-translateY(-50%)
+	-moz-transform: -moz-translateY(-50%)
+	-o-transform: -o-translateY(-50%)
+.filing-assistant-file
+	background-color: #7fa5a9
+	color: #7fa5a9
+	&:before
+		background-color: #7fa5a9
+.sharepoint-file
+	background-color: #038589
+	color: #038589
+	&:before
+		background-color: #038589
+.dropbox-file
+	background-color: #0160ff
+	color: #0160ff
+	&:before
+		background-color: #0160ff
+.gdrive-file
+	background-color: #f2da00
+	color: #f2da00
+	&:before
+		background-color: #f2da00
+.upload-file
+	background-color: #fb7784
+	color: #fb7784
+	&:before
+		background-color: #fb7784
+.prepopulated-file
+	background-color: #007ee5
+	color: #007ee5
+	&:before
+		background-color: #007ee5
+
+$breakpoints: ("-xs": "max-width: 35.99rem", "-sm": "min-width: 36rem", "-md": "min-width: 48rem", "-lg": "min-width: 62rem", "-xl": "min-width: 75rem","-screen1":'min-width: 1276.8px',"-screen4":'min-width:1536px',"-screen5":'min-width:1920px')
+@mixin responsive
+	@content
+	@each $key, $value in $breakpoints
+		@media only screen and (#{$value})
+			@content($key)
+
+
+			
+
+@include responsive using ($suffix: null)
+	//white(1), black(2), blue(3), pink(4), offwhite(5), logo text blue(6), green(7), amber(8), red(9), teal green(10), azure blue(11), spanish gray(12), orange(13)
+	$colors: ( 1: #fff, 2: #000, 3: #4A67FF, 4: #FC7785, 5: #f0f0f8, 6: #002D63, 7: #40dda1, 8: #ddb640, 9: #dd4040, 10: #038589, 11: #007EE5, 12: #969696, 13: #fb7a27, 14:#505050,15:#151313,16:#D9D9D9,17:#D3D9FC,18:#6775B9,19:#F5F6F9,20:#f0f2fd,21:#F9F9F9,22:#F6F6F6,23:#FD6474,24:#EFEFEF,25:#F8F8F8,26:#0126ED)
+	@each $key, $hex in $colors
+		.c#{$key}#{$suffix}, .c#{$key}-hover#{$suffix}:hover
+			color: $hex
+		.bg#{$key}#{$suffix}, .bg#{$key}-hover#{$suffix}:hover
+			background-color: $hex
+		.bo#{$key}#{$suffix}, .bo#{$key}-hover#{$suffix}:hover
+			border-color: $hex
+		.f#{$key}#{$suffix}, .f#{$key}-hover#{$suffix}:hover
+			fill: $hex
+	@if $suffix == -sm
+		.container
+			max-width: calc(100vw - 4rem)
+	@if $suffix == -md
+		.container
+			padding-left: 2rem
+			padding-right: 2rem
+	@else if $suffix == -xl
+		.container
+			max-width: 1500px
+	.tal#{$suffix}
+		text-align: left
+	.tac#{$suffix}
+		text-align: center
+	.tar#{$suffix}
+		text-align: right
+	.taj#{$suffix}
+		text-align: justify
+	.tas#{$suffix}
+		text-align: start
+	.fs0#{$suffix}
+		font-size: 0
+	@for $i from 0 through 6
+		.fs#{$i}-25rem#{$suffix}
+			font-size: #{$i}#{"."}25rem
+		.fs#{$i}-125rem#{$suffix}
+			font-size: #{$i}#{"."}125rem
+		.fs#{$i}-5rem#{$suffix}
+			font-size: #{$i}#{"."}5rem
+		.fs#{$i}-75rem#{$suffix}
+			font-size: #{$i}#{"."}75rem
+		.fs#{$i}-875rem#{$suffix}
+			font-size: #{$i}#{"."}875rem
+		.fs#{$i + 1}rem#{$suffix}
+			font-size: #{$i + 1}rem
+	.db#{$suffix}
+		display: block
+	.dib#{$suffix}
+		display: inline-block
+	.di#{$suffix}
+		display: inline
+	.df#{$suffix}
+		display: flex
+	.fdc#{$suffix}
+		flex-direction: column
+	.fdr#{$suffix}
+		flex-direction: row
+	.fdcr#{$suffix}
+		flex-direction: column-reverse
+	.fdrr#{$suffix}
+		flex-direction: row-reverse
+	.fww#{$suffix}
+		flex-wrap: wrap
+	.jcfs#{$suffix}
+		justify-content: flex-start
+	.jcc#{$suffix}
+		justify-content: center
+	.jcfe#{$suffix}
+		justify-content: flex-end
+	.jcsb#{$suffix}
+		justify-content: space-between
+	.jcsa#{$suffix}
+		justify-content: space-around
+	.jcse#{$suffix}
+		justify-content: space-evenly
+	.jce#{$suffix}
+		justify-content: end
+	.aifs#{$suffix}
+		align-items: flex-start
+	.aic#{$suffix}
+		align-items: center
+	.aife#{$suffix}
+		align-items: flex-end
+	.jss#{$suffix}
+		justify-self: start
+	.jsfs#{$suffix}
+		justify-self: flex-start
+	.jsc#{$suffix}
+		justify-self: center
+	.jsfe#{$suffix}
+		justify-self: flex-end
+	.jse#{$suffix}
+		justify-self: end
+	.ass#{$suffix}
+		align-self: start
+	.asfs#{$suffix}
+		align-self: flex-start
+	.asc#{$suffix}
+		align-self: center
+	.asfe#{$suffix}
+		align-self: flex-end
+	.ase#{$suffix}
+		align-self: end
+	.dif#{$suffix}
+		display: inline-flex
+	.dg#{$suffix}
+		display: grid
+	.brss#{$suffix}
+		border-right-style: solid
+	@for $i from 1 through 2
+		.brw#{$i}px#{$suffix}
+			border-right-width: #{$i}px
+	@for $i from 1 through 10
+		.gtccr#{$suffix} 
+			grid-template-columns: 2fr 1fr 1fr 1fr 1fr
+		.gtcr#{$i}#{$suffix}
+			grid-template-columns: repeat(#{$i}, 1fr)
+		.ftcr#{$i}#{$suffix}
+			grid-column:(#{$i}/1fr)
+		.gtrr#{$i}#{$suffix}
+			grid-template-rows: repeat(#{$i}, 1fr)
+		.gtcr#{$i}a#{$suffix}
+			grid-template-columns: repeat(#{$i}, auto)
+		.gtrr#{$i}a#{$suffix}
+			grid-template-rows: repeat(#{$i}, auto)
+		.gcs#{$i}#{$suffix}
+			grid-column-start: #{$i} 
+		.gce#{$i + 1}#{$suffix}
+			grid-column-end: #{$i + 1} 
+		.grs#{$i}#{$suffix}
+			grid-row-start: #{$i} 
+		.gre#{$i + 1}#{$suffix}
+			grid-row-end: #{$i + 1} 
+		
+	@for $i from 0 through 4
+		.gg#{$i}-5rem#{$suffix}
+			grid-gap: #{$i}#{"."}5rem
+		.gg#{$i + 1}rem#{$suffix}
+			grid-gap: #{$i + 1}rem
+		.rg#{$i}-5rem#{$suffix}
+			row-gap: #{$i}#{"."}5rem
+		.rg#{$i + 1}rem#{$suffix}
+			row-gap: #{$i + 1}rem
+		.cg#{$i}-5rem#{$suffix}
+			column-gap: #{$i}#{"."}5rem
+		.cg#{$i + 1}rem#{$suffix}
+			column-gap: #{$i + 1}rem
+	.dn#{$suffix}
+		display: none
+	.pa#{$suffix}
+		position: absolute
+	.pr#{$suffix}
+		position: relative
+	.pf#{$suffix}
+		position: fixed
+	.ps#{$suffix}
+		position: sticky
+		-webkit-position: sticky
+		position: -webkit-sticky
+	.pst#{$suffix}
+		position: static
+	.t0#{$suffix}
+		top: 0
+	.r0#{$suffix}
+		right: 0
+	.b0#{$suffix}
+		bottom: 0
+	.l0#{$suffix}
+		left: 0
+	.t100#{$suffix}
+		top: 100%
+	.r100#{$suffix}
+		right: 100%
+	.b100#{$suffix}
+		bottom: 100%
+	.l100#{$suffix}
+		left: 100%
+	.fl#{$suffix}
+		float: left
+	.fr#{$suffix}
+		float: right
+	.fn#{$suffix}
+		float: none
+	.ma#{$suffix}
+		margin: auto
+	.mta#{$suffix}, .mya#{$suffix}
+		margin-top: auto
+	.mra#{$suffix}, .mxa#{$suffix}
+		margin-right: auto
+	.mba#{$suffix}, .mya#{$suffix}
+		margin-bottom: auto
+	.mla#{$suffix}, .mxa#{$suffix}
+		margin-left: auto
+	.m0#{$suffix}
+		margin: 0
+	.mt0#{$suffix}, .my0#{$suffix}
+		margin-top: 0
+	.mr0#{$suffix}, .mx0#{$suffix}
+		margin-right: 0
+	.mb0#{$suffix}, .my0#{$suffix}
+		margin-bottom: 0
+	.ml0#{$suffix}, .mx0#{$suffix}
+		margin-left: 0
+	.p0#{$suffix}
+		padding: 0
+	.pt0#{$suffix}, .py0#{$suffix}
+		padding-top: 0
+	.pr0#{$suffix}, .px0#{$suffix}
+		padding-right: 0
+	.pb0#{$suffix}, .py0#{$suffix}
+		padding-bottom: 0
+	.pl0#{$suffix}, .px0#{$suffix}
+		padding-left: 0
+	@for $i from 0 through 9
+		.m#{$i + 1}0#{$suffix}
+			margin: #{$i + 1}0#{"%"}
+		.mt#{$i + 1}0#{$suffix}, .my#{$i + 1}0#{$suffix}
+			margin-top: #{$i + 1}0#{"%"}
+		.mr#{$i + 1}0#{$suffix}, .mx#{$i + 1}0#{$suffix}
+			margin-right: #{$i + 1}0#{"%"}
+		.mb#{$i + 1}0#{$suffix}, .my#{$i + 1}0#{$suffix}
+			margin-bottom: #{$i + 1}0#{"%"}
+		.ml#{$i + 1}0#{$suffix}, .mx#{$i + 1}0#{$suffix}
+			margin-left: #{$i + 1}0#{"%"}
+		.p#{$i + 1}0#{$suffix}
+			padding: #{$i + 1}0#{"%"}
+		.pt#{$i + 1}0#{$suffix}, .py#{$i + 1}0#{$suffix}
+			padding-top: #{$i + 1}0#{"%"}
+		.pr#{$i + 1}0#{$suffix}, .px#{$i + 1}0#{$suffix}
+			padding-right: #{$i + 1}0#{"%"}
+		.pb#{$i + 1}0#{$suffix}, .py#{$i + 1}0#{$suffix}
+			padding-bottom: #{$i + 1}0#{"%"}
+		.pl#{$i + 1}0#{$suffix}, .px#{$i + 1}0#{$suffix}
+			padding-left: #{$i + 1}0#{"%"}
+		.m#{$i}-5rem#{$suffix}
+			margin: #{$i}#{"."}5rem
+		.m#{$i + 1}rem#{$suffix}
+			margin: #{$i + 1}rem
+		.mt#{$i}-5rem#{$suffix}, .my#{$i}-5rem#{$suffix}
+			margin-top: #{$i}#{"."}5rem
+		.mt#{$i + 1}rem#{$suffix}, .my#{$i + 1}rem#{$suffix}
+			margin-top: #{$i + 1}rem
+		.mr#{$i}-5rem#{$suffix}, .mx#{$i}-5rem#{$suffix}
+			margin-right: #{$i}#{"."}5rem
+		.mr#{$i + 1}rem#{$suffix}, .mx#{$i + 1}rem#{$suffix}
+			margin-right: #{$i + 1}rem
+		.mb#{$i}-5rem#{$suffix}, .my#{$i}-5rem#{$suffix}
+			margin-bottom: #{$i}#{"."}5rem
+		.mb#{$i + 1}rem#{$suffix}, .my#{$i + 1}rem#{$suffix}
+			margin-bottom: #{$i + 1}rem
+		.ml#{$i}-5rem#{$suffix}, .mx#{$i}-5rem#{$suffix}
+			margin-left: #{$i}#{"."}5rem
+		.ml#{$i + 1}rem#{$suffix}, .mx#{$i + 1}rem#{$suffix}
+			margin-left: #{$i + 1}rem
+		.p#{$i}-5rem#{$suffix}
+			padding: #{$i}#{"."}5rem
+		.p#{$i + 1}rem#{$suffix}
+			padding: #{$i + 1}rem
+		.pt#{$i}-5rem#{$suffix}, .py#{$i}-5rem#{$suffix}
+			padding-top: #{$i}#{"."}5rem
+		.pt#{$i + 1}rem#{$suffix}, .py#{$i + 1}rem#{$suffix}
+			padding-top: #{$i + 1}rem
+		.pr#{$i}-5rem#{$suffix}, .px#{$i}-5rem#{$suffix}
+			padding-right: #{$i}#{"."}5rem
+		.pr#{$i + 1}rem#{$suffix}, .px#{$i + 1}rem#{$suffix}
+			padding-right: #{$i + 1}rem
+		.pb#{$i}-5rem#{$suffix}, .py#{$i}-5rem#{$suffix}
+			padding-bottom: #{$i}#{"."}5rem
+		.pb#{$i + 1}rem#{$suffix}, .py#{$i + 1}rem#{$suffix}
+			padding-bottom: #{$i + 1}rem
+		.pl#{$i}-5rem#{$suffix}, .px#{$i}-5rem#{$suffix}
+			padding-left: #{$i}#{"."}5rem
+		.pl#{$i + 1}rem#{$suffix}, .px#{$i + 1}rem#{$suffix}
+			padding-left: #{$i + 1}rem
+	.wa#{$suffix}
+		width: auto
+	.ha#{$suffix}
+		height: auto
+	.w0#{$suffix}
+		width: 0
+	.h0#{$suffix}
+		height: 0
+	.maw0#{$suffix}
+		max-width: 0
+	.mah0#{$suffix}
+		max-height: 0
+	.mih0#{$suffix}
+		min-height: 0
+	@for $i from 1 through 10
+		.w#{$i}rem#{$suffix}
+			width: #{$i}rem
+		.w#{$i}0px#{$suffix}
+			width: #{$i}0px
+		.w#{$i}00px#{$suffix}
+			width: #{$i}00px
+		.w#{$i}0
+			&#{$suffix}
+				width: #{$i}0#{"%"}
+			&vw#{$suffix}
+				width: #{$i}0vw
+		.h#{$i}rem#{$suffix}
+			height: #{$i}rem
+		.h#{$i}0px#{$suffix}
+			height: #{$i}0px
+		.h#{$i}00px#{$suffix}
+			height: #{$i}00px
+		.h#{$i}0
+			&#{$suffix}
+				height: #{$i}0#{"%"}
+			&vh#{$suffix}
+				height: #{$i}0vh
+		.miw#{$i}rem#{$suffix}
+			min-width: #{$i}rem
+		.miw#{$i}00px#{$suffix}
+			min-width: #{$i}00px
+		.miw#{$i}0
+			&#{$suffix}
+				min-width: #{$i}0#{"%"}
+			&vw#{$suffix}
+				min-width: #{$i}0vw
+		.mih#{$i}rem#{$suffix}
+			min-height: #{$i}rem
+		.mih#{$i}00px#{$suffix}
+			min-height: #{$i}00px
+		.mih#{$i}0
+			&#{$suffix}
+				min-height: #{$i}0#{"%"}
+			&vh#{$suffix}
+				min-height: #{$i}0vh
+		.maw#{$i}rem#{$suffix}
+			max-width: #{$i}rem
+		.maw#{$i}00px#{$suffix}
+			max-width: #{$i}00px
+		.maw#{$i}0
+			&#{$suffix}
+				max-width: #{$i}0#{"%"}
+			&vw#{$suffix}
+				max-width: #{$i}0vw
+		.mah#{$i}rem#{$suffix}
+			max-height: #{$i}rem
+		.mah#{$i}00px#{$suffix}
+			max-height: #{$i}00px
+		.mah#{$i}0
+			&#{$suffix}
+				max-height: #{$i}0#{"%"}
+			&vh#{$suffix}
+				max-height: #{$i}0vh
+	@for $i from 0 through 10
+		.or#{$i}#{$suffix}
+			order: #{$i}
+		.br#{$i * 5}px#{$suffix}
+			border-radius: #{$i * 5}px 
+		.br#{$i * 8}px#{$suffix}
+			border-radius: #{$i * 8}px
+		.br#{$i * 19}px#{$suffix}
+			border-radius: #{$i * 19}px 
+		.btlr#{$i * 5}px#{$suffix}
+			border-top-left-radius: #{$i * 5}px
+		.btrr#{$i * 5}px#{$suffix}
+			border-top-right-radius: #{$i * 5}px
+		.bblr#{$i * 5}px#{$suffix}
+			border-bottom-left-radius: #{$i * 5}px
+		.bbrr#{$i * 5}px#{$suffix}
+			border-bottom-right-radius: #{$i * 5}px
+	.br100
+		border-radius: 100%
+	.btlr100
+		border-top-left-radius: 100%
+	.btrr100
+		border-top-right-radius: 100%
+	.bblr100
+		border-bottom-left-radius: 100%
+	.bbrr100
+		border-bottom-right-radius: 100%
+
+/*CUSTOM CODE HERE*/
+.all-sidebar-report .css-1elwnq4-MuiPaper-root-MuiAccordion-root.Mui-expanded
+	margin: 0 !important
+.all-sidebar-report .css-o4b71y-MuiAccordionSummary-content.Mui-expanded
+	margin: 7px 0px
+.all-sidebar-report .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded
+	min-height: 40px
+.all-sidebar-report .css-ahj2mt-MuiTypography-root
+	font-size: 12px
+	font-weight: 600
+.advisor-index .css-1h9z7r5-MuiButtonBase-root-MuiTab-root
+	font-size: 14px
+	font-weight: 600
+.advisor-index .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected
+	background: #e4effa
+.advisor-index .css-67l5gl.Mui-expanded
+	margin: 0
+.advisor-index .css-1iji0d4.Mui-expanded
+	min-height: 50px
+.advisor-index .css-9l3uo3
+	font-size: 11px
+.menuHover:hover .menu, .menu:hover
+	pointer-events: auto
+	opacity: 1
+.shadow
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px
+	
+.cpflp
+	padding: 0.3rem 0.5rem
+#hero
+	background-image: url(../images/icons/hero.svg)
+	background-size: 10rem
+	background-position: center
+	animation: heroMoveBackground 1000s linear infinite
+.checkbox
+	pointer-events: none
+.checkbox > input
+	-webkit-appearance: none
+	-moz-appearance: none
+	-o-appearance: none
+	appearance: none
+	pointer-events: auto
+.checkbox > input:checked
+	background-color: #FC7785
+	border-color: #FC7785
+.checkbox.active > input:checked
+	background-color: #FC7785
+	border-color: #FC7785
+.checkbox::before
+	content: ""
+	position: absolute
+	top: 52.5%
+	left: 20%
+	transform: rotate(45deg)
+	background-color: #f0f0f8
+	border-radius: 2px 0 2px 2px
+	width: 30%
+	height: 15%
+.checkbox::after
+	content: ""
+	position: absolute
+	top: 42.5%
+	left: 32.5%
+	transform: rotate(-45deg)
+	background-color: #f0f0f8
+	border-radius: 0 2px 2px 0
+	width: 50%
+	height: 15%
+	opacity: 0.4
+.checkobox-report
+	.checkbox
+		-webkit-appearance: none
+		-moz-appearance: none
+		-o-appearance: none
+		appearance: none
+		pointer-events: auto
+		background-color: #f0f0f8
+		&::before
+			content: ""
+			position: absolute
+			top: 52.5%
+			left: 20%
+			transform: rotate(45deg)
+			background-color: #f0f0f8
+			border-radius: 2px 0 2px 2px
+			width: 30%
+			height: 15%
+			opacity: 0
+		&::after
+			content: ""
+			position: absolute
+			top: 42.5%
+			left: 32.5%
+			transform: rotate(-45deg)
+			background-color: #f0f0f8
+			border-radius: 0 2px 2px 0
+			width: 50%
+			height: 15%
+			opacity: 0
+		&:checked
+			background-color: #FC7785
+			border-color: #FC7785
+			&::before
+				opacity: 1
+			&::after
+				opacity: 0.4
+.checkbox
+	&.checkobox-round
+		&::after
+			display: none
+	&.checkobox-round
+		&::before 
+			background-color: #f0f0f890
+			width: 50%
+			height: 50%
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			border-radius: 50%
+#popup-message.hidden
+	transform: translateX(-125%)
+@keyframes heroMoveBackground
+	from
+		background-position: 0 0
+	to
+		background-position: 1000rem -1000rem
+#testimonialWrapper::before
+	content: ""
+	position: absolute
+	top: 0
+	left: 0
+	width: 2.5rem
+	height: 100%
+	z-index: 1
+	background: linear-gradient(90deg, #f0f0f8, transparent)
+#testimonialWrapper::after
+	content: ""
+	position: absolute
+	top: 0
+	right: 0
+	width: 2.5rem
+	height: 100%
+	z-index: 1
+	background: linear-gradient(90deg, transparent, #f0f0f8)
+table tr:nth-child(2n), .tableRow:nth-child(2n)
+	background: #E1E1F155
+table tr > *:nth-child(2n), .tableRow > *:nth-child(2n)
+	background: #E1E1F155
+table
+	border-spacing: 0px
+table th
+	font-weight: 600
+table th, table td
+	padding: 0.5rem 1rem
+	outline: 0
+	min-width: 200px
+	width: 20%
+table thead th
+	font-size: 1.5rem
+	border-bottom: 2px solid #002d63
+	background: #fff !important
+	text-align: center
+table td
+	text-align: center
+table tbody th
+	background: #fff
+	border-right: 2px solid #002d63
+
+.table-advisor 
+	th,td
+		width: 150px
+		min-width: auto
+		svg
+			width: 28px
+			height: 28px
+			display: inline-block
+			margin-top: 8px
+// Admin Table Styles
+.speech-bubble::before
+	content: ""
+	background: linear-gradient(45deg, transparent 49%, #4a67ff 50%)
+	position: absolute
+	bottom: -1rem
+	right: 0
+	width: 1rem
+	height: 1rem
+.speech-bubble.bg5::before
+	background: linear-gradient(-45deg, transparent 49%, #f0f0f8 50%)
+	left: 0
+.fds
+	filter: drop-shadow(0 4px 8px #0008)
+	//filter: drop-shadow(rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px)
+#expandHeader
+	width: 4rem
+#expandHeader:hover
+	width: 230px
+.a4
+	width: 220mm
+	height: 340mm
+.a4-pdf
+	width: 210mm
+	height: 297.7mm
+.all-a4-pdf
+	width: 210mm
+	height: 350mm
+
+@media only screen and (max-width: 74.99rem)
+	#menu
+		background: linear-gradient(45deg, #002d63, #4a67ff)
+		width: 230px
+		height: 100vh
+		z-index: 5
+		right: 0
+	#menu:not(.showing)
+		right:-100%
+		&.showing
+			right:0
+.riskSlider input
+	height: 1rem
+	-webkit-appearance: none
+	background: linear-gradient(90deg, #40dda1, #dd4040)
+	height: 5px
+.riskSlider input::-webkit-slider-thumb
+	-webkit-appearance: none
+	pointer-events: all
+	position: relative
+	z-index: 1
+	outline: 0
+	width: 2rem
+	height: 2rem
+	border-radius: 100%
+	background: white
+	background-position: center
+	background-size: cover
+	background-repeat: no-repeat
+.riskSlider input::-moz-range-thumb
+	pointer-events: all
+	position: relative
+	z-index: 10
+	-moz-appearance: none
+	width: 2rem
+	height: 2rem
+	border-radius: 100%
+	background: white
+	background-position: center
+	background-size: cover
+	background-repeat: no-repeat
+.riskSlider input.riskIfYes::-webkit-slider-thumb
+	background-image: url(../images/icons/Yes.png)
+.riskSlider input.riskIfYes::-moz-range-thumb
+	background-image: url(../images/icons/Yes.png)
+.riskSlider input.riskIfNo::-webkit-slider-thumb
+	background-image: url(../images/icons/No.png)
+.riskSlider input.riskIfNo::-moz-range-thumb
+	background-image: url(../images/icons/No.png)
+.riskSlider input.riskIf1::-webkit-slider-thumb
+	background-image: url(../images/icons/1.png)
+.riskSlider input.riskIf1::-moz-range-thumb
+	background-image: url(../images/icons/1.png)
+.riskSlider input.riskIf2::-webkit-slider-thumb
+	background-image: url(../images/icons/2.png)
+.riskSlider input.riskIf2::-moz-range-thumb
+	background-image: url(../images/icons/2.png)
+.riskSlider input.riskIf3::-webkit-slider-thumb
+	background-image: url(../images/icons/3.png)
+.riskSlider input.riskIf3::-moz-range-thumb
+	background-image: url(../images/icons/3.png)
+.riskSlider input.riskIf4::-webkit-slider-thumb
+	background-image: url(../images/icons/4.png)
+.riskSlider input.riskIf4::-moz-range-thumb
+	background-image: url(../images/icons/4.png)
+.riskSlider input.riskIf5::-webkit-slider-thumb
+	background-image: url(../images/icons/5.png)
+.riskSlider input.riskIf5::-moz-range-thumb
+	background-image: url(../images/icons/5.png)
+.riskSlider input.riskIfD::-webkit-slider-thumb
+	background-image: url(../images/icons/1.png)
+.riskSlider input.riskIfD::-moz-range-thumb
+	background-image: url(../images/icons/1.png)
+.riskSlider input.riskIfNS::-webkit-slider-thumb
+	background-image: url(../images/icons/2.png)
+.riskSlider input.riskIfNS::-moz-range-thumb
+	background-image: url(../images/icons/2.png)
+.riskSlider input.riskIfND::-webkit-slider-thumb
+	background-image: url(../images/icons/3.png)
+.riskSlider input.riskIfND::-moz-range-thumb
+	background-image: url(../images/icons/3.png)
+.riskSlider input::-moz-range-track
+	position: relative
+	z-index: -1
+	background-color: rgba(0, 0, 0, 1)
+	border: 0
+.riskSlider input:last-of-type::-moz-range-track
+	-moz-appearance: none
+	background: none transparent
+	border: 0
+.riskSlider input[type=range]::-moz-focus-outer
+	border: 0
+.gtcr-audit
+	display: grid
+	grid-template-columns: 175px 75px 203px 203px
+	grid-gap: 10px
+	padding: 7px 10px
+	a
+		overflow-wrap: anywhere
+.gtcr-audit-two
+	display: grid
+	grid-template-columns: 175px 75px 413px
+	padding: 10px
+	grid-gap: 10px
+.gtcr-audit-fit-report
+	display: grid
+	grid-template-columns: 335px 340px
+	padding: 10px
+	grid-gap: 10px
+.gtcr-audit-fit-report-about
+	display: grid
+	grid-template-columns: 130px 165px 165px 165px
+	padding: 10px
+	grid-gap: 10px
+.logo-img 
+	width: 100px
+.button-groups-new
+	.close-popup
+		background-color: #ffffff00
+		position: absolute
+		right: 0
+		svg
+			box-shadow: none
+			background-color: #ffffff00
+	button
+		position: relative
+		svg
+			top: auto
+			bottom: -10px
+			left: -8px
+			background-color: #fff
+			padding: 5px
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+		.director-tooltip
+			bottom: -25px
+			left: -70px
+.packge-select
+	text-align: center
+	&.bottom-packge
+		.audit-pakcges
+			&.bronze-pakcge-brown
+				background-image: url('../images/bronze.png')
+			&.silver-pakcge
+				background-image: url('../images/silver.png')
+			&.gold-pakcge
+				background-image: url('../images/gold.png')
+			.left-area
+				width: 102px
+			.right-area
+				width: 50%
+	.audit-pakcges
+		position: relative
+		background-size: 100% 100%
+		background-repeat: no-repeat
+		display: flex
+		align-items: center
+		flex-wrap: wrap
+		width: 319px
+		padding: 10px 25px
+		zoom: 0.6
+		margin-bottom: 10px
+	.currentz
+		box-shadow: 0px 40px rgba(65 220 159)
+		border-radius: 97px
+.op70
+	opacity: 0.8
+.z12
+	zoom: 1.2
+.extenstion-pack-btn-groups
+	.btn-packge
+		background-color: #f0f0f8
+		position: relative
+		border-radius: 12px
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		font-size:16px
+		min-height:115px
+		transition: all 0.3s ease-in-out
+		.ribbon
+			position: absolute
+			bottom: 0
+			right: -37px
+			transform: rotate(-45deg)
+			img
+				width: 99px
+				height: auto !important
+			&.bronze, &.silver, &.gold
+				transform: rotate(0deg)
+				right: -20px
+				bottom: -14px
+				img
+					width: 53px
+		.trophy-cup
+			transform: rotate(0deg) !important
+			position: absolute
+			top: 65px
+			right: -7px !important
+			img
+				width: 53px !important
+		&.op20 
+			background-color: #f0f0f880
+			color: #002d6340
+			opacity: 1
+			border-color: #ccc
+			transition: all 0.3s ease-in-out
+		button
+			width: 100%
+			margin-top: 8px
+			transition: all 0.3s ease-in-out
+			transform: scale(0.7)
+		&:hover
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+		.tooltip-area
+			position: absolute
+			top: -6px
+			right: -8px
+			.icon
+				position: relative
+				display: inline-block
+				transition: all 0.3s ease-in-out
+				img
+					width: 21px
+					height: auto
+				.overlay-box
+					position: absolute
+					right: 34px
+					min-width: 350px
+					background-color: #fff
+					z-index: 999
+					top: 50%
+					box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+					padding: 16px
+					border-radius: 8px
+					text-align: left
+					transition: all 0.3s ease-in-out
+					display: none
+					transform: translateY(-50%)
+					&:before
+						content: ""
+						position: absolute
+						right: -14px
+						width: 0px
+						height: 0px
+						border-style: solid
+						border-width: 15px 0 15px 15.9px
+						border-color: transparent transparent transparent #fff
+						transform: translateY(-50%)
+						top: 49%
+					p
+						font-size: 13px
+						margin-bottom: 5px
+						font-weight: 400
+						font-style: normal
+						text-transform: none
+					.bottom-text
+						p
+							font-size: 11px
+					.price
+						font-size: 19px
+						text-align: center
+						margin-top: 13px
+						font-style: normal
+					button
+						z-index: 999
+			&:hover
+				.overlay-box
+					display: block
+					transition: all 0.3s ease-in-out
+			&.style-two
+				top: -25px
+				right: -15px
+		.percentage-area
+			background-color: #ffffff90
+			padding: 5px
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+			width: 55px
+			height: 55px
+			border-radius: 50%
+			h4
+				span
+					font-weight: 400
+				&.red-text
+					color: #fc7785
+					font-size: 12px
+					line-height: 1.1
+					span
+						color:#002d63
+						font-size: 9px
+			.progress-bar
+				svg
+					background-color: transparent
+					box-shadow: none
+					padding: 0
+			.text-center-area
+				font-size: 6px !important
+				line-height: 6px !important
+				display: block
+.white
+	color: #fff
+.blue
+	color: #4a67ff
+.red
+	color: #ff3d3d
+.yellow
+	color: #fcb22b
+.green
+	color: #5ee15e
+.fw500
+	font-weight: 500
+.w24
+	width: 18%
+.w250px
+	width: 270px
+.w45
+	width: 45%
+.w50
+	width: 50%
+.w43
+	width: 43%
+
+.CircularProgressbar
+	&.red
+		.CircularProgressbar-path
+			stroke: #ff3d3d
+		.CircularProgressbar-text
+			fill: #ff3d3d
+	&.yellow
+		.CircularProgressbar-path
+			stroke: yellow
+		.CircularProgressbar-text
+			fill: yellow
+	&.orange
+		.CircularProgressbar-path
+			stroke: #fcb22b
+		.CircularProgressbar-text
+			fill: #fcb22b
+	&.green
+		.CircularProgressbar-path
+			stroke: #5ee15e
+		.CircularProgressbar-text
+			fill: #5ee15e
+
+#expandHeader
+	a
+		position: relative
+		.dropdown
+			position: absolute
+			left: 0
+			background-color: #fff
+			z-index: 99
+			display: block
+			top: 32px
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+			padding: 10px
+			border-radius: 5px
+			width:100%
+			display: none
+			a
+				display: block
+				width: 100%
+				padding: 0
+				color: #002d63
+				font-size: 15px
+				margin-bottom:5px 
+				&:hover
+					color:#fc7785
+		.icon
+			position: absolute
+			right: -4px
+			top: 1px
+			svg
+				width: 46px
+				zoom: 0.6
+				opacity:0.5
+		&:hover
+			.dropdown
+				display: block
+	.dropdown
+		position: relative
+		.dropdown-menu
+			left: 0
+			background-color: #fff
+			z-index: 99
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+			padding: 10px
+			border-radius: 5px
+			width: 100%
+			display: none
+			transition: all 0.3s ease-in-out
+			.dropdown-item
+				display: block
+				width: 100%
+				font-size: 16px
+		button
+			position: relative
+			cursor: pointer
+			background-color: transparent
+			border: none
+			padding-left: 1rem
+			svg
+				top: 15px
+			.icon
+				position: absolute
+				right: -3px
+				top: -7px
+				transition: all 0.3s ease-in-out
+				transform: rotate(0deg)
+				svg
+					width: 29px
+					opacity: 0.5
+	.dropdown-show
+		position: relative
+		.icon
+			transition: all .3s ease-in-out
+			transform: rotate(90deg)
+			top: -3px
+		.dropdown-menu
+			left: 0
+			background-color: #fff
+			z-index: 99
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+			padding: 10px
+			border-radius: 5px
+			width: 100%
+			display: block
+			transition: all 0.3s ease-in-out
+			.dropdown-item
+				display: block
+				width: 100%
+				font-size: 16px
+				padding-left: 0
+.progress
+	position: relative
+	&:before
+		content: attr(data-name)
+		position: absolute
+		width: 100%
+		bottom: -2rem
+		font-weight: 400
+	&:after
+		content: attr(data-percent)
+		position: absolute
+		width: 100%
+		top: 3.7rem
+		left: 0
+		font-size: 2rem
+		text-align: center
+	svg
+		width: 10rem
+		height: 10rem
+		&:nth-child(2)
+			position: absolute
+			left: 0
+			top: 0
+			transform: rotate(-90deg)
+			-webkit-transform: rotate(-90deg)
+			-moz-transform: rotate(-90deg)
+			-ms-transform: rotate(-90deg)
+			path
+				fill: none
+				stroke-width: 25	
+				stroke-dasharray: 629
+				stroke: #fc7785
+				-webkit-animation: load 10s
+				-moz-animation: load 10s
+				-o-animation: load 10s
+				animation: load 10s
+.progress-bar
+	position: relative
+	margin: 0 auto
+	.text-center-area
+		position: absolute
+		bottom: 24px
+		left: 50%
+		transform: translateX(-50%)
+		font-size: 11px
+		text-align: center
+.upgrading-pro
+	position: absolute
+	bottom: -155px
+.tooltip-input,
+.progress-area
+	position: relative
+	.tooltip-area
+		position: absolute
+		right: 0
+		top: 0
+		cursor: pointer
+		.icon
+			position: relative
+			img
+				height: auto
+				width: 24px
+			.overlay-box
+				position: absolute
+				display: none
+				left: -300px
+				top: 50%
+				width: 250px
+				transform: translateY(-50%)
+				background-color: #fff
+				padding: 16px
+				border-radius: 8px
+				text-align: left
+				transition: all 0.3s ease-in-out
+				box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+				&:before
+					content: ""
+					position: absolute
+					right: -14px
+					width: 0px
+					height: 0px
+					border-style: solid
+					border-width: 15px 0 15px 15.9px
+					border-color: transparent transparent transparent #fff
+					transform: translateY(-50%)
+					top: 46%
+				p
+					font-size: 14px
+					font-style: normal
+					font-weight: 400
+		&:hover
+			.overlay-box
+				display: block
+.button-text
+	display: block
+	position: relative
+	width: 83%
+	svg
+		position: absolute
+		margin: 0
+		top: 50%
+		right: 19px
+		transform: translateY(-50%)
+	p
+		padding: 0
+		border: none
+		margin: 0
+.tooltip-box
+	position: relative
+	.tooltip-area
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		right: -248px
+		width: 248px
+		display: none
+		z-index: 9
+		.overlay-box
+			position: relative
+			background-color: #f0f0f8
+			padding: 16px
+			border-radius: 8px
+			text-align: center
+			transition: all 0.3s ease-in-out
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+			img
+				height: 350px
+				margin: 0 auto
+				text-align: center
+		&:before
+			content: ""
+			position: absolute
+			left: -14px
+			width: 0px
+			height: 0px
+			border-style: solid
+			border-width: 15px 15px 15.9px 0
+			border-color: transparent #f0f0f8 transparent transparent
+			transform: translateY(-50%)
+			top: 50%
+	&:hover
+		.tooltip-area
+			display: block
+.tooltip-box-modal
+	position: relative
+	.tooltip-area
+		position: relative
+		margin-left: 12px
+		cursor: pointer
+		.icon
+			position: relative
+			display: inline-block
+			transition: all 0.3s ease-in-out
+			img
+				width: 21px
+				height: auto
+			.overlay-box
+				position: absolute
+				right: 34px
+				min-width: 350px
+				background-color: #fff
+				z-index: 9
+				top: 50%
+				box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+				padding: 16px
+				border-radius: 8px
+				text-align: left
+				transition: all 0.3s ease-in-out
+				display: none
+				transform: translateY(-50%)
+				&:before
+					content: ""
+					position: absolute
+					right: -14px
+					width: 0px
+					height: 0px
+					border-style: solid
+					border-width: 15px 0 15px 15.9px
+					border-color: transparent transparent transparent #fff
+					transform: translateY(-50%)
+					top: 49%
+				p
+					font-size: 13px
+					margin-bottom: 5px
+					font-weight: 400
+					font-style: normal
+				.bottom-text
+					p
+						font-size: 11px
+				.price
+					font-size: 19px
+					text-align: center
+					margin-top: 13px
+					font-style: normal
+		&:hover
+			.overlay-box
+				display: block
+				transition: all 0.3s ease-in-out
+		&.style-two
+			top: -29px
+			right: -25px
+			z-index: 2
+.module-tooltip-box
+	position: static
+	.tooltip-area
+		z-index: 999
+		top: 50% !important
+		left: 10% !important
+		transform: translateY(-50%)
+		width: 220px
+		display: none
+		background-color: #fff
+		border-radius: 8px
+		padding: 8px
+		transition: all .3s ease-in-out
+		position: absolute
+		box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+		.overlay-box
+			background-color: #f0f0f8
+			font-size: 8px
+			color: #000
+			padding: 10px
+			transition: all 0.3s ease-in-out
+	&:hover
+		.tooltip-area
+			display: block
+	svg
+		width: 8%
+		background-color: #fff
+		padding: 5px
+		top: auto
+		bottom: -12px
+		left: -12px
+		box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+		z-index: 1
+.certificate-tooltip-box
+	position: relative
+	.certificate-tooltip-area
+		display: none
+		position: absolute
+		top: -99px
+		width: 195px
+		height: 7vh
+		text-align: center
+		padding: 20px
+		z-index: 9
+		background-color: #f0f0f8
+		border-radius: 8px
+		transition: all .3s ease-in-out
+		box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+	&:hover
+		.certificate-tooltip-area
+			display: block
+.progress-box
+	text-align: center
+	.text-center-area
+		text-align: center !important
+.expansionpack-page
+	position: relative
+	.container
+		flex-wrap: wrap
+		.lef-img-area
+			width: 25%
+			.img-box
+				position: relative
+				img
+					width: 100%
+					height: auto
+		.right-text-area
+			width: 43%
+			margin-left: -126px
+			position: relative
+			&:before
+				content: ""
+				position: absolute
+				top: -54px
+				left: -287px
+				width: 551px
+				height: 348px
+				background-repeat: no-repeat
+				background-size: 100%
+				background-image: url('../images/text-bg.png')
+			p
+				text-align: center
+				position: relative
+				&:before
+					content: ""
+					position: absolute
+					bottom: -26px
+					left: -27px
+					width: 57px
+					height: 57px
+					background-repeat: no-repeat
+					background-size: 100%
+					background-image: url('../images/left-angle.png')
+				&:after
+					content: ""
+					position: absolute
+					top: -46px
+					right: -27px
+					width: 57px
+					height: 57px
+					background-repeat: no-repeat
+					background-size: 100%
+					background-image: url('../images/right-angle.png')
+			.number-sec
+				position: relative
+				margin-top: 64px
+				&:before
+					content: ""
+					position: absolute
+					left: -19px
+					width: 105%
+					height: 77%
+					bottom: 26px
+					background-color: #002d63
+					border-radius: 25px
+				ul
+					list-style: none
+					position: relative
+					padding: 15px
+					margin-left: 0 !important
+					li
+						position: relative
+						padding-bottom: 13px
+						font-weight: 600
+						.icon
+							margin-right: 15px
+							img
+								height: auto
+								width: 11px
+								position: relative
+								top: 3px
+						span
+							color: #4a67ff
+							margin-right: 1px
+			.about-img
+				position: relative
+				display: flex
+				flex-wrap: wrap
+				margin-top: 43px
+				.img-box 
+					width: 28%
+					position: relative
+					img
+						width: 172px
+				.text-box
+					width: 66%
+					height: 138px
+					margin-top: 6px
+					padding: 11px 12px
+					margin-left: -2px
+					p
+						&:before,
+						&:after
+
+							display: none
+
+// CUSTOM STYLES CLASSES // 
+
+
+
+
+.p0-5rem
+	padding: 0.5rem
+.h75vh
+	height:75vh
+.mb0-7rem
+	margin-bottom: 0.7rem !important
+.mb1-7rem
+	margin-bottom: 1.7rem !important
+.minh100vh button
+	font-size: 14px
+#e1jygW4piZH1
+	z-index: 1500
+#fileUploadRepository,
+#fileUploadFilingAssistant,
+#repositoryToDataRoom,
+#syncRepositoryDataRoom
+	text
+		font-size:50px !important
+#cloud
+	min-height: 600px
+	
+.tooltip-btn
+	position: absolute
+	top: -51px
+	background-color: #22369b
+	padding: 6px 22px
+	right: 0
+	border-radius: 43px 6px 6px 3px
+	&:before
+		content: ""
+		position: absolute
+		right: 6px
+		bottom: -10px
+		width: 0
+		height: 0
+		border-style: solid
+		border-width: 11px 11px 0 11px
+		border-color: #22369b transparent transparent transparent
+.benfits-sec
+	background-image: url('../images/benifts-bg.png')
+	background-size: 100%
+	background-repeat: no-repeat
+.modal-sec
+	background-image: url('../images/modal-bg.png')
+	background-size: 100% 100%
+	background-repeat: no-repeat
+	.heading
+		text-align: center
+		margin-top: -68px
+		margin-bottom: 28px
+.new-report
+	background-image: url('../images/psd-bg.jpg')
+	background-position: top center
+	background-repeat: no-repeat
+	background-size: 100% 100%
+	padding: 2rem 3rem
+	&.report-ai
+		background-image: url('../images/bg-ai.jpg')
+	.logo-report
+		position: relative
+		border-bottom: 3px solid #002d63
+	.right-list
+		position: relative
+		text-align: right
+		list-style: none
+		padding: 0
+		margin: 0
+		li
+			margin-bottom: 3px
+			font-size: 14px
+			font-weight: 700
+			span
+				font-weight: 400
+				width: 250px
+				display: inline-block
+.new-report-btn
+	padding: 0
+	margin-bottom: 4px
+	display: flex
+	border-radius: 5px
+	width: 100%
+	cursor: pointer
+	&:hover
+		box-shadow: 0 0 8px rgba(0 0 0 / 10%)
+	span
+		padding: 2px 11px
+		color: #002d63
+		font-weight:600
+		position: relative
+		margin-left: 30px
+	.left-heading
+		border-right: 3px solid #fff
+		width: 150px
+		display: inline-block
+		padding: 2px 11px
+		text-align: center
+		margin-left: 0
+		&:before
+			content:""
+			position: absolute
+			left: 0
+			top: 50%
+			width: 6px
+			height: 74%
+			background-color: #002d63
+			border-radius: 0 10px 10px 0
+			transform: translateY(-50%)
+.progress-area-report
+	position: relative
+	.progress-box
+		position: relative
+		margin: 0 27px 32px 33px
+		&::before
+			content: ""
+			position: absolute
+			width: 27px
+			height: 27px
+			bottom: -10px
+			left: -31px
+			background-size: 100%
+			background-repeat: no-repeat
+			background-image: url('../images/triangle-progress.png')
+		&::after
+			content: ""
+			position: absolute
+			right: -31px
+			top: -10px
+			width: 27px
+			height: 27px
+			background-size: 100%
+			background-repeat: no-repeat
+			background-image: url('../images/triangle-progress.png')
+			transform: rotate(180deg)
+		.text-center-area
+			bottom: 42px
+	.progress-box-hidden
+		width: 25%
+.tables-area
+	position: relative
+	background-color: #f5f6ff
+	padding: 15px
+	box-shadow: 0 0 10px rgba(0 0 0 / 20%)
+	.new-report-btn
+		.left-heading
+			border-right: 3px solid #f5f6ff
+.register-btn-area
+	position: relative
+	margin: 85px 0 28px
+	text-align: center
+	p
+		margin-bottom: 36px
+	.register-btn
+		position: relative
+		padding: 11px 75px
+.kpis-text
+	position: relative
+	margin: 74px 0 250px
+	text-align: center
+	h3
+		font-size: 75px
+		color: #002d6350
+.mb1-3rem
+	margin-bottom: 1.2rem
+
+.certificates-page,
+.company-audit-page,
+.checklist-page
+	background-image: url('../images/dashboard-certificates-bg.jpg')
+	background-position: top center
+	background-repeat: no-repeat
+	background-size: 100% 100%
+	.requirement-area
+		text-align: center
+		margin-left: 362px
+		margin-top: 15px
+		font-size: 14px
+		font-weight: 600
+	.left-upgrade-button
+				text-align: center
+				padding: 35px 0px 20px
+				position: relative
+				width: 100%
+				transition: all 0.3s ease-in-out
+				.badge-btn
+					background-size: 100% 100%
+					background-color: transparent
+					border: none
+					color: #fff
+					padding: 16px 75px 17px 29px
+					font-size: 14px
+					background-repeat: no-repeat
+					background-position: top center
+					background-image: url('../images/upgrage-button.png')
+					transition: all 0.3s ease-in-out
+					transform: scale(1)
+					&:hover
+						transform: scale(1.1)
+	&.disabled-certificates-page
+		width: 100%
+		.badge-btn
+			pointer-events: none
+		.left-upgrade-button
+			a
+				pointer-events: none
+		.upgrade-btns, butoon
+			pointer-events: none
+		.certification-pricing-column
+			a
+				pointer-events: none
+	.heading-area
+		position: relative
+		background-position: top center
+		background-repeat: no-repeat
+		background-size: 574px 63px
+		text-align: center
+		&.bronze
+			background-image: url('../images/bronze-level.png')
+		&.silver
+			background-image: url('../images/sliver-level.png')
+		&.gold
+			background-image: url('../images/gold-level.png')
+	.badges-sec
+		padding: 10px 0
+		position: relative
+		.badges-area
+			align-items: center
+			display: flex
+			position: relative
+			justify-content: center
+			width: 100%	
+			flex-wrap: wrap
+	.certificates-current
+		.top-heading
+			padding: 0 10px 35px
+		.packge-select
+			zoom: 0.9
+			display: flex
+			justify-content: space-between
+			width: 100%
+			.current
+				.w250px
+					box-shadow: 0 0 26px #41dc9f60
+					border-radius: 97px
+	.progress-sec
+		position: relation
+		.progress-list
+			position: relative
+			list-style: none
+			margin: 15px 0
+			justify-content: space-between
+			padding: 9px 8px 4px
+			list-style: none
+			display: flex
+			position: relative
+			background-size: 100% 100%
+			background-repeat: no-repeat
+			background-position: top right
+			background-image: url('../images/certificat-bg-list.png')
+			li
+				opacity: 0.5
+				.certificate-btn
+					background-color: transparent
+					border: none
+					img
+						width: 100%
+				&.current
+					opacity:1
+	.data-check-box
+		position: relative
+		padding: 20px
+		box-shadow: 0 0 10px rgba(0 0 0 / 30%)
+		border-radius: 21px
+		margin: 20px 0 0
+		&.data-check-box-empty
+			box-shadow: 0 0 0 rgba(0 0 0 / 30%)
+		.packge-select
+			position: absolute
+			bottom: 31px
+			text-align: center
+			img
+				margin: 0 auto
+		.stuts-btn
+			position: absolute
+			right: 11px
+			bottom: 11px
+			background-color: transparent
+			border: none
+			img
+				width: 109px
+		.data-list
+			list-style: none
+			padding: 0
+			margin: 0 0 30px 0
+			position: relative
+			&:before
+				content: ""
+				position: absolute
+				left: 22px
+				top: 0
+				width: 2px
+				height: 100%
+				background-color: #e7e7e7
+			li
+				position: relative
+				padding-left: 44px
+				padding-bottom: 15px
+				opacity: 0.5
+				&:before
+					content: ""
+					position: absolute
+					left: 19px
+					top: 9px
+					width: 8px
+					height: 8px
+					background-color: #e7e7e7
+					border-radius: 50%
+				h4
+					font-size: 15px
+					font-weight: 500
+				p
+					font-size: 12px
+				.icon
+					position: absolute
+					left: -7px
+					top: 4px
+					display: none
+					&.round
+						display: block
+						height: 14px
+						width: 14px
+						background-color: #0000004d
+						border-radius: 50%
+					img
+						width: 17px
+				&.check
+					opacity: 1
+					.icon
+						&.round
+							display: none
+						&.check
+							display: block
+	.btn-back
+		text-align: center
+		position: relative
+		.upgrade-btns
+			position: relative
+			&:before
+				position: absolute
+				content: ""
+				border-top: 18px solid transparent
+				border-bottom: 18px solid transparent
+				border-left: 21px solid #4A67FE
+				right: -20px
+				top: 2px
+				transition-duration: .25s
+			&:hover
+				&:before
+					border-left: 21px solid #fc7785
+
+.footer-sec
+	position: relative
+	background-size: 100% 100%
+	background-repeat: no-repeat
+	background-position: top center
+	padding: 20px 0
+	.check-box
+		border-radius: 21px
+		padding: 40px 0 141px
+		position: relative
+		box-shadow: 0 0 10px #0000004d
+		.certification-pricing-column
+			position: absolute
+			right: 450px
+			top: 10px
+			height: 0
+			width: 315px
+			zoom: 0.7
+			span
+				&.h100px
+					width: 50px
+					height: 50px
+	h2
+		width: 100%
+		text-align: center
+		img
+			width: 550px
+	p
+		text-align: center
+	.certificates-current
+		position: relative
+		width: 68%
+		margin: 30px auto
+		.audit-pakcges
+			zoom: 0.6
+			opacity: 1 !important
+			box-shadow: none !important
+	.upgrade-btn
+		position: relative
+		text-align: center
+		width: 100%
+		background-color: transparent
+		border: none
+		zoom: 0.5
+		transition: all 0.3s ease-in-out
+		transform: scale(1)
+		&:hover
+			transform: scale(1.1)
+.question-box
+	padding: 15px
+	color: #002d63
+	margin-top: 10px
+	position: relative
+	border-radius: 8px
+	border: 2px solid #281ac9
+	h3
+		position: relative
+		padding-left: 25px
+		padding-bottom: 13px
+		&:before
+			content: ""
+			position: absolute
+			left: 0
+			top: 11px
+			width: 10px
+			height: 10px
+			background-color: #fc7785
+			border-radius: 50%
+.recomended-box
+	padding: 5px 15px 5px
+	margin-bottom: 20px
+	&:before
+		content: ""
+		position: absolute
+		left: 50%
+		bottom: -5px
+		width: 30%
+		height: 4px
+		background-color: #9f9f9f
+		transform: translateX(-50%)
+#sidebar
+	button
+		.close-svg
+			display: none
+		&.close-report
+			.close-svg
+				display: inline-block
+.investmentcertificate-page
+	position: relative
+	background-image: url('../images/investmen-certificate-bg.png')
+	background-size: 100%
+	background-repeat: no-repeat
+	background-position: bottom center
+	background-color: #fff
+	.header-area
+		background-image: url('../images/investmen-certificate-header-bg.png')
+		background-size: 100%
+		background-repeat: no-repeat
+		background-position: bottom center
+		position: relative
+		height: 407px
+		text-align: center
+		padding-top: 10px
+	.certificate-area
+		position: relative
+		margin-top: -196px
+		.left-area
+			width: 100%
+			position: relative
+			padding: 0 27px
+			display: block
+			box-sizing: border-box
+			width: 100%
+			h5
+				font-style: italic
+			.status-area
+				position: relative
+				padding-left: 33px
+				margin: 20px 0
+				display: block
+				font-size: 18px
+				font-weight: 500
+				&:before
+					content: ""
+					position: absolute
+					left: 0
+					top: 12px
+					width: 24px
+					height: 6px
+					background-color: #002d63
+				.PassFail
+					position: relative
+					font-style: normal
+					margin-left: 22px
+					padding: 2px 10px
+					display: inline-block
+					color: #fff
+					text-transform: uppercase
+					&.Pass
+						background-color: #40dda1
+					&.Fail
+						background-color: #dd4040
+					&.Uncertified
+						background-color: #e5e3e3
+			.signure-area
+				position: relative
+				.date-area
+					display: inline-block
+					text-align: center
+					.logo-certified
+						width: 180px
+					&.singature-area
+						margin-top: -45px
+					p, figure
+						position: relative
+						padding-bottom: 10px
+						margin-bottom: 10px
+						display: block
+						&::before
+							content: ""
+							position: absolute
+							left: 50%
+							bottom: 0
+							width: 200px
+							height: 4px
+							background-color: #416ffd
+							transform: translateX(-50%)
+		.right-area
+			position: relative
+			width: 81%
+			margin: 0 auto
+			.op70
+				img
+					width: 320px
+					&.w7rem
+						width: 127px
+				.fs1-5rem
+					font-size: 0.7rem
+				
+			.w7rem
+				width: 13rem
+	.logo-area
+		text-align: center
+.step-box
+	text-align: center
+	color: #a5a4a7
+	background-color: transparent
+	border-radius: 8px 8px 0 0
+	padding: 4px 16px 2px
+	font-size: 9px
+	position: absolute
+	bottom: 0
+	border: 1px solid #a5a4a780
+	border-bottom: none
+.button-left-area
+	display: flex
+	align-items: center
+.contact-btn
+	position: relative
+	margin-top: 8px
+	margin-bottom: 21px
+	display: block
+	width: 100%
+	text-align: center
+	.contact-us-btn
+		border-bottom: 1px solid #fc7785
+.questionnaire-sidebar, .esg-sidebar
+	display: block
+	height: 100vh
+	.mah100
+		margin: 15px 0
+	.mta
+		position: absolute
+		bottom: 0
+		width: 93%
+.verify-btn
+	position: absolute
+	right: 0
+	border-radius: 0 5px 5px 0
+.report-page
+	.sidebar-report
+		display: block
+		height: 100vh
+		.mah100
+			&.mya
+				&.oya
+					&.df
+						&.fdc
+							&.jcsb
+								max-height: 53vh
+								margin: 5px 0 0
+		.mta
+			position: absolute
+			bottom: 0
+			width: 94%
+		.siedbar-dropdwon
+			max-height: 71vh
+			.oya.df.fdc.jcsb
+				max-height: 100% !important
+				border-left: 2px solid #fff
+			.MuiPaper-root
+				background-color: transparent !important
+.showDirectors
+	.inner-showDirectors
+		position: relative
+		width: 900px
+		background-image: url(../images/popup-modal-bg.jpg)
+		background-size: 100% 100%
+		background-repeat: no-repeat
+		background-position: top center
+		padding: 60px
+		border-radius: 10px
+		.top-header
+			position: relative
+			margin-bottom: 40px
+			width: 100%
+			button
+				margin: 0
+				top: 41px
+				right: -20px
+				font-size: 14px
+				position: absolute
+				padding: 7px 20px
+		.table-area-showDirectors
+			max-width: 100%
+			max-height: 60vh
+			min-height: auto
+			overflow: scroll
+			position: relative
+			box-shadow: 0 0 5px rgba(0 0 0 / 20%)
+			border-radius: 0 0 10px 10px
+			.table-showDirectors
+				width: 100%
+				position: relative
+				thead
+					position: relative
+					tr
+						position: relative
+						th
+							font-size: 15px
+							text-align: left
+							box-shadow: 0 0 5px rgba(0 0 0 / 20%)
+							color: #002d63
+							font-weight: 400
+							border-bottom: none
+							position: relative
+							border-bottom: 5px solid #e3e8ee
+							width: auto !important
+							min-width: auto !important
+							background-color: transparent
+							padding: 9px 23px
+							&:before
+								content: ""
+								position: absolute
+								right: 1px
+								top: 0
+								width: 5px
+								height: 100%
+								background-color: #fff
+								box-shadow: 0 0 5px rgba(0 0 0 / 20%)
+				tbody
+					position: relative
+					tr
+						position: relative
+						background: none !important
+						td
+							text-align: left
+							width: auto !important
+							min-width: auto !important
+							padding: 9px 23px
+							border-bottom: 1px solid #e3e8ee
+							background-color: transparent !important
+							position: relative
+							font-size: 12px
+							&:before
+								content: ""
+								position: absolute
+								right: 1px
+								top: 0
+								width: 5px
+								height: 100%
+								background-color: #fff
+								box-shadow: 0 0 5px rgba(0 0 0 / 20%)
+							button
+								padding: 4px 20px
+			.logo-modal
+				position: relative
+				width: 100%
+				text-align: center
+				padding: 10px 0
+.close-popup
+	position: absolute
+	right: 15px
+	top: 15px
+	background-color: transparent
+	box-shadow: none
+	cursor: pointer
+	svg
+		fill: #4a67ff
+	&.style-two
+		svg
+			fill: #fc7785
+.sectionWrapper
+	.group-inputs
+		position: relative
+		margin-bottom: 5px
+		input, textarea
+			width: 100%
+			background-color: #f0f0f800
+			border: none
+			border-radius: 5px
+			padding: 0
+			position: relative
+			top: 0
+			left: 8px
+			font-size: 15px
+			color: #002d63
+			font-size: 0.75rem
+		.show-input
+			opacity: 1
+			position: relative
+			left: 0
+			top: 0
+			background-color: #f0f0f8
+		textarea
+			height: auto
+		p
+			position: relative
+			display: inline-block
+			transition: all 0.3s ease-in-out
+			z-index: 1
+			width: 100%
+			&:hover
+				.edit-btn					
+					visibility: visible
+					opacity: 1
+		.edit-btn
+			display: inline-block
+			transition: all 0.3s ease-in-out
+			.edit-pencil
+				cursor: pointer
+				background-color: transparent
+				border: none
+				margin-left: 11px
+				svg
+					fill: #fc7785
+					width: 15px
+					position: relative
+					top: 2px
+					height: 15px
+		.check-btn
+			display: inline-block
+			transition: all 0.3s ease-in-out
+			opacity: 1
+			visibility: visible
+			.ok-btn
+				cursor: pointer
+				background-color: transparent
+				border: none
+				margin-left: 11px
+				img
+					width: 15px
+		&.link-group
+			p
+				display: inline-block
+				width: auto
+				a
+					display: inline-block
+					width: 160px
+					white-space: nowrap
+					overflow: hidden !important
+					text-overflow: ellipsis
+					position: relative
+					top: 5px
+		.edit-text
+			display: flex
+			&:hover
+				.edit-btn
+					opacity: 1
+					visibility: visible
+	.company-name
+		position: relative
+		display: inline-block
+		margin-bottom: 1rem
+		&:before
+			content: ""
+			position: absolute
+			left: 0
+			bottom: -8px
+			width: 100%
+			height: 2px
+			background-color: #002d63
+.edit-button-top
+	cursor: pointer
+	background-color: transparent
+	border: none
+	svg
+		width: 21px
+		position: relative
+		top: 7px
+		fill: #fc7785
+.company-settings
+	position: absolute
+	right: 33px
+	top: -22px
+	svg
+		width: 49px
+.avtar-area
+	img
+		width: 39px
+		margin-bottom: 10px
+		height: auto
+.slider-items
+	position: relative
+	overflow: hidden
+.slider-container
+	padding: 0 10px
+	display: flex
+	overflow-x: hidden
+	scroll-behavior: smooth
+	.item
+		min-width: 19.2%
+		max-width: 19.2%
+		position: relative
+		padding-bottom: 58px
+		font-size: 14px
+		.readmore-btn
+			position: absolute
+			bottom: 14px
+			left: 50%
+			transform: translateX(-50%)
+			font-size: 14px
+			padding: 7px 15px
+.btn-area-slider
+	button
+		.icon
+			img
+				height: auto
+				width: 7px
+				position: relative
+				top: 2px
+				filter: brightness(100)
+		&.pre-btn
+			.icon
+				transform: rotate(180deg)
+.directors-info-box
+	button
+		.icon
+			img
+				height: auto
+				width: 18px
+				filter: brightness(100)
+				margin-right: 11px
+				position: relative
+				top: 1px
+.multi-dropdown .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked
+	color: #fc7785
+
+ul.MuiList-root li.multi-dropdown-list .MuiCheckbox-root.Mui-checked, 
+ul.MuiList-root li.multi-dropdown-list .MuiCheckbox-root.MuiCheckbox-indeterminate
+	color: #fc7785
+.multi-dropdown .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline
+	border-color: #f0f0f8 !important
+.multi-dropdown fieldset.MuiOutlinedInput-notchedOutline
+	border-color: #f0f0f8 !important
+ul.MuiList-root li.multi-dropdown-list.Mui-selected
+	background-color: #fc778510
+#sidebar-company-settings
+	button
+		transition: all 0.3s ease-in-out
+		&.active,
+		&:hover
+			background-color: #002d63
+			color: #fff !important
+#sidebar-company-settings .delete-active
+	color: #f50100
+	&:hover
+		background-color: #f50100 !important
+		color: #fff !important
+.company-snapshot-btn
+	background-color: transparent
+	border-bottom: 1px solid #4a67ff00
+	&.active, &:hover
+		border-bottom: 1px solid #4a67ff
+		color: #4a67ff
+		span
+			color: #4a67ff
+.user-tabs
+	.user-btn
+		position: relative
+		&.active, &:hover
+			button
+				background-color: #002d63
+.table-of-content
+	margin: 0 auto
+	.list-table
+		padding: 0
+		li
+			position: relative
+			margin-bottom: 10px
+			&:before
+				content: ""
+				top: 50%
+				height: 5px
+				border-bottom: 2px dashed
+				transform: translateY(-50%)
+				right: 57px
+				position: absolute
+			&:nth-child(1)
+				&:before
+					width: 76%
+			&:nth-child(2)
+				&:before
+					width: 76%
+			&:nth-child(3)
+				&:before
+					width: 76%
+			&:nth-child(4)
+				&:before
+					width: 62%
+			&:nth-child(5)
+				&:before
+					width: 76%
+			i
+				font-style: normal
+	&.style-two
+		.list-table
+			li
+				&:nth-child(1)
+					&:before
+						width: 72%
+				&:nth-child(2)
+					&:before
+						width: 72%
+				&:nth-child(3)
+					&:before
+						width: 72%
+.policy-page-data
+	p
+		margin-bottom: 20px
+.type-customer
+	.checkbox
+		&.active
+			input
+				&:checked
+					background-color: #bbb
+					border-color: #bbb
+.type-customer
+	.checkbox
+		input
+			&:checked
+				background-color: #bbb
+				border-color: #bbb
+.poupup-img
+	width: 120px
+	height: 120px
+	border: 2px dashed
+	border-radius: 18px
+	padding: 10px
+	background-color: #f0f0f8
+.tooltip-area-company-settings
+	top: -11px
+	right: -11px
+	.icon
+		img
+			width: 18px
+.button-groups-new
+	.company-settings-btn
+		position: absolute
+		bottom: -16px
+		left: 6px
+		background-color: transparent
+		padding: 0
+		margin: 0
+		width: 2.6rem
+		svg
+			background-color: transparent
+			box-shadow: none
+			bottom: auto
+			left: auto
+			width: 3rem !important
+			height: 3rem
+.certificate-area-dashboard
+	width: 220px
+	.w250px
+		width: 220px
+	.fs0-75rem
+		font-size: 0.6rem
+.dropdown-add-group
+	position: relative
+	height: 80px
+	.dropdown-content
+		width: 100%
+		max-height: 255px
+		position: absolute
+		top: 58px
+		overflow-y: scroll
+		overflow-x: hidden
+		background-color: #fff
+		border-bottom: 2px solid #4a67ff
+		z-index: 1
+		padding: 4px 8px
+		box-sizing: border-box
+		.item
+			border-bottom: 1px solid #00000020
+			border-radius: 5px
+			margin: 3px 0 10px 0
+			padding: 10px 15px
+			transition: all .3s ease-in-out
+			width: 100%
+			&:hover
+				box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+			h4
+				font-size: 10px
+			.progress-box-horizantal
+				width: 110px
+				label
+					display: block
+				.progress
+					height: 1rem
+					font-size: .75rem
+					border-radius: 25px
+					box-shadow: #000
+					color: #fff
+					background-color: #0d6efd
+					transition: width .6s ease
+					height: 13px
+					font-size: .55rem
+					background-color: #d6d6d6
+					border-radius: 25px
+					display: flex
+					overflow: hidden
+					.progress-bar
+						margin: 0
+						color: #fff
+						text-align: center
+						white-space: nowrap
+						flex-direction: column
+						justify-content: center
+						display: flex
+						overflow: hidden
+						transition: var(--bs-progress-bar-transition)
+					&.red
+						.progress-bar
+							background-color: #ff3d3d
+					&.yellow
+						.progress-bar
+							background-color: yellow
+					&.orange
+						.progress-bar
+							background-color: #fcb22b
+					&.green
+						.progress-bar
+							background-color: #5ee15e
+	&.dropdown
+		position: relative
+		#dropdown-basic
+			width: 100%
+			text-align: left
+			text-transform: capitalize
+		.dropdown-content
+			&.dropdown-menu
+				display: none
+				.dropdown-item
+					display: block
+					width: 96%
+		&.show
+			.dropdown-content
+				&.dropdown-menu
+					display: block
+					z-index: 3
+.mt0-3rem
+	margin-top: .3rem
+.back-btn
+	top: 28px
+	left: -500px
+	.icon
+		top: 3px
+		margin-right: .3rem
+		svg
+			width: 15px
+			fill: #4a67ff
+			transition: all 0.3s ease-in-out
+	&:hover
+		.icon
+			svg
+				fill: #fc7785
+.searchWrapper
+	display: flex
+	align-items: center
+	width: 300px
+	border: none !important
+	position: relative
+.advisor-select
+	position: relative
+	&:before
+		contact: ""
+		position: absolute
+		right: 0
+		top: 0
+		width: 20px
+		height: 20px
+		background-image: url(../images/icons/arrow.svg)
+		background-size: 100%
+		background-repeat: no-repeat
+.company-detail-box
+	.company-detail
+		.percentage-area
+			.input-area
+				width: 100%
+				display: inline-block
+				input
+					font-size: 10px
+					width: 100%
+					-webkit-appearance: none
+				input::before
+					position: absolute
+					top: 0
+					content:"€"
+.orange
+	color: #fcb22b
+.fs0-50rem
+	font-size: .50rem
+.bottom-company-area
+	max-height: 100vh
+	overflow-y: scroll
+	padding: 0 5px
+.mr0-2rem
+	margin-right: 0.2rem
+.dropdown-company-dahboard
+	position: relative
+	transition: all 0.5s ease-in-out
+	.dropdown-content
+		position: relative !important
+		width: 90%
+		margin: 0 auto
+		transition: all 0.5s ease-in-out
+		.certificate-area-dashboard
+			zoom: 0.7
+			margin-top: 10px
+	.MuiFormControl-root
+		width: 105px
+		margin-left: 19px
+.form-group 
+	.img-upload-area
+		position: relative
+		display: flex
+		flex-wrap: wrap
+		width: 100%
+		justify-content: center
+		.img-box
+			position: relative
+			display: flex
+			align-items: center
+			justify-content: center
+			border-radius: 50%
+			img
+				object-fit: revert
+				border-radius: 50%
+				padding: 10px
+				width: 90px
+				height: 90px
+			.input-file
+				cursor: pointer
+				background: none
+				border: none
+				position: absolute
+				bottom: 1px
+				left: 85px
+				width: 35px
+				height: 35px
+				z-index: 2
+				input 
+					z-index: 99
+					cursor: pointer
+					width: 35px
+					height: 35px
+					display: block
+					position: relative
+					top: -4px
+					left: -2px
+					opacity: 0 !important
+				.add-btn
+					cursor: pointer
+					position: absolute
+					top: 0px
+					left: 0px
+					text-align: center
+					border-radius: 50%
+					width: 23px
+					height: 23px
+					padding: 5px
+					box-shadow: 0 0 5px rgba(0 0 0 / 20%)
+					line-height: 2rem
+					svg
+						opacity: .9
+						fill: #002d63
+						width: 19px
+.upload-pic-area
+	#profile
+		position: absolute
+		left: 0
+		height: 82px
+		top: -2px
+		width: 100%
+		opacity: 0
+		cursor: pointer
+		z-index: 99
+	label
+		display: block
+		width: 100%
+.report-btn-r
+	position: absolute
+	left: 50%
+	bottom: -17px
+	transform: translateX(-50%)
+	box-shadow: 0 3px 6px -2px #32325d40, 0 1px 2px -1px #0000004d
+	border: 2px solid #40dda1
+	z-index: 1
+.label-checkbox
+	position: relative
+	.tooltiparea
+		position: absolute
+		background-color: #fff
+		padding: 10px
+		width: 300px
+		z-index: 2
+		box-shadow: 0 0 5px rgba(0 0 0 / 20%)
+		border-radius: 7px
+		top: 39px
+		opacity: 0
+		visible: hidden
+	&:hover
+		.tooltiparea
+			opacity: 1
+			visible: visible
+.list-file-manger
+	display: flex
+	justify-content: space-between
+	align-items: center
+	position: relative
+	list-style: none
+	margin: 0 0 20px
+	padding: 0
+	li
+		position: relative
+		padding-left: 9px
+		font-size: 0.75rem
+		&:before
+			content: ""
+			position: absolute
+			left: -9px
+			top: 6px
+			width: 11px
+			height: 11px
+			
+			border-radius: 50%
+		&.blue-list
+			&:before
+				background-color: #0055aa
+		&.lightblue-list
+			&:before
+				background-color: #5d9afc
+		&.green-list
+			&:before
+				background-color: #40dda1
+		&.dropbox-list
+			&:before
+				background: #0160ff
+		&.gdrive-list
+			&:before
+				background: #ffbd19
+.table-permission
+	width: 100%
+	overflow-x: scroll
+	.table-userPermissions
+		thead
+			tr
+				th
+					background-color: #4a67ff !important
+					font-size: 12px
+					color: #fff
+					border-right: 1px solid #fff
+					border-bottom: none
+					position: sticky
+					position: -webkit-sticky
+					top: 0
+					z-index: 1
+					&:first-child
+						position: sticky
+						position: -webkit-sticky
+						left: 0
+					&.user-area
+						text-align: left
+		tbody
+			tr
+				td
+					background: #e9ebf4
+					text-align: center
+					border-right: 1px solid #fff
+					border-bottom: 1px solid #fff
+					&:nth-child(1)
+						text-align: left
+						position: sticky
+						position: -webkit-sticky
+						left: 0
+						z-index: 2
+					.checkbox
+						&:before
+							background-color: #e9ebf4
+						&:after
+							background-color: #e9ebf4
+						input
+							opacity: 0
+							&:checked
+								opacity: 1
+						&.active
+							input
+								&:checked
+									opacity: 1
+		&.table-clientPermissions
+			thead
+				tbody
+					tr
+						td
+							input
+								background-color: #fff
+								opacity: 1
+							.dropdowns-advisor-permission
+								.dropdown-add-group.dropdown
+									.dropdown-item
+										.deta-dropdown-company
+											.checkbox
+												&:before
+													background: #fff !important
+												&:after
+													background: #fff !important
+	.table-userPermissions tr:nth-child(2n), .tableRow:nth-child(2n)
+		background: #d0d5e8
+	.table-userPermissions tr > *:nth-child(2n), .tableRow > *:nth-child(2n)
+		background: #d0d5e8
+	.table-userPermissions tr > *:nth-child(2n) .checkbox:before, .tableRow > *:nth-child(2n) .checkbox:before,
+	.table-userPermissions tr > *:nth-child(2n) .checkbox:after, .tableRow > *:nth-child(2n) .checkbox:after
+		background: #d0d5e8
+.table-clientPermissions 
+	margin: 0 auto
+	td, th
+		width: auto !important
+		min-width: 200px !important
+	.select-advisor
+		font-size: 3px
+		width: auto
+		margin-left: 10px
+		.MuiSelect-select
+			padding: 14px 24px
+		fieldset
+			border: none !important
+.MuiList-root
+	.MuiButtonBase-root
+		font-size: 13px
+.select-advisor-list
+	border-bottom: 1px solid #ccc !important
+	padding-bottom: 8px !important
+	margin-bottom: 8px !important
+	&:last-child
+		margin-bottom: 0 !important
+		padding-bottom: 0 !important
+		border-bottom: none !important
+	span
+		padding: 0
+		font-size: 14px
+		svg
+			color: #fc7785
+			margin-right: 10px
+		&.Mui-checked
+			svg
+				color: #fc7785
+	.MuiListItemText-root
+		font-size: 13px
+.close-table-prem 
+	width: 11px
+	height: 11px
+	top: -3px
+	right: -11px
+	background-color: #fc7785
+	border-radius: 50%
+	padding: 1px
+.expand-button
+	background-color: #0000
+	width: 28px
+	font-size: 1rem
+	padding: 0
+	margin-left: -20px
+.sub-folders
+	text-align: left
+	margin: 5px 7px
+	position: relative
+	box-shadow: 0 0 5px #0003
+	border-radius: 5px
+	span
+		font-size: 0.75rem
+		display: block
+		width: 80%
+		margin: 5px 0px
+	.date
+		color: #000 !important
+		font-size: .5rem
+.help-icon
+	padding: 0
+	margin: 0
+	background-color: transparent
+	top: -3px
+	right: 0
+	svg
+		width: 1.5rem
+.progress-box-vertical
+	position: relative
+	margin-left: 40px
+	.text-center-area 
+		display: block
+		position: absolute
+		bottom: -16px
+		left: 50%
+		transform: translateX(-50%)
+	&.style-two
+		margin-left: 0
+		margin-right: 5px
+		.text-center-area
+			left: 9%
+.progress
+	background-color: #e9ecef
+	border-radius: 0.25rem
+	height: 0.8rem
+	font-size: .75rem
+	display: flex
+	overflow: visible
+	width: 70px
+	&.progress-bar-vertical
+		transform: rotate(-90deg)
+		margin-top: 28px
+	.progress-bar
+		display: flex
+		justify-content: end
+		overflow: visible
+		color: #fff
+		white-space: nowrap
+		animation-duration: 3s
+		animation-name: width
+		background-image: linear-gradient(to right, #ff0000, #ff0000, #f26807, #f26807, #29fc00, #29fc00)
+		background-size: 6em 1.95em
+		background-repeat: no-repeat
+		margin: 0
+		span
+			font-size: 7px
+			&.precentage-block
+				transform: rotate(90deg)
+				color: #000
+				font-size: 9px
+				margin-right: -8px
+				i
+					background-color: #4a67ff
+					border-radius: 5px
+					font-size: 7px
+					color: #fff
+					padding: 2px 5px
+					font-style: normal
+	&.style-two
+		margin-left: -35px
+		margin-right: 35px
+		.progress-bar
+			.arrow-right 
+				right: -78px
+				left: auto
+				border-radius: 6px
+				&::before
+					filter: drop-shadow(-1px 1px 1px #bcd7ff99)
+					border-left: none
+					border-right: 12px solid #bcd7ff99
+					left: -9px
+					right: auto
+@keyframes width
+	0%, 100%
+		transition-timing-function: cubic-bezier(1, 0, 0.45, 0.85)
+	0%
+		width: 0
+	33%
+		width: 23%
+	66%
+		width: 66%
+	100%
+		width: 100%
+.arrow-right
+	color: #222
+	white-space: initial
+	background-color: #fff
+	border-radius: 6px
+	width: 60px
+	padding: 2px 4px
+	position: absolute
+	top: auto
+	justify-content: center
+	left: -83px
+	box-shadow: 2px 4px 3px rgba(91, 143, 222, 0.4), inset 3px 3px 5px rgba(223, 236, 255, 0.7), inset -5px -5px 10px rgba(188, 215, 255, 0.6)
+	display: flex
+	align-items: center
+	margin-top: -13px
+	&:before
+		content: ""
+		filter: drop-shadow(2px 1px 1px #bcd7ff99)
+		border-top: 8px solid #0000
+		border-bottom: 8px solid #0000
+		border-left: 19px solid #bcd7ff99
+		width: 0
+		height: 0
+		position: absolute
+		top: 0
+		right: -14px
+		z-index: -1
+.dropdowns-advisor-permission
+	position: relative
+	width: 100%
+	.dropdown-add-group.dropdown
+		height: auto
+		#dropdown-basic
+			background-color: transparent
+			font-size: 11px
+			padding-left: 42px
+			svg
+				width: 15px
+.all-reprots-area 
+	.reports-logs
+		z-index: 2
+		font-size: 12px
+		padding: 3px 5px
+		border-radius: 5px
+		left: 50%
+		transform: translateX(-50%)
+.company-audit-page
+	.table-area-company-log
+		margin: 0 auto
+		width: 100%
+		.tabs-btn
+			display: flex
+			justify-content: center
+			margin: 25px 0
+			button
+				border-radius: 8px
+				margin: 0 10px
+				padding: 10px 35px
+		.table-company-log
+			margin: 0 auto
+			thead
+				tr
+					th
+						font-size: 17px
+			tbody
+				tr
+					td
+						font-size: 14px
+						max-width: 300px
+	.table-company-log
+		tbody
+			tr
+				td
+					.progress-box-vertical
+						margin-left: 43px
+						height: 80px
+						&.style-two
+							.text-center-area
+								left: 1%
+		thead 
+			tr
+				th
+					.label-checkbox
+						.checkbox
+							&::before
+								top: 19px
+							&::after
+								top: 17px
+.portfolio-overall
+	.chart
+		perspective: 1000px
+		perspective-origin: 50% 50%
+		backface-visibility: visible
+		width: 176px
+		margin: 0 37px
+		.bar
+			position: relative
+			height: 10em
+			transform: rotateX(60deg) rotateY(0deg)
+			transform-style: preserve-3d
+			.face
+				position: relative
+				width: 100%
+				height: 2em
+				background-color: #cccccc40
+				border-radius: 4px
+				&.side-a,
+				&.side-b
+					width: 2em
+			.side-a
+				transform: rotateX(90deg) rotateY(-90deg) translateX(2em) translateY(1em) translateZ(1em)
+			.side-b
+				transform: rotateX(90deg) rotateY(-90deg) translateX(4em) translateY(1em) translateZ(-1em)
+				position: absolute
+				right: 0
+			.side-0
+				transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(-1em)
+			.side-1
+				transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(3em)
+			.top
+				transform: rotateX(0deg) rotateY(0) translateX(0em) translateY(4em) translateZ(2em)
+			.floor
+				box-shadow: 0 .1em 0.6em rgba(0,0,0,.3), .6em -0.5em 3em rgba(0,0,0,.3), 1em -1em 8em #fff
+		.growing-bar
+			height: 2em
+			animation-duration: 3s
+			animation-name: width
+			background-image: linear-gradient(to right, #ff0000,  #f26807, #F26808, #F26807, #29fc00, #29fc00, #29fc00)
+			background-size: 11em 1.95em
+			position: relative
+			border-radius: 3px
+			.precentage-block
+				position: absolute
+				right: 0 
+				top: 0
+				transform: rotate(360deg)
+				.arrow-right
+					position: absolute
+					bottom: auto
+					left: auto
+					right: -30px
+					transform: rotateX(180deg)
+					top: 80px
+					font-size: 9px
+					&:before
+						top: 16px
+						right: 50%
+						border-bottom: 8px solid #0000
+						border-left: 8px solid #0000
+						border-top: 19px solid #bcd7ff99
+						transform: translateX(-50%)
+				i
+					font-size: 11px
+					display: block
+					transform: rotateX(180deg)
+					margin-top: 17px
+					margin-right: 4px
+		.text-center-area
+			position: absolute
+			bottom: 49px
+			text-align: center
+			width: 100%
+			margin-bottom: 0px
+			font-size: 11px
+.new-report-btn.reports-btn-area
+	width: 100%
+	span
+		padding: 2px 10px 5px 0
+		width: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		i
+			width: 20px
+			height: 20px
+			line-height: 20px
+			position: absolute
+			right: 0
+			svg
+				transform: rotate(180deg)
+				transition: all 0.3s ease-in-out
+	&.active
+		span
+			i
+				svg
+					transform: rotate(0deg)
+					transition: all 0.3s ease-in-out
+select.new-report-btn
+	background-color: rgb(240, 240, 248)
+	padding: 4px 10px
+
+.company-audit-page 
+	.report-start
+		width: 80%
+		margin: 10px auto 0
+		.right-list
+			list-style: none
+			li
+				display: flex
+				justify-content: space-between
+				font-weight: 600
+				span 
+					font-weight: 400
+.benchmark-report-page
+	padding: 0
+	padding-bottom: 30px
+	.container
+		padding: 0
+	.investmentcertificate-page
+		.header-area
+			height: 381px
+		.certificate-area
+			margin-bottom: 44px
+			.portfolio-overall
+				.progress
+					width: 106px
+					height: 1rem
+					.progress-bar
+						background-size: 9em 1.95em
+						border-radius: 3px
+				.progress-box-vertical
+					.text-center-area
+						bottom: -67px
+						width: 100%
+						text-align: center
+						transform: translateX(-42%)
+						font-size: 11px !important
+.checklist-page
+	padding: 40px 0
+.h0-5rem
+	height: 0.7rem
+.w0-5rem
+	width: 0.7rem
+.edit-pencil
+	top: 3px
+table 
+	thead
+		z-index: 2
+.checklist-page 
+	.table-area-company-log 
+		.table-company-log 
+			tbody 
+				tr 
+					td
+						min-width: 100px
+						width: auto
+			thead 
+				tr 
+					th
+						min-width: 100px
+						width: auto
+.reprot-btn-dropdowns
+	width: 365px
+	.MuiFormControl-root
+		margin: 0
+		min-width: 95px
+		font-size: 14px
+		margin-top: -4px
+		#demo-simple-select-label
+			font-size: 14px
+			top: -9px
+			&.Mui-focused
+				top: 0px	
+		#demo-simple-select
+			padding: 5px 25px 5px 15px
+		label
+			margin-top: -5px
+			font-size: 14px
+	.MuiSelect-select
+		background: #e4effa !important
+		border-bottom: 2px solid #1976d2 !important
+		padding: 9px 32px 10px 11px !important
+		border-radius: 5px
+.dropdown-company-dahboard
+	.MuiFormControl-root
+		margin: 0
+		min-width: 95px
+		font-size: 14px
+		margin: 11px 10px 0
+		#demo-simple-select-label
+			font-size: 14px
+			top: -9px
+			&.Mui-focused
+				top: 0px	
+		#demo-simple-select
+			padding: 5px 25px 5px 15px
+		label
+			margin: -8px 0 0 0
+			font-size: 14px
+	.MuiSelect-select
+		background: #e4effa !important
+		border-bottom: 2px solid #1976d2 !important
+		padding: 4px 32px 8px 11px !important
+		border-radius: 5px !important
+.company-audit-page 
+	.dropdown-add-group
+		width: 350px
+		margin: 0 auto
+.w180px
+	width: 180px
+.w60px
+	width: 60px
+.aic.advisor-index
+	.table-company-repository
+		width: 600px
+.all-reprots-area
+	&.extenstion-pack-btn-groups
+		&.op20
+			opacity: 1
+			.btn-packges
+				color: #002d6340
+				background-color: #f0f0f880
+				border-color: #ccc
+				transition: all .3s ease-in-out
+				.btn-packge
+					pointer-events: none
+					color: #002d6340
+					background-color: #f0f0f880
+					border-color: #ccc
+					&:hover
+						box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+.advisor-bg
+	background-color: #efefef
+.investor-bg
+	background-color: #f8cacf
+.client-bg
+	background-color: #fff
+
+.advisor-profile
+	background-color: #4a67ff
+	color: #ffffff
+.investor-profile
+	background-color: #4a67ff
+	color: #ffffff
+.client-profile
+	background-color: #fc7785
+	color: #ffffff
+
+.investor-circle 
+	.CircularProgressbar .CircularProgressbar-trail
+		stroke: #f6f6f6 !important
+.report-start
+	&.invest-reports
+		.progress-area-report
+			.progress-box
+				margin: 0 auto !important
+				text-align: center
+				&:before, &:after
+					display: none
+			.right-list
+				li
+					span
+						width: auto
+.report-start
+	.progress-area-report
+		&.progress-fit-report
+			.progress-area
+				.progress-box
+					&:before, &:after
+						display: none
+.fitmetrics-reports.pr .matrics-box:nth-child(odd)
+	background-color: rgb(240, 240, 248, 44%)
+.fitmetrics-reports.pr .matrics-box
+	padding: 5px 10px
+.fitmetrics-reports.pr .matrics-box .box-text
+	text-align: center
+	border: 1px solid #00000020
+	width: 186px
+	font-size: 12px
+	border-radius: 4px
+	background-color: #fff
+	box-shadow: 0 6px 12px -2px #32325d10, 0 3px 7px -3px #0000004d
+	word-break: break-all
+	padding: 0 7px
+	box-sizing: border-box
+.fitmetrics-reports.pr .matrics-box p
+	width: 201px
+	font-size: 13px
+.invest-box-funds .group-inputs p b
+	display: block
+	font-size: 16px
+.invest-box-funds .group-inputs p b .tooltip-area-company-settings
+	position: relative
+	top: 0
+.invest-box-funds .group-inputs p b .tooltip-area-company-settings .icon img 
+	width: 15px
+.switch-box span.Mui-checked
+	color: #40dda1
+.switch-box span.Mui-checked+.MuiSwitch-track
+	background-color: #40dda1
+.funds-box
+	.item-box
+		width: 100%
+		label
+			margin-bottom: 7px
+		.MuiInputBase-root
+			&::before, &::after
+				display: none
+			.MuiSelect-select
+				padding: 10px 27px 10px 15px
+				background-color: #f0f0f8
+				border-radius: 4px
+.select-box .MuiInputBase-root
+	min-width: 330px
+.content-area 
+	button
+		min-width: 87px
+		font-size: 11px
+		display: block
+		text-align: center
+		margin: -7px auto -3px
+		padding: 4px 10px
+	.right-list
+		text-align: right
+		margin: 0
+		padding: 0
+		list-style: none
+		position: relative
+		li
+			margin-bottom: 3px
+			font-size: 14px
+			font-weight: 700
+			span
+				width: 250px
+				font-weight: 400
+				display: inline-block
+	.logo-box
+		text-align: center
+		margin-bottom: 20px
+.bottomlist-area
+	.list-box
+		.list
+			margin: 9px 0 0 0
+			padding: 0
+			list-style: none
+			li
+				margin-bottom: 5px
+				position: relative
+				span
+					img
+						width: 11px
+				.tooltip-area-company-settings
+					right: 33px
+					top: 0
+.sidebar-inveter
+	height: 95.3vh
+	position: relative
+	.mta
+		position: absolute
+		bottom: 0
+		width: 94%
+.qustion-box 
+	.tooltip-area-company-settings
+		top: -28px
+		right: -38px
+	.rightanswer-text
+		.df.jce
+			top: -15px
+			position: absolute
+			right: -28px
+.background-invest
+	background-image: url(../images/google-gemini-cover.png)
+	background-size: 37%
+	background-repeat: no-repeat
+	background-position: center
+.background-des
+	background-image: url(../images/google-gemini-cover.png)
+	background-size: 30%
+	background-repeat: no-repeat
+	background-position: center
+	textarea
+		background-color: transparent
+.fitmetrics-reports.pr .matrics-box .icon
+	text-align: center
+	background-color: #fff
+	border: 1px solid #00000020
+	border-radius: 4px
+	padding: 2px
+	box-shadow: 0 6px 12px -2px #32325d10, 0 3px 7px -3px #0000004d
+	width: 27px
+	height: 22px
+	box-sizing: border-box
+.fitmetrics-reports.pr .matrics-box .icon svg
+	width: 17px
+	height: 17px
+.fitmetrics-reports.pr .matrics-box.style-two .icon
+	box-shadow: none
+	padding: 0
+	width: 27px
+	border: none
+	background-color: transparent
+.fitmetrics-reports.pr .matrics-box.style-two .box-text
+	border: none
+	box-shadow: none
+	background-color: transparent
+.report-start.fitmetrics-reports .reports-table thead tr th, 
+.report-start.fitmetrics-reports .reports-table tbody tr td
+	min-width: auto !important
+	width: 20% !important
+	padding: 10px
+	text-align: left
+	background: none !important
+	vertical-align: top
+.report-start.fitmetrics-reports .reports-table tbody tr td
+	background-color: #fff !important
+	box-shadow: 0 6px 12px -2px #32325d20, 0 3px 7px -3px #0000004d
+	padding: 10px 19px
+	border-radius: 5px
+	border-right: 2px solid #002d63
+	border-top: 5px solid #002d63
+.report-start.fitmetrics-reports .reports-table thead tr th
+	text-align: center
+	font-size: 12px
+	background-color: #f0f0f8 !important
+	border-radius: 12px
+	transition: all .3s ease-in-out
+	border: 1px solid #4cff88
+.report-start.fitmetrics-reports .reports-table thead tr th:hover
+	box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+.report-start.fitmetrics-reports .reports-table thead tr th img
+	display: block
+	margin: 0 auto
+.report-start.fitmetrics-reports .reports-table tbody tr td ul
+	padding: 0
+.report-start.fitmetrics-reports .reports-table tbody tr td ul li, 
+.report-start.fitmetrics-reports .reports-table tbody tr td ul p
+	font-size: 11px
+	margin-bottom: 13px
+.report-start.fitmetrics-reports .reports-table tbody tr td ul ul
+	margin-left: 15px
+.report-start.fitmetrics-reports .reports-table tbody tr td ul p.border-box
+	border: 1px solid #ccc
+	padding: 5px
+.gtcr-bespoked
+	grid-template-columns: 31.33% 31.33% 31.33%
+.btn-group.fit-btn-group
+	.new-report-btn
+		margin-bottom: 10px
+		padding: 4px
+		span
+			font-size: 1.1rem
+.progress-area ul.list-company-detail
+	display: flex
+	flex-wrap: wrap
+	width: 100%
+	padding: 0
+	li
+		display: flex
+		width: 47%
+		background-color: #fff
+		box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+		border-radius: 5px
+		padding: 11px
+		box-sizing: border-box
+		margin-left: 15px
+		margin-bottom: 11px
+		&.button-list
+			background-color: transparent
+			box-shadow: none
+		p
+			margin-right: 7px
+
+.modal-bio .user-area
+	display: flex
+	align-items: center
+.modal-bio .user-area .text-box
+	margin-left: 16px
+.investor-details-form .switch-box
+	top: 15%
+.investor-details-form
+	.edit-btn
+		transition: all .3s ease-in-out
+		display: inline-block
+		.edit-pencil
+			cursor: pointer
+			background-color: transparent
+			border: none
+			margin-left: 11px
+			svg
+				fill: #fc7785
+				width: 15px
+				height: 15px
+				position: relative
+				top: 2px
+.sidebar-investor
+	right: 0
+	width: 78%
+	left: auto !important
+	.MuiBackdrop-root
+		background-color: #fff
+	.w60
+		width: 90%
+		span.w200px
+			display: none
+		.logo-report.w60
+			margin: 0 auto
+			width: 100%
+			text-align: center
+.list-fit
+	list-style: none
+.multiselect-invest
+	fieldset
+		border: none !important
+.blur-disabled
+	filter: blur(2.5px)
+	pointer-events: none
+	cursor: not-allowed
+	user-select: none
+.view-btn-fit
+	i
+		display: block
+		color: #4a67ff
+	span
+		color: #4a67ff
+	&:hover
+		i
+			display: block
+			color: #fc7785
+		span
+			color: #fc7785
+.mr16rem
+	margin-right: 16rem
+.dots-fit-report i
+	font-size: 11px
+	margin: 0 1px
+.investor-dropdown
+	.MuiInputBase-root
+		width: 130px
+		#investor-dropdown
+			background: #e4edf7 !important
+			border: none !important
+			font-size: 13px !important
+			padding: 7px 32px 7px 10px !important
+		fieldset
+			border: none !important
+[aria-labelledby="investor-multiple-checkbox-label"]
+	.MuiButtonBase-root
+		.MuiTypography-root
+			font-size: 12px
+			color: #000
+		.MuiButtonBase-root
+			padding: 0
+			margin-right: 9px
+.tp5px
+	top: 3px
+.a4-fit-pdf
+	width: 210mm
+	height: 320mm
+.dropdown-company-dahboard .progress-area-report.progress-fit-report
+	margin-top: -77px
+.dropdown-company-dahboard .progress-area-report.progress-fit-report .progress-area .progress-box
+	margin: 0 0px 12px 15px
+.dropdown-company-dahboard .progress-area-report.progress-fit-report .progress-area .progress-box::before, 
+.dropdown-company-dahboard .progress-area-report.progress-fit-report .progress-area .progress-box::after
+	display: none
+.advisor-index .MuiTabs-root
+	position: relative
+	z-index: 9
+.dropdown-company-dahboard .progress-area-report.progress-fit-report .tooltip-area .icon img
+	width: 14px
+.dropdown-company-dahboard .progress-area-report.progress-fit-report .progress-area .tooltip-area .overlay-box::before
+	display: none
+.ReactTable .-pagination .-next .-btn, 
+.ReactTable .-pagination .-previous .-btn
+	border-radius: 5px
+	background-color: #4a67ff
+	color: #fff
+	transition: all 0.3s ease-in-out
+.ReactTable .-pagination .-next .-btn:hover,
+.ReactTable .-pagination .-previous .-btn:hover
+	background-color: #fc7785 !important
+.funds-item.w33
+	width: 32.33%
+.content-area 
+	.right-list 
+		li 
+			span 
+				.group-inputs 
+					p 
+						.edit-btn 
+							width: auto
+							.edit-pencil
+								min-width: auto
+								margin: 0 0 0 9px
+								padding: 0
+@supports (-webkit-appearance:none) and (stroke-color:transparent)
+	.menu-safari
+		z-index: 5
+		right: 0
+		&.r0
+			&.showing
+				right: 0
+	.menu-safari:not(.showing)
+		
+		&.showing
+			right:0
+	.report-page
+		.sidebar-report
+			.p0-5rem
+				button
+					font-size: 11px
+					padding: 5px 8px
+			.mta
+				.fs1-2rem
+					font-size: 1rem
+			.mah100
+				&.mya
+					&.oya
+						&.df
+							&.fdc
+								&.jcsb
+									max-height: 43vh
+	.table-of-content
+		.list-table
+			li
+				&:nth-child(1)
+					&:before
+						width: 70%
+				&:nth-child(2)
+					&:before
+						width: 70%
+				&:nth-child(3)
+					&:before
+						width: 70%
+				&:nth-child(4)
+					&:before
+						width: 55%
+		&.style-two
+			.list-table
+				li
+					&:nth-child(1)
+						&:before
+							width: 66%
+					&:nth-child(2)
+						&:before
+							width: 66%
+					&:nth-child(3)
+						&:before
+							width: 66%
+	.extenstion-pack-btn-groups
+		.btn-packge
+			.trophy-cup
+				top: 68px
+				img
+					width: 45px !important
+	.sectionWrapper
+		.group-inputs
+			&.link-group
+				p
+					a
+						width: 100px
+	.back-btn
+		top: 9px
+		left: -266px
+	#root
+		overflow: hidden
+	.right-text
+		text-align: right
+	.fdrr-sf
+		flex-direction: row-reverse
+	.company-dashboard-sf
+		display: flex
+		justify-content: space-between
+		.fs1rem
+			font-size: 0.75rem
+		.fs0-75rem
+			font-size: .55rem
+	.certificate-area-dashboard
+		zoom: 0.6
+		margin-top: 24px		
+		.w7rem
+			width: 4rem
+	.extenstion-pack-sf
+		display: flex
+		
+		.button-groups-new
+			width: 15.5%
+			font-size: 12px
+			.percentage-area
+				zoom: 0.6
+			.tooltip-area
+				&.style-two
+					top: -15px
+		.certificate-tooltip-box
+			width: 15.5%
+			font-size: 12px
+			.btn-packge
+				width: 100%
+				font-size: 12px
+	.extanstion-pack-two-sf
+		display: flex
+		flex-wrap: wrap
+		.btn-packge
+			width: 20%
+			font-size: 12px
+			&.style-two
+				width: 30%
+			.audit-pakcges
+				width: 295px
+				margin-bottom: 10px
+				padding: 10px 7px
+				.right-area
+					p
+						font-size: 11px
+				.h3rem
+					height: 1rem
+			.percentage-area
+				zoom: 0.6
+			.tooltip-area
+				&.style-two
+					top: -15px
+	.extenstion-pack-btn-groups
+		.fs1-5rem
+			font-size: 1rem
+		.button-groups-new
+			padding-right: 0
+		.btn-packge 
+			.ribbon
+				zoom: 0.7
+	.certificates-page 
+		.certificates-current 
+			.packge-select
+				zoom: .5
+				.w7rem
+					width: 4rem
+				.w250px
+					width: 312px
+	.footer-sec 
+		.check-box 
+			.certification-pricing-column
+				zoom: .6
+				width: 364px
+				right: 150px
+	.pricing-table-saf
+		display: flex
+		flex-wrap: wrap
+		.pricing-column-saf
+			width: 26%
+		.price-box-saf
+			width: 60px
+			height: 60px
+			font-size: 1rem
+	.company-dashboard-sf 
+		h4
+			width: 6rem
+		.w20
+			&.mr2rem
+				margin-right: 16px
+		.dashboard-btn
+			padding: 0.4rem
+		.username-area
+			&.mr0-5rem
+				margin-right: 0px
+			.w2rem
+				width: 1.6rem
+				height: 1.6rem
+				font-size: 12px
+				margin-right: 0
+	.dropdown-company-dahboard 
+		.dropdown-content
+			h4
+				width: 4rem 
+			.certificate-area-dashboard
+				zoom: .6
+	.container 
+		padding-left: 2.5rem
+		padding-right: 2.5rem
+	.footar-saf
+		display: flex
+		flex-wrap: wrap
+		.footer-column
+			width: 47%
+	.report-page 
+		.container
+			padding-right: 1rem
+			padding-left: 1rem
+	.report-upload-area-saf
+		display: flex
+		flex-wrap: wrap
+		> div
+			flex-grow: 1
+			flex-basis: 46%
+	.btn-dataroom-saf
+		display: flex
+		justify-content: space-between
+	.extanstion-pack-two-sf
+		display: flex
+		flex-wrap: wrap
+		.btn-packges
+			width: 18.5%
+			.btn-packge
+				width: 100%
+
+@media only screen and (max-width: 1600px)
+	.reprot-btn-dropdowns
+		width: 365px
+	.report-page
+		.sidebar-report
+			.mah100
+				&.mya
+					&.oya
+						&.df
+							&.fdc
+								&.jcsb
+									max-height: 43vh
+			.siedbar-dropdwon
+				max-height:63vh
+	.certificates-page
+		.certificates-current
+			.packge-select
+				.w250px
+					width: 100%
+	.extenstion-pack-btn-groups
+		.btn-packge
+			.trophy-cup
+				img
+					width: 48px !important
+	.sectionWrapper
+		.group-inputs
+			&.link-group
+				p
+					a
+						width: 140px
+@media only screen and (max-width: 1525px) 
+	.reprot-btn-dropdowns
+		width: 320px
+@media only screen and (max-width: 1500px) 
+	.reprot-btn-dropdowns
+		width: 300px
+@media only screen and (max-width: 1450px)
+	.reprot-btn-dropdowns
+		width: 260px
+	.report-page
+			.sidebar-report
+				.p0-5rem
+					h3
+						font-size: 14px
+						line-height: 14px
+					button
+						font-size: 11px
+				.mah100
+					&.mya
+						&.oya
+							&.df
+								&.fdc
+									&.jcsb
+										max-height: 46vh 
+	.investmentcertificate-page
+		.header-area
+			background-size: 100% 100%
+			height: 306px
+		.certificate-area
+			margin-top: -168px
+	.certification-pricing-column
+		right: 390px !important
+	.extenstion-pack-btn-groups
+		.btn-packge
+			.ribbon
+				right: -30px
+				img
+					width: 80px
+				&.bronze, &.silver, &.gold
+					img
+						width: 46px
+	.step-box
+		zoom: 0.8
+	#confirmDescriptionModal
+		.fs1rem
+			font-size: 11px
+		.p3rem
+			padding: 1.5rem
+		.my1rem
+			margin: 13px 0 0
+			padding: 12px
+	#welcome2MinuteTestModal
+		.tac
+			p
+				font-size: 12px
+		.p3rem
+			padding: 2.5rem 1.5rem 1.5rem
+		.my1rem
+			margin: 13px 0 0
+			padding: 12px
+	#dataRepositoryModal
+		.tac
+			p
+				font-size: 12px
+			li
+				font-size: 12px
+		.p3rem
+			padding: 2.5rem 1.5rem 1.5rem
+		.my1rem
+			margin: 13px 0 0
+			padding: 12px
+	.slider-container 
+		.item
+			min-width: 209px
+			max-width: 209px
+	.table-of-content
+		.list-table
+			li
+				&:nth-child(1)
+					&:before
+						width: 74%
+				&:nth-child(2)
+					&:before
+						width: 74%
+				&:nth-child(3)
+					&:before
+						width: 74%
+				&:nth-child(4)
+					&:before
+						width: 60%
+		&.style-two
+			.list-table
+				li
+					&:nth-child(1)
+						&:before
+							width: 70%
+					&:nth-child(2)
+						&:before
+							width: 70%
+					&:nth-child(3)
+						&:before
+							width: 70%
+	.extenstion-pack-btn-groups
+		.btn-packge
+			.trophy-cup
+				img
+					width: 48px !important
+	.sectionWrapper
+		.group-inputs
+			&.link-group
+				p
+					a
+						width: 120px
+	.benchmark-report-page
+		.investmentcertificate-page
+			.header-area
+				height: 165px
+			.certificate-area
+				margin-bottom: 24px
+				margin-top: -60px
+	.investor-leads-tooltip 
+		.tooltip-area
+			&.mr16rem
+				margin-right: 12rem
+	.right-slide-box 
+		.btn-area
+			button
+				font-size: 15px
+	.btn-plus-sidebar
+		font-size: 2rem !important
+		padding: 0 !important
+		right: 10px
+		top: 146px !important
+@media only screen and (max-width: 1420px)
+	.reprot-btn-dropdowns
+		width: 220px
+@media only screen and (max-width: 1400px)
+	.reprot-btn-dropdowns
+		width: 200px
+@media only screen and (max-width: 1366px)
+	.report-page
+		.sidebar-report
+			.p0-5rem
+				button
+					font-size: 11px
+					padding: 5px 8px
+			.mah100
+				&.mya
+					&.oya
+						&.df
+							&.fdc
+								&.jcsb
+									max-height: 38vh
+			.siedbar-dropdwon
+				max-height: 60vh
+	.table-of-content
+		.list-table
+			li
+				&:nth-child(1)
+					&:before
+						width: 70%
+				&:nth-child(2)
+					&:before
+						width: 70%
+				&:nth-child(3)
+					&:before
+						width: 70%
+				&:nth-child(4)
+					&:before
+						width: 55%
+		&.style-two
+			.list-table
+				li
+					&:nth-child(1)
+						&:before
+							width: 66%
+					&:nth-child(2)
+						&:before
+							width: 66%
+					&:nth-child(3)
+						&:before
+							width: 66%
+	.extenstion-pack-btn-groups
+		.btn-packge
+			.trophy-cup
+				top: 68px
+				img
+					width: 45px !important
+	.sectionWrapper
+		.group-inputs
+			&.link-group
+				p
+					a
+						width: 100px
+	.back-btn
+		top: 9px
+		left: -266px
+	.certificate-area-dashboard 
+		.w250px
+			width: 230px
+	.reprot-btn-dropdowns
+		width: 165px
+	.certificate-area-dashboard
+		width: 100%
+	.right-slide-box 
+		.btn-area
+			button
+				font-size: 14px
+	.additional-sections-button
+		.btn-packge
+			font-size: .55rem !important
+	.btn-plus-sidebar
+		top: 140px !important
+@media only screen and (max-width: 1340px)
+	.reprot-btn-dropdowns
+		width: 160px
+	.certificate-area-dashboard
+		width: 203px
+		.w250px
+			width: 203px
+		.fs0-75rem
+			font-size: 0.5rem
+@media only screen and (max-width: 1320px)
+	.certificate-area-dashboard
+		width: 176px
+		.w250px
+			width: 176px
+@media only screen and (max-width: 1300px)
+	.report-page
+		.sidebar-report
+			.mah100
+				&.mya
+					&.oya
+						&.df
+							&.fdc
+								&.jcsb
+									max-height: 38vh
+	.certification-pricing-column
+		right: 280px !important
+	.sectionWrapper
+		.group-inputs
+			&.link-group
+				p
+					a
+						width: 80px
+	.certificate-area-dashboard
+		width: 164px
+		.w250px
+			width: 164px
+@media only screen and (max-width: 1280px)
+	.reprot-btn-dropdowns
+		width: 150px
+@media only screen and (max-width: 1200px)
+	.certification-pricing-column
+		right: 165px !important
+	.slider-container 
+		.item
+			min-width: 220px
+			max-width: 220px
+	.table-of-content
+		.list-table
+			li
+				&:nth-child(1)
+					&:before
+						width: 65%
+				&:nth-child(2)
+					&:before
+						width: 65%
+				&:nth-child(3)
+					&:before
+						width: 65%
+				&:nth-child(4)
+					&:before
+						width: 50%
+		&.style-two
+			.list-table
+				li
+					&:nth-child(1)
+						&:before
+							width: 61%
+					&:nth-child(2)
+						&:before
+							width: 61%
+					&:nth-child(3)
+						&:before
+							width: 61%
+	.packge-select 
+		p
+			font-size: 9px
+	.certificate-area-dashboard
+		zoom: 0.5
+		display: flex
+	.back-btn
+		left: -223px
+	.right-slide-box 
+		.btn-area
+			button
+				min-height: 57px
+@media only screen and (max-width: 1199px)
+	.hero-saf
+		.w45
+			width: 100% !important
+	.certificate-area-dashboard
+		zoom: 0.4
+	.dropdown-company-dahboard
+		.dropdown-content 
+			.certificate-area-dashboard
+				zoom: 0.4
+	.dropdown-company-dahboard 
+		.w10rem
+			width: 7rem
+	#menu
+		background: linear-gradient(45deg, #002d63, #4a67ff)
+		width: 230px
+		height: 100vh
+		z-index: 5
+		right: 0
+		&.r0
+			right: -100%
+			&.showing
+				right: 0
+	#menu:not(.showing)
+		right:-100%
+		&.showing
+			right:0
+	.hero-saf 
+		.ma
+			width: 100%
+	
+@media only screen and (max-width: 1034px)
+	.table-of-content
+		.list-table
+			li
+				&:nth-child(1)
+					&:before
+						width: 55%
+				&:nth-child(2)
+					&:before
+						width: 55%
+				&:nth-child(3)
+					&:before
+						width: 55%
+				&:nth-child(4)
+					&:before
+						width: 40%
+		&.style-two
+			.list-table
+				li
+					&:nth-child(1)
+						&:before
+							width: 51%
+					&:nth-child(2)
+						&:before
+							width: 51%
+					&:nth-child(3)
+						&:before
+							width: 51%
+	.links-area-social
+		flex-wrap: wrap
+		.group-inputs
+			&.link-group
+				.edit-text
+					p
+						width: 100%
+@media only screen and (max-width: 991px)
+	.certification-pricing-column
+		right: auto !important
+		position: relative
+		top: 0
+	.certificates-page
+		.heading-area
+			background-size: 100% 114%
+		.certificates-current
+			.packge-select
+				flex-wrap: wrap
+				justify-content: space-between
+				.audit-pakcges
+					width: 26%
+					margin: 0
+		.badges-sec
+			.badges-area
+					flex-wrap: wrap
+					.left-upgrade-button
+						text-align: center
+						margin-top: 0
+						margin-right: 0
+						position: relative
+						margin-bottom: 20px
+		.data-check-sec
+			.gtcr3
+				grid-template-columns: repeat(2, 1fr)
+	.investmentcertificate-page 
+		.certificate-area
+			.left-area
+				.signure-area
+					.date-area
+						&.singature-area
+							margin-top: 0
+	.table-of-content
+		width: 91%
+	.certificate-area-dashboard
+		zoom: 0.4
+		display: flex
+	.progress-dashboard
+		.progress-box
+			margin-top: 10px
+			.progress-bar
+				width: 40px !important
+				height: 40px !important
+			.text-center-area
+				font-size: 12px !important
+	.investor-modal-admin .jcsb .ml1rem.w100
+		margin: 0
+	.investor-modal-admin .jcsb .mr1rem
+		margin-right: 0 !important
+		margin-bottom: 20px
+@media only screen and (max-width: 630px)
+	.certificates-page
+		.certificates-current
+			.packge-select
+				flex-wrap: wrap
+				justify-content: center
+				.audit-pakcges
+					width: 50%
+					margin: 0
+		.badges-sec
+			.gtcr3
+				grid-template-columns: repeat(2, 1fr)
+		.data-check-sec
+			.gtcr3
+				grid-template-columns: repeat(1, 1fr)
+	.footer-sec
+		h2
+			img
+				width: 100%
+		.certificates-current
+			.gtcr3
+				grid-template-columns: repeat(2, 1fr)
+		.upgrade-btn
+			h2
+				img
+					width: 57%
+@media only screen and (max-width: 490px)
+	.table-permission 
+		.table-userPermissions 
+			tbody 
+				tr 
+					td
+						&:first-child
+							position: relative
+	.footer-sec
+		h2
+			img
+				width: 100%
+		.certificates-current
+			.gtcr3
+				grid-template-columns: repeat(1, 1fr)
+		.upgrade-btn
+			h2
+				img
+					width: 57%
+		.certificates-current
+			.packge-select
+				.audit-pakcges
+					width: 86%
+	.certificates-page
+		.badges-sec
+			.gtcr3
+				grid-template-columns: repeat(1, 1fr)
+			.certificates-current
+				.packge-select
+					.audit-pakcges
+						width: 86%
+		.heading-area
+			p
+				font-size: 11px
+			h2
+				font-size: 1rem
+		.progress-sec
+			.progress-list
+				flex-wrap: wrap
+	.table-of-content
+		width: 80%
+		.list-table
+			li
+				&:nth-child(1)
+					&:before
+						width: 45%
+				&:nth-child(2)
+					&:before
+						width: 45%
+				&:nth-child(3)
+					&:before
+						width: 45%
+				&:nth-child(4)
+					&:before
+						width: 25%
+		&.style-two
+			.list-table
+				li
+					&:nth-child(1)
+						&:before
+							width: 41%
+					&:nth-child(2)
+						&:before
+							width: 41%
+					&:nth-child(3)
+						&:before
+							width: 41%
+	.investmentcertificate-page 
+		.certificate-area 
+			.right-area 
+				.op70 
+					img
+						width: 100%
+
+@media print
+	.text-gradient
+		background: none !important
+		background-clip: unset !important
+		text-fill-color: #fff !important
+		color:#fff !important
+	.minh100vh-report
+		height: 100vh !important	
+	.mih100vh
+		height: 100vh !important
+	.new-report
+		&.p3rem
+			padding: 0 !important
+		.w100
+			width: auto !important
+	.report-start
+		h2
+			color: #fff !important
+	.a4-fit-print
+		width: 210mm
+		height: 280mm
+.dropdown-section-header 
+	padding: 5px
+	zoom: .9
+	border-bottom: 1px solid #00000020
+	border-radius: 5px
+	transition: all .3s ease-in-out
+	&:hover
+		box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+.vh
+	visibility: hidden
+
+.filing-assistant-pos
+	grid-column-end: -1
+
+.badge
+	border-radius: 0.375rem
+	color: #fff
+	display: inline-block
+	font-size: 0.75em
+	font-weight: 700
+	line-height: 1
+	padding: 0.35em 0.65rem
+	text-align: center
+	vertical-align: initial
+	white-space: nowrap
+	margin-left: 0.5rem
+	background-color: #dc3545
+
+.file-import-Summary
+	table tr:nth-child(2n), .tableRow:nth-child(2n)
+		background: #E1E1F155
+	table tr > *:nth-child(2n), .tableRow > *:nth-child(2n)
+		background: #E1E1F155
+	table
+		border-spacing: 0px
+	table th
+		font-weight: 600
+	table th, table td
+		padding: 0.5rem 1rem
+		outline: 0
+		min-width: 200px
+		width: 20%
+	table thead th
+		font-size: 1.5rem
+		border-bottom: 2px solid #002d63
+		background: #fff !important
+		text-align: center
+	table td
+		text-align: center
+	table tbody th
+		background: #fff
+		border-right: 2px solid #002d63
+
+.bbn
+	border-bottom: none !important
+
+.fis-th
+	font-size: 1.5rem
+	border-bottom: 2px solid #002d63
+	background: #fff !important
+	text-align: center
+
+.fis-th1
+	font-size: 1.5rem
+	border-bottom: 2px solid #002d63
+	background: #fff !important
+
+.fis-th-action
+	width: 10%
+	min-width: 170px !important
+
+.fis-td
+	padding: 0.5rem 3rem
+	outline: 0
+	min-width: 200px
+	width: 20%
+	background: #fff !important
+
+.fis-td-action
+	min-width: 0px !important
+	width: 10% !important
+
+.fis-tr
+	border-bottom: 1px solid #002d63
+
+.bcc
+	border-collapse: collapse
+
+.frs-th
+	min-width: unset !important
+
+.frs-td
+	min-width: unset !important
+	width: unset !important
+
+.frs-table td:nth-child(odd)
+	background: #E1E1F155 !important
+
+.frs-table tbody tr
+	&:hover
+		background-color: #E1E1F1
+
+.uf-td
+	min-width: unset !important
+	width: unset !important
+	background :#fff !important
+
+.uf-table tbody tr
+	background: #fff !important
+
+.uf-table tbody tr
+	&:hover
+		background-color: #E1E1F1 !important
+
+.uf-table-tr
+	border-bottom: 1px solid #002d63
+	background :#fff !important
+
+.uf-th
+	font-size: 1.5rem
+	border-bottom: 2px solid #002d63
+	background: #fff !important
+	text-align: center
+	min-width: unset !important
+
+.fg1
+	flex-grow : 1
+.rv
+	resize: vertical
+
+.filing-assistant-info
+	margin-top: -24px
+	margin-right: -10px
+.repository-step
+	border-radius: 10px
+	border-width: 3px
+	border-color: #4A67FF
+	padding-left: 35px
+	padding-right: 35px
+	padding-top: 5px
+	padding-bottom: 5px
+	border-style: solid
+	width: 80%
+	display: flex
+	align-items: center
+	min-height: 50px
+
+.repository-manual
+	height: 514px !important
+
+.question-button
+	width: 21px
+	height: auto
+.tooltip-area-custom
+	position: absolute
+	top: -6px
+	right: -8px
+	.icon
+		position: relative
+		display: inline-block
+		transition: all 0.3s ease-in-out
+		img
+			width: 18px
+			height: auto
+		.overlay-box
+			position: absolute
+			right: 34px
+			min-width: 350px
+			background-color: #fff
+			z-index: 999
+			top: 50%
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+			padding: 16px
+			border-radius: 8px
+			text-align: left
+			transition: all 0.3s ease-in-out
+			display: none
+			transform: translateY(-50%)
+			p
+				font-size: 13px
+				font-style: normal
+				text-transform: none
+			.bottom-text
+				p
+					font-size: 11px
+			.price
+				font-size: 19px
+				text-align: center
+				margin-top: 13px
+				font-style: normal
+			button
+				z-index: 999
+	&:hover
+		.overlay-box
+			display: block
+			transition: all 0.3s ease-in-out
+.additional-sections-button
+	.btn-packge
+		margin-top: 29px
+		margin-bottom: 3px
+		position: relative
+		border-radius: 5px
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		font-size:0.75rem
+		transition: all 0.3s ease-in-out
+		button
+			width: 100%
+			margin-top: 3px
+			transition: all 0.3s ease-in-out
+			transform: scale(0.6)
+		&:hover
+			box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+		.tooltip-area
+			position: absolute
+			top: -6px
+			right: -8px
+			.icon
+				position: relative
+				display: inline-block
+				transition: all 0.3s ease-in-out
+				img
+					width: 21px
+					height: auto
+				.overlay-box
+					position: absolute
+					right: 34px
+					min-width: 350px
+					background-color: #fff
+					z-index: 999
+					top: 50%
+					box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+					padding: 16px
+					border-radius: 8px
+					text-align: left
+					transition: all 0.3s ease-in-out
+					display: none
+					transform: translateY(-50%)
+					&:before
+						content: ""
+						position: absolute
+						right: -14px
+						width: 0px
+						height: 0px
+						border-style: solid
+						border-width: 15px 0 15px 15.9px
+						border-color: transparent transparent transparent #fff
+						transform: translateY(-50%)
+						top: 49%
+					p
+						font-size: 13px
+						margin-bottom: 5px
+						font-weight: 400
+						font-style: normal
+						text-transform: none
+					.bottom-text
+						p
+							font-size: 11px
+					.price
+						font-size: 19px
+						text-align: center
+						margin-top: 13px
+						font-style: normal
+					button
+						z-index: 999
+			&:hover
+				.overlay-box
+					display: block
+					transition: all 0.3s ease-in-out
+			&.style-two
+				top: -25px
+				right: -15px
+		
+.additional-sections-info
+	.tooltip-area
+		position: absolute
+		top: -6px
+		right: -8px
+		.icon
+			position: relative
+			display: inline-block
+			transition: all 0.3s ease-in-out
+			img
+				width: 21px
+				height: auto
+			.overlay-box
+				position: absolute
+				right: 34px
+				min-width: 350px
+				background-color: #fff
+				z-index: 999
+				top: 50%
+				box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+				padding: 16px
+				border-radius: 8px
+				text-align: left
+				transition: all 0.3s ease-in-out
+				display: none
+				transform: translateY(-50%)
+				&:before
+					content: ""
+					position: absolute
+					right: -14px
+					width: 0px
+					height: 0px
+					border-style: solid
+					border-width: 15px 0 15px 15.9px
+					border-color: transparent transparent transparent #fff
+					transform: translateY(-50%)
+					top: 49%
+				p
+					font-size: 13px
+					margin-bottom: 5px
+					font-weight: 400
+					font-style: normal
+					text-transform: none
+				.bottom-text
+					p
+						font-size: 11px
+				.price
+					font-size: 19px
+					text-align: center
+					margin-top: 13px
+					font-style: normal
+				button
+					z-index: 999
+		&:hover
+			.overlay-box
+				display: block
+				transition: all 0.3s ease-in-out
+		&.style-two
+			top: -25px
+			right: -15px
+
+.menuHover
+	.btn-filing-assistant
+		.tooltip-area
+			position: absolute
+			top: -6px
+			right: -8px
+			.icon
+				position: relative
+				display: inline-block
+				transition: all 0.3s ease-in-out
+				img
+					width: 21px
+					height: auto
+				.overlay-box
+					position: absolute
+					left: 34px
+					min-width: 350px
+					background-color: #fff
+					z-index: 999
+					top: 50%
+					box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+					padding: 16px
+					border-radius: 8px
+					text-align: left
+					transition: all 0.3s ease-in-out
+					display: none
+					transform: translateY(-50%)
+					&:before
+						content: ""
+						position: absolute
+						left: -14px
+						width: 0px
+						height: 0px
+						border: 15px solid transparent
+						border-right: 15.9px solid #fff
+						border-left-width: 0px
+						transform: translateY(-50%)
+						top: 49%
+					p
+						color: #002D63
+						font-size: 13px
+						margin-bottom: 5px
+						font-weight: 400
+						font-style: normal
+						text-transform: none
+					button
+						z-index: 999
+			&:hover
+				.overlay-box
+					display: block
+					transition: all 0.3s ease-in-out
+			&.style-two
+				top: -25px
+				right: -15px
+
+.investor-leads-tooltip
+	.tooltip-area
+			position: absolute
+			.icon
+				position: relative
+				display: inline-block
+				transition: all 0.3s ease-in-out
+				img
+					width: 18px
+					height: auto
+				.overlay-box
+					position: absolute
+					min-width: 300px
+					left: 34px
+					background-color: #fff
+					z-index: 999
+					box-shadow: 0 6px 12px -2px #32325d40, 0 3px 7px -3px #0000004d
+					padding: 16px
+					border-radius: 8px
+					text-align: left
+					transition: all 0.3s ease-in-out
+					display: none
+					transform: translateY(-50%)
+					&:before
+						content: ""
+						position: absolute
+						left: -14px
+						width: 0px
+						height: 0px
+						border: 15px solid transparent
+						transform: translateY(-50%)
+						top: 49%
+					p
+						color: #002D63
+						font-size: 13px
+						margin-bottom: 5px
+						font-weight: 400
+						font-style: normal
+						text-transform: none
+			&:hover
+				.overlay-box
+					display: block
+					transition: all 0.3s ease-in-out
+
+.investor-leads-tooltip
+	.unselectable
+		color: #bfbfbf
+		cursor: not-allowed
+
+
+.inner-container
+	padding: 40px 300px
+.work-container
+	padding: 70px 70px
+
+.client-review-container
+	padding: 85px 200px 110px 200px
+
+.lplcbs
+	box-shadow: 6px 13px 13px rgba(7, 7, 7, 0.15)
+
+.how-its-work-container
+	padding:4ss0px 120px
+
+.vedio-container
+	padding: 120px 230px 140px 230px
+.pricing-container
+	padding: 120px 150px 120px 150px
+.register-container
+	width: 45%, 
+	padding: 70px 0px 70px  170px
+.lpins
+	border: 1px solid #00000057
+.lpbb
+	border-bottom :8px solid #4A67FF
+.not-sure-container	
+	padding: 100px 170px
+.bsflp
+	box-shadow:0px 4px 54px 0px #07070726
+.fsi
+	font-style: italic
+.main-banner-container
+	padding : 0px 150px
+
