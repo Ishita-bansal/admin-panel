@@ -24,7 +24,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
-import "./blog.css";
+
 import { styled } from "@mui/system";
 import {
   faEye,
@@ -79,7 +79,7 @@ const icons = [
   { icon: faEye, indetifier: "view" },
 ];
 
-function Blogdetail() {
+function Category() {
   
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
@@ -129,7 +129,7 @@ function Blogdetail() {
 
   const getdocument = async () => {
     try {
-      const collectionRef = collection(firestore, "Tic-tacs-games");
+      const collectionRef = collection(firestore, "categories");
       const querySnapshot = await getDocs(collectionRef);
       const data = [];
       querySnapshot.forEach((doc) => {
@@ -203,8 +203,8 @@ function Blogdetail() {
           onChange={(e) => setSearchQuery(e.target.value)}
           style={{ margin: "10px" }}
         />
-          <button onClick={() => navigate("/addBlog")} className="table-btn">
-            <FontAwesomeIcon icon={faPlus} /> Add Blog
+          <button onClick={() => navigate("/addcategory")} className="table-btn">
+            <FontAwesomeIcon icon={faPlus} /> Add category
           </button>
           </div>
           <Table>
@@ -235,7 +235,7 @@ function Blogdetail() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Description
+                  Total 
                 </TableCell>
                 <TableCell
                   style={{
@@ -270,7 +270,7 @@ function Blogdetail() {
                       }}
                     >
                       <div style={{ overflowY: "scroll", maxHeight: "100px" }}>
-                      {detail.desc}
+                      {detail.total}
                       </div>
                     </TableCell>
                     <TableCell style={{ textAlign: "center" }}>
@@ -362,4 +362,4 @@ function Blogdetail() {
   );
 }
 
-export default Blogdetail;
+export default Category;

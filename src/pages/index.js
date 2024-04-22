@@ -13,3 +13,5 @@ export {default as Blogdetail} from "./blogdetail";
 export {default as Addblog} from "./addblog";
 export {default as Editblog} from "./editblog";
 export {default as Viewblog} from "./viewblog";
+export {default as Category} from "./category";
+export {default as Addcategory} from "./addcategory";
