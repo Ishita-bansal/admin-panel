@@ -41,22 +41,19 @@ function Addcategory() {
         img: "",
         total: values.total,
       });
-      const imageRef = storageRef(storage,`images/${result.id}`)
+      const imageRef = storageRef(storage,`categoryimage/${result.id}`)
        await uploadBytes(imageRef,imagefile);
       const url = await getDownloadURL(imageRef);
-       
-
-        console.log("imageUrl=====>",url);
-       await updateDoc(doc(firestore, "Tic-tacs-games",result.id), {
+       await updateDoc(doc(firestore, "categories",result.id), {
         img: url,
       });
       setImageUrl(url);
-      
       }
      catch(error){
-      console.error("Error adding blog: ", error);
+      console.error("Error adding category: ", error);
      }
     }
+  
     
   const onSubmit = async(values) => {
     console.log("add categoies values", values);
@@ -146,7 +143,7 @@ function Addcategory() {
           </div>
           <div >
             <button type="submit" style={{backgroundColor:"#15313cbd",width:"150px",height:"50px",borderRadius:"40px",border:"none",outoline:"none",color:"white",marginLeft:"30px"}}>
-              ADD Category
+              Add Category
             </button>
           </div>
         </form>

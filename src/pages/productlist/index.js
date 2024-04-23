@@ -23,8 +23,6 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-
-
 import { styled } from "@mui/system";
 import {
   faEye,
@@ -34,7 +32,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { app } from "../../firebase/firebaseconfig";
 import { deleteDoc } from "firebase/firestore";
 import {getStorage,ref as storageRef,deleteObject} from "firebase/storage";
@@ -79,8 +76,7 @@ const icons = [
   { icon: faEye, indetifier: "view" },
 ];
 
-function Category() {
-  
+function Productlist() {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [rowsperPage, setrowsperPage] = useState(5);
@@ -95,22 +91,22 @@ function Category() {
       return;
     }  
   try{
-    const imageRef = storageRef(storage, `categoryimage/${selecteddata.id}`);
+    const imageRef = storageRef(storage, `productimage/${selecteddata.id}`);
     await deleteObject(imageRef);
 
-    const docRef = doc(firestore, "categories", selecteddata.id);
+    const docRef = doc(firestore, "products", selecteddata.id);
     await deleteDoc(docRef);
 
        const data = reciveData.filter((info)=>{
              return info.id !== selecteddata.id;
         }) 
-    //  console.log("data filtered=====>",data);
+  
      setReciveData(data);
      setSelecteddata({});
      setOpen(false);
     }
     catch(error){
-      console.error("Error deleting product: ", error);
+      console.error("Error deleting blog: ", error);
     }
   }
   const onChangePage = (event, nextPage) => {
@@ -129,7 +125,7 @@ function Category() {
 
   const getdocument = async () => {
     try {
-      const collectionRef = collection(firestore, "categories");
+      const collectionRef = collection(firestore, "products");
       const querySnapshot = await getDocs(collectionRef);
       const data = [];
       querySnapshot.forEach((doc) => {
@@ -146,6 +142,7 @@ function Category() {
     const fetchData = async () => {
       try {
         const data = await getdocument();
+        console.log('data==>',data)
         setReciveData(data);
       } catch (error) {
         console.error("Error fetching documents:", error);
@@ -157,7 +154,7 @@ function Category() {
   const onActionsHandler = (obj, detail) => {
    console.log("details=======>",detail);
     if (obj.indetifier === "edit") {
-        navigate(`/editcategory/${detail.id}`);
+        // navigate(`/editblog/${detail.id}`);
     }
 
     if (obj.indetifier === "delete") {
@@ -168,12 +165,13 @@ function Category() {
     }
 
     if (obj.indetifier === "view") {
-       navigate(`/viewcategory/${detail.id}`);
+      //  navigate(`/viewblog/${detail.id}`);
     }
   };
 
+  // console.log("recieveddata---------->",reciveData);
   const filteredData = reciveData.filter(item =>
-    item.title.includes(searchQuery)
+    item.productname.includes(searchQuery)
   );
 
 
@@ -181,7 +179,7 @@ function Category() {
     <>
       <div className="table-container">
           <div className="table-head">
-          <h1 style={{paddingTop:"20px"}}>Category Management</h1>
+          <h1>Product Management</h1>
           </div>
     
         <TableContainer
@@ -203,8 +201,8 @@ function Category() {
           onChange={(e) => setSearchQuery(e.target.value)}
           style={{ margin: "10px" }}
         />
-          <button onClick={() => navigate("/addcategory")} className="table-btn" style={{width:"200px"}}>
-            <FontAwesomeIcon icon={faPlus} /> Add category
+          <button onClick={() => navigate("/addproduct")} className="table-btn" style={{width:"200px"}}>
+            <FontAwesomeIcon icon={faPlus} /> Add Product
           </button>
           </div>
           <Table>
@@ -217,7 +215,7 @@ function Category() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Title
+                  Product Name
                 </TableCell>
                 <TableCell
                   style={{
@@ -226,7 +224,7 @@ function Category() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Image
+                 Product Image
                 </TableCell>
                 <TableCell
                   style={{
@@ -235,7 +233,25 @@ function Category() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Total 
+                Price
+                </TableCell>
+                <TableCell
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                    fontWeight: "bolder",
+                  }}
+                >
+                  Category
+                </TableCell>
+                <TableCell
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                    fontWeight: "bolder",
+                  }}
+                >
+                  Description
                 </TableCell>
                 <TableCell
                   style={{
@@ -249,32 +265,55 @@ function Category() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredData
+              { filteredData
                 ?.slice(page * rowsperPage, page * rowsperPage + rowsperPage)
                 .map((detail) => (
                   <TableRow key={detail.id}>
                     <TableCell
                       style={{ textAlign: "center", fontSize: "18px" }}
                     >
-                      {detail.title}
+                      {detail.productname}
                     </TableCell>
 
                     <TableCell
                       style={{ textAlign: "center", fontSize: "18px" }}>
-                     <img style={{width:"25%"}} src={detail.img} alt="image"/>
+                     <img style={{width:"35%"}} src={detail.img} alt="image"/>
                     </TableCell>
                     <TableCell
                       style={{
                         textAlign: "center",
                         fontSize: "18px", 
-                      }}>
+                      }}
+                    >
                       <div style={{ overflowY: "scroll", maxHeight: "100px" }}>
-                      {detail.total}
+                      {detail.price}
+                      </div>
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        textAlign: "center",
+                        fontSize: "18px", 
+                      }}
+                    >
+                      <div style={{ overflowY: "scroll", maxHeight: "100px" }}>
+                      {detail.category}
+                      </div>
+                    </TableCell>
+
+                    <TableCell
+                      style={{
+                        textAlign: "center",
+                        fontSize: "18px", 
+                      }}
+                    >
+                      <div style={{ overflowY: "scroll", maxHeight: "100px" }} dangerouslySetInnerHTML={{__html: detail.desc}}>
+                      
                       </div>
                     </TableCell>
                     <TableCell style={{ textAlign: "center" }}>
                       <div
-                        style={{ display: "flex", justifyContent: "center" }}>
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
                         {icons.map((obj, index) => (
                           <button
                             onClick={() => onActionsHandler(obj,detail)}
@@ -360,4 +399,5 @@ function Category() {
   );
 }
 
-export default Category;
+export default Productlist;
+

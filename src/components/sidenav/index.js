@@ -19,8 +19,6 @@ const Sidenav = () => {
         setsidenavopen(false);
     }
 
-
-
   return (
     <>   
        <div className="sidenav">
@@ -67,7 +65,9 @@ const Sidenav = () => {
             </div>
             <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
+                <Link to="/productlist" className="table-link"> 
               <p>Product</p>
+              </Link>
             </div>
             <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
