@@ -45,7 +45,7 @@ const Viewblog = ()=>{
       console.log("------------>",currentdata);
       return(
         <>
-        <h1 style={{marginTop:"60px"}}>User Data</h1>
+        <h1 style={{marginTop:"60px"}}>Blog Data</h1>
         {
             currentdata &&
             <div style={{borderRadius:"30px",margin:"40px",backgroundColor:"#f2f2f2",padding:"60px",width:"100%",height:"50vh",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"flex-start",gap:"20px"}}>

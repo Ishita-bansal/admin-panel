@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { doc,updateDoc, collection, getFirestore,getDocs} from "firebase/firestore";
 import { useParams } from "react-router-dom";
+import JoditEditor from "jodit-react";
 import { app } from "../../firebase/firebaseconfig";
 import {getStorage , ref as storageRef , uploadBytes , getDownloadURL} from "firebase/storage";
 const storage = getStorage(app);
@@ -15,14 +16,13 @@ const validationSchema = yup.object().shape({
   img:yup.mixed().test("fileType", "Only jpg, jpeg, or png files are allowed", (value) => {
     if (!value) return true; 
     const supportedFormats = [ "image/jpeg","image/jpg", "image/png"];
-    return supportedFormats.includes(value.type);
-  }).required("File is required"),
+    return supportedFormats.includes(value.type)}).required("Required*"),
    price: yup.number().required("Required*"),
    category: yup.string().notOneOf([""], "You must select an option!"),
    desc:yup.string().required("Required*")
 });
 
-function Editcategory() {
+function Editproduct() {
     const navigate = useNavigate();
     const [reciveData, setReciveData] = useState([]);
     const [currentdata , setcurrentdata] = useState(null);
@@ -88,8 +88,8 @@ function Editcategory() {
        
       }, [id,reciveData]);
   const onSubmit = (values) => {
-    
-    // console.log("Edit values", values);
+    handleUpdate();
+ 
   };
 
   const formik = useFormik({
@@ -106,7 +106,7 @@ function Editcategory() {
       <h1 style={{marginTop:"60px"}}>Edit Category</h1>
       <div className="blog-form-container">
         <form onSubmit={handleSubmit}>
-          <div className="blog-input-fields">
+          <div className="blog-input-fields" style={{height:"700px"}}>
             <div className="blog-input">
               <input
                 type="text"
@@ -175,9 +175,51 @@ function Editcategory() {
                 <p style={{ visibility: "hidden" }}>text</p>
               )}
             </div>
+            <div className="product-input">
+                <select value={values.category} onChange={(e)=>{setFieldValue("category",e.target.value)}}  onBlur={() => setTouched({ ...touched, category: true })}>
+                    <option value="Food">Food</option>
+                    <option value="Games">Games</option>
+                    <option value="Beverages">Beverages</option>
+                </select>
+            </div>
+            {touched.category && errors.category ? (
+                <p
+                  style={{
+                    paddingLeft: "20px",
+                    color: "red",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {errors.category}
+                </p>
+              ) : (
+                <p style={{ visibility: "hidden" }}>text</p>
+              )}
+        
+          <div className="editor-product-input" style={{width:"500px",height:"300px"}}>  
+            <JoditEditor  
+                value={values.desc}
+                onChange={(content) => setFieldValue("desc", content)}
+                onBlur={() => setTouched({ ...touched, desc: true })}
+              />
+              
+              {touched.desc && errors.desc ? (
+                <p
+                  style={{
+                    paddingLeft: "20px",
+                    color: "red",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {errors.desc}
+                </p>
+              ) : (
+                <p style={{ visibility: "hidden" }}>text</p>
+              )}
+            </div>
           </div>
-          <div className="blog-btn">
-            <button type="submit" onClick={handleUpdate} >
+          <div style={{display:"flex",justifyContent:"flex-end"}}>
+            <button style={{backgroundColor:"#15313cbd",width:"150px",height:"50px",borderRadius:"40px",border:"none",outoline:"none",color:"white",margin:"10px"}} type="submit" >
               EDIT
             </button>
           </div>
@@ -187,4 +229,4 @@ function Editcategory() {
   );
 }
 
-export default Editcategory;
+export default Editproduct;

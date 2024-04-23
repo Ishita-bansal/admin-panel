@@ -269,8 +269,8 @@ function Blogdetail() {
                         fontSize: "18px", 
                       }}
                     >
-                      <div style={{ overflowY: "scroll", maxHeight: "100px" }}>
-                      {detail.desc}
+                      <div style={{ overflowY: "scroll", maxHeight: "100px" }}  dangerouslySetInnerHTML={{__html: detail.desc}} >
+                      
                       </div>
                     </TableCell>
                     <TableCell style={{ textAlign: "center" }}>

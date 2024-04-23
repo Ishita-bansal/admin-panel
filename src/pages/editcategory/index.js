@@ -86,8 +86,7 @@ function Editcategory() {
        
       }, [id,reciveData]);
   const onSubmit = (values) => {
-    
-    // console.log("Edit values", values);
+    handleUpdate();
   };
 
   const formik = useFormik({
@@ -175,7 +174,7 @@ function Editcategory() {
             </div>
           </div>
           <div className="blog-btn">
-            <button type="submit" onClick={handleUpdate} >
+            <button type="submit" >
               EDIT
             </button>
           </div>

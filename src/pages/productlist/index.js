@@ -154,7 +154,7 @@ function Productlist() {
   const onActionsHandler = (obj, detail) => {
    console.log("details=======>",detail);
     if (obj.indetifier === "edit") {
-        // navigate(`/editblog/${detail.id}`);
+        navigate(`/editproduct/${detail.id}`);
     }
 
     if (obj.indetifier === "delete") {
@@ -165,7 +165,7 @@ function Productlist() {
     }
 
     if (obj.indetifier === "view") {
-      //  navigate(`/viewblog/${detail.id}`);
+       navigate(`/viewproduct/${detail.id}`);
     }
   };
 
