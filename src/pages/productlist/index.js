@@ -11,7 +11,7 @@ import {
   Modal,
   Box,
   Typography,
-  TextField
+  TextField,
 } from "@mui/material";
 
 import {
@@ -34,10 +34,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { app } from "../../firebase/firebaseconfig";
 import { deleteDoc } from "firebase/firestore";
-import {getStorage,ref as storageRef,deleteObject} from "firebase/storage";
+import { getStorage, ref as storageRef, deleteObject } from "firebase/storage";
 const firestore = getFirestore(app);
 const storage = getStorage(app);
-
 
 const style = {
   position: "absolute",
@@ -82,33 +81,32 @@ function Productlist() {
   const [rowsperPage, setrowsperPage] = useState(5);
   const [reciveData, setReciveData] = useState([]);
   const [open, setOpen] = useState(false);
-  const [selecteddata , setSelecteddata] = useState({});
+  const [selecteddata, setSelecteddata] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
-
-  const handleDel = async() => { 
+  const [categorydata, setcategorydata] = useState("");
+  const handleDel = async () => {
     if (!selecteddata || !selecteddata.id) {
       console.error("Selected data is undefined or does not have an ID");
       return;
-    }  
-  try{
-    const imageRef = storageRef(storage, `productimage/${selecteddata.id}`);
-    await deleteObject(imageRef);
-
-    const docRef = doc(firestore, "products", selecteddata.id);
-    await deleteDoc(docRef);
-
-       const data = reciveData.filter((info)=>{
-             return info.id !== selecteddata.id;
-        }) 
-  
-     setReciveData(data);
-     setSelecteddata({});
-     setOpen(false);
     }
-    catch(error){
+    try {
+      const imageRef = storageRef(storage, `productimage/${selecteddata.id}`);
+      await deleteObject(imageRef);
+
+      const docRef = doc(firestore, "products", selecteddata.id);
+      await deleteDoc(docRef);
+
+      const data = reciveData.filter((info) => {
+        return info.id !== selecteddata.id;
+      });
+
+      setReciveData(data);
+      setSelecteddata({});
+      setOpen(false);
+    } catch (error) {
       console.error("Error deleting blog: ", error);
     }
-  }
+  };
   const onChangePage = (event, nextPage) => {
     setPage(nextPage);
   };
@@ -119,9 +117,35 @@ function Productlist() {
     setPage(0);
   };
 
-  const onModalClose=()=>{
+  const onModalClose = () => {
     setOpen(false);
-  }
+  };
+
+  const getcategory = async () => {
+    try {
+      const collectionRef = collection(firestore, "categories");
+      const querySnapshot = await getDocs(collectionRef);
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      return data;
+    } catch (error) {
+      console.error("Error fetching documents:", error);
+      return [];
+    }
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getcategory();
+        setcategorydata(data);
+      } catch (error) {
+        console.error("Error fetching documents:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const getdocument = async () => {
     try {
@@ -142,7 +166,7 @@ function Productlist() {
     const fetchData = async () => {
       try {
         const data = await getdocument();
-        console.log('data==>',data)
+        // console.log('data==>',data)
         setReciveData(data);
       } catch (error) {
         console.error("Error fetching documents:", error);
@@ -152,58 +176,65 @@ function Productlist() {
   }, []);
 
   const onActionsHandler = (obj, detail) => {
-   console.log("details=======>",detail);
+    //  console.log("details=======>",detail);
     if (obj.indetifier === "edit") {
-        navigate(`/editproduct/${detail.id}`);
+      navigate(`/editproduct/${detail.id}`);
     }
 
     if (obj.indetifier === "delete") {
       handleDel();
       setSelecteddata(detail);
       setOpen(true);
-
     }
 
     if (obj.indetifier === "view") {
-       navigate(`/viewproduct/${detail.id}`);
+      navigate(`/viewproduct/${detail.id}`);
     }
   };
 
   // console.log("recieveddata---------->",reciveData);
-  const filteredData = reciveData.filter(item =>
+  const filteredData = reciveData.filter((item) =>
     item.productname.includes(searchQuery)
   );
 
 
+  const getCategoryById=(catArray,catId)=>{
+    const obj=catArray.find((obj,i,arr)=>obj?.id===catId)
+    return obj?.title
+  }
   return (
     <>
       <div className="table-container">
-          <div className="table-head">
+        <div className="table-head">
           <h1>Product Management</h1>
-          </div>
-    
+        </div>
+
         <TableContainer
           sx={{
             width: "1000px",
             backgroundColor: "#f2f2f2",
             marginTop: "50px",
             borderRadius: "20px",
-            border:"4px solid",
+            border: "4px solid",
             overflowY: "scroll",
-            maxHeight: "100%"
+            maxHeight: "100%",
           }}
         >
           <div className="table-header">
-          <TextField
-          label="Search"
-          variant="outlined"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          style={{ margin: "10px" }}
-        />
-          <button onClick={() => navigate("/addproduct")} className="table-btn" style={{width:"200px"}}>
-            <FontAwesomeIcon icon={faPlus} /> Add Product
-          </button>
+            <TextField
+              label="Search"
+              variant="outlined"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              style={{ margin: "10px" }}
+            />
+            <button
+              onClick={() => navigate("/addproduct")}
+              className="table-btn"
+              style={{ width: "200px" }}
+            >
+              <FontAwesomeIcon icon={faPlus} /> Add Product
+            </button>
           </div>
           <Table>
             <TableHead>
@@ -224,7 +255,7 @@ function Productlist() {
                     fontWeight: "bolder",
                   }}
                 >
-                 Product Image
+                  Product Image
                 </TableCell>
                 <TableCell
                   style={{
@@ -233,7 +264,7 @@ function Productlist() {
                     fontWeight: "bolder",
                   }}
                 >
-                Price
+                  Price
                 </TableCell>
                 <TableCell
                   style={{
@@ -265,7 +296,7 @@ function Productlist() {
               </TableRow>
             </TableHead>
             <TableBody>
-              { filteredData
+              {filteredData
                 ?.slice(page * rowsperPage, page * rowsperPage + rowsperPage)
                 .map((detail) => (
                   <TableRow key={detail.id}>
@@ -276,39 +307,44 @@ function Productlist() {
                     </TableCell>
 
                     <TableCell
-                      style={{ textAlign: "center", fontSize: "18px" }}>
-                     <img style={{width:"35%"}} src={detail.img} alt="image"/>
+                      style={{ textAlign: "center", fontSize: "18px" }}
+                    >
+                      <img
+                        style={{ width: "35%" }}
+                        src={detail.img}
+                        alt="image"
+                      />
                     </TableCell>
                     <TableCell
                       style={{
                         textAlign: "center",
-                        fontSize: "18px", 
+                        fontSize: "18px",
                       }}
                     >
                       <div style={{ overflowY: "scroll", maxHeight: "100px" }}>
-                      {detail.price}
+                        {detail.price}
                       </div>
                     </TableCell>
                     <TableCell
                       style={{
                         textAlign: "center",
-                        fontSize: "18px", 
-                      }}
-                    >
+                        fontSize: "18px",
+                      }}>
                       <div style={{ overflowY: "scroll", maxHeight: "100px" }}>
-                      {detail.category}
+                      {getCategoryById(categorydata,detail.category)}  
                       </div>
                     </TableCell>
 
                     <TableCell
                       style={{
                         textAlign: "center",
-                        fontSize: "18px", 
+                        fontSize: "18px",
                       }}
                     >
-                      <div style={{ overflowY: "scroll", maxHeight: "100px" }} dangerouslySetInnerHTML={{__html: detail.desc}}>
-                      
-                      </div>
+                      <div
+                        style={{ overflowY: "scroll", maxHeight: "100px" }}
+                        dangerouslySetInnerHTML={{ __html: detail.desc }}
+                      ></div>
                     </TableCell>
                     <TableCell style={{ textAlign: "center" }}>
                       <div
@@ -316,7 +352,7 @@ function Productlist() {
                       >
                         {icons.map((obj, index) => (
                           <button
-                            onClick={() => onActionsHandler(obj,detail)}
+                            onClick={() => onActionsHandler(obj, detail)}
                             key={index}
                             style={{
                               border: "none",
@@ -354,50 +390,54 @@ function Productlist() {
           </div>
         </TableContainer>
         <div>
-        <Modal
-          open={open}
-          onClose={(event, reason) => {
-            if (reason !== 'backdropClick') {
-              onModalClose();
-            }
-          }}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-          disableBackdropClick 
-        >
-          <Box sx={style}>
-            <Typography
-              style={{
-                textAlign: "center",
-                padding: "10px",
-                fontWeight: "bolder",
-              }}
-              id="modal-modal-title"
-              variant="h6"
-              component="h2">
-              Are you sure you want to delete?
-            </Typography>
-            <div
-              style={{ display: "flex", justifyContent: "center", gap: "20px" }}
-            >
-              <Button onClick={handleDel} variant="contained" sx={{ mt: 2 }}>
-                Yes
-              </Button>
-              <Button
-                onClick={onModalClose}
-                variant="contained"
-                sx={{ mt: 2 }}
+          <Modal
+            open={open}
+            onClose={(event, reason) => {
+              if (reason !== "backdropClick") {
+                onModalClose();
+              }
+            }}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            disableBackdropClick
+          >
+            <Box sx={style}>
+              <Typography
+                style={{
+                  textAlign: "center",
+                  padding: "10px",
+                  fontWeight: "bolder",
+                }}
+                id="modal-modal-title"
+                variant="h6"
+                component="h2"
               >
-                No
-              </Button>
-            </div>
-          </Box>
-        </Modal>
-      </div>
+                Are you sure you want to delete?
+              </Typography>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "20px",
+                }}
+              >
+                <Button onClick={handleDel} variant="contained" sx={{ mt: 2 }}>
+                  Yes
+                </Button>
+                <Button
+                  onClick={onModalClose}
+                  variant="contained"
+                  sx={{ mt: 2 }}
+                >
+                  No
+                </Button>
+              </div>
+            </Box>
+          </Modal>
+        </div>
       </div>
     </>
   );
 }
 
 export default Productlist;
-
