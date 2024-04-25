@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import {
   Table,
   TableBody,
@@ -38,6 +39,8 @@ import { useDispatch } from "react-redux";
 import { app } from "../../firebase/firebaseconfig";
 import { deleteDoc } from "firebase/firestore";
 import {getStorage,ref as storageRef,deleteObject} from "firebase/storage";
+import { loader } from "../../redux/action";
+import {Loaderreducer} from "../../redux/reducer/loaderreducer";
 const firestore = getFirestore(app);
 const storage = getStorage(app);
 
@@ -89,6 +92,9 @@ function Blogdetail() {
   const [selecteddata , setSelecteddata] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
 
+  const isLoading = useSelector(state=>state?.Loaderreducer?.isLoader);
+  console.log('isLoading==>',isLoading);
+
   const handleDel = async() => { 
     if (!selecteddata || !selecteddata.id) {
       console.error("Selected data is undefined or does not have an ID");
@@ -104,7 +110,7 @@ function Blogdetail() {
        const data = reciveData.filter((info)=>{
              return info.id !== selecteddata.id;
         }) 
-    //  console.log("data filtered=====>",data);
+
      setReciveData(data);
      setSelecteddata({});
      setOpen(false);
@@ -127,6 +133,8 @@ function Blogdetail() {
     setOpen(false);
   }
 
+  
+
   const getdocument = async () => {
     try {
       const collectionRef = collection(firestore, "Tic-tacs-games");
@@ -143,15 +151,19 @@ function Blogdetail() {
   };
 
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
+        dispatch(loader({isLoader:true}));
         const data = await getdocument();
         setReciveData(data);
-      } catch (error) {
+      // reciveData && dispatch(loader({ isLoader: false }))
+      } 
+      catch (error) {
         console.error("Error fetching documents:", error);
-      }
+    }
     };
-    fetchData();
+  fetchData();  
   }, []);
 
   const onActionsHandler = (obj, detail) => {
@@ -176,9 +188,11 @@ function Blogdetail() {
     item.title.includes(searchQuery)
   );
 
+  // const isLoading = useSelector((state) => state?.Loaderreducer.isLoader);
+  // console.log("i=====loading",isLoading);
 
   return (
-    <>
+   <>
       <div className="table-container">
           <div className="table-head">
           <h1>Blog Management</h1>
@@ -358,6 +372,8 @@ function Blogdetail() {
         </Modal>
       </div>
       </div>
+   
+      
     </>
   );
 }

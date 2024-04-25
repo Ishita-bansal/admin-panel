@@ -6,6 +6,7 @@ import Maincontainer from "../components/maincontainer";
 import Demofirebase from "../demofirebase";
 import Editcategory from "../pages/editcategory";
 import Editproduct from "../pages/editproduct";
+import { Loader } from "../components";
 
 function Router(){
    const logedUser = useSelector((state)=>state.Loginreducer);
@@ -40,6 +41,7 @@ function Router(){
                 <Route path="/Addproduct" element={<PrivateRouter element={<Addproduct/>} />} />
                 <Route path="/Editproduct/:id" element={<PrivateRouter element={<Editproduct/>} />} />
                 <Route path="/viewproduct/:id" element={<PrivateRouter element={<Viewproduct/>} />} />
+               
                 <Route path="/*" element={<Page404/>} />
                 <Route path="/uipage" element={<Uipage/>} />
                 <Route path="/formsformik" element={<Formsformik/>}/>

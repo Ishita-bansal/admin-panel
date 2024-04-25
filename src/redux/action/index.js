@@ -34,3 +34,10 @@ export const registerupdate = (payload)=>{
   }
 }
 
+export const loader = (payload)=>{
+  console.log('payload==>',payload)
+  return{
+    type:ACTIONTYPE.LOADER,
+    payload:payload
+  }
+}
