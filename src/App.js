@@ -5,13 +5,13 @@ import { Loader } from "./components";
 import { useSelector } from "react-redux";
 import {Loaderreducer} from "./redux/reducer/loaderreducer";
 function App() {
-  const isLoading = useSelector(state=>state?.Loaderreducer?.isLoader)
-   console.log('------------------->',isLoading)
+  // const isLoading = useSelector(state=>state?.Loaderreducer?.isLoader)
+  //  console.log('------------------->',isLoading)
 
 return (
     <div>
       <Router />
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />} */}
       <ToastContainer />
     </div>
   );

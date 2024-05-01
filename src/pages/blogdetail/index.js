@@ -41,8 +41,10 @@ import { deleteDoc } from "firebase/firestore";
 import {getStorage,ref as storageRef,deleteObject} from "firebase/storage";
 import { loader } from "../../redux/action";
 import {Loaderreducer} from "../../redux/reducer/loaderreducer";
+
 const firestore = getFirestore(app);
 const storage = getStorage(app);
+
 
 
 const style = {

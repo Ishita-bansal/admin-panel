@@ -19,3 +19,4 @@ export {default as Viewcategory} from "./viewcategory";
 export {default as Productlist} from "./productlist";
 export {default as Addproduct} from "./addproduct";
 export {default as Viewproduct} from "./viewproduct";
+export {default as Order} from "./order";

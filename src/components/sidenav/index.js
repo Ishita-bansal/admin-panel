@@ -53,10 +53,6 @@ const Sidenav = () => {
                 <p>Blog</p>
                 </Link>
             </div>
-            {/* <div className="sub-inputs">
-                <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
-              <p>News</p>
-            </div> */}
             <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
                 <Link to="/category" className="table-link"> 
@@ -71,7 +67,9 @@ const Sidenav = () => {
             </div>
             <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
+                <Link to="/order" className="table-link">
               <p>Order</p>
+              </Link>
             </div>
           </div>
         </div>
