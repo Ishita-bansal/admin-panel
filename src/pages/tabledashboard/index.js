@@ -93,15 +93,30 @@ function Tabledashboard() {
   const loginuserData = useSelector((state)=>state?.Loginreducer);
   // console.log("loginuserData========>",loginuserData);
 
+  // const onChangePage = (event, nextPage) => {
+  //   setPage(nextPage);
+  // };
+
+  // const onChangeRowsPerPage = (event) => {
+  //   const newRowsPerPage = parseInt(event.target.value, 10);
+  //   setrowsperPage(newRowsPerPage);
+  //   setPage(0);
+  // };
+
   const onChangePage = (event, nextPage) => {
     setPage(nextPage);
   };
+   
+  console.log("page===>",page);
 
   const onChangeRowsPerPage = (event) => {
     const newRowsPerPage = parseInt(event.target.value, 10);
+    console.log("newRowsPerPage",newRowsPerPage);
     setrowsperPage(newRowsPerPage);
-    setPage(0);
+    setPage(0); // Reset page number when rows per page changes
   };
+  
+  console.log("rowsperPage",rowsperPage);
   const onActionsHandler = (obj, user) => {
 
     if (obj.indetifier === "edit") {
@@ -262,11 +277,11 @@ function Tabledashboard() {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <StyledTablePagination
             rowsPerPageOptions={[2, 5, 10, 15, 25]}
-            count={userdata.length}
+            count={filteredData.length}
             rowsPerPage={rowsperPage}
             page={page}
             onPageChange={onChangePage}
-            onChange={onChangeRowsPerPage}
+            onChangeRowsPerPage={onChangeRowsPerPage}
           />
         </div>
       </TableContainer>
