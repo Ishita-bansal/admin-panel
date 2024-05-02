@@ -1,6 +1,8 @@
 .display-data{
+ 
     /* width:1000px; */
      position:absolute;
     top:50px;
-    left:450px;  
+    left:500px;  
+    width:70%;
 }

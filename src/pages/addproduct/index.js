@@ -56,6 +56,7 @@ function Addproduct() {
         price: values.price,
         category: values.category,
         desc: values.desc,
+        quantity:0
       });
       const imageRef = storageRef(storage, `productimage/${result.id}`);
       await uploadBytes(imageRef, imagefile);
@@ -111,7 +112,6 @@ function Addproduct() {
       try {
         const data = await getdocument();
         setReciveData(data);
-       
       } catch (error) {
         console.error("Error fetching documents:", error);
       }
@@ -128,7 +128,7 @@ useEffect(()=>{
   const { values, setFieldValue, handleSubmit, setTouched, touched, errors } =
     formik;
 
-    console.log("recievedata======>",reciveData);
+   
 
   return (
     <>
@@ -199,9 +199,7 @@ useEffect(()=>{
                   style={{
                     paddingLeft: "20px",
                     color: "red",
-                    fontStyle: "italic",
-                  }}
-                >
+                    fontStyle: "italic"}}>
                   {errors.price}
                 </p>
               ) : (
@@ -215,7 +213,7 @@ useEffect(()=>{
                 onChange={(e) => {
                   setFieldValue("category", e.target.value);
                 }}
-                onBlur={() => setTouched({ ...touched, category: true })}
+                onBlur={() => setTouched({ ...touched,category: true })}
               >
                 {reciveData?.map((info) => {
                   return <option value={info.id}>{info.title}</option>;
