@@ -75,7 +75,7 @@ function Addblog() {
     formik;
   return (
     <>
-      <h1 style={{marginTop:"60px"}}>Add Blog</h1>
+      <h1 style={{marginTop:"5px"}}>Add Blog</h1>
       <div className="blog-form-container">
         <form onSubmit={handleSubmit}>
           <div className="blog-input-fields">
@@ -124,7 +124,7 @@ function Addblog() {
                 <p style={{ visibility: "hidden" }}>text</p>
               )}
             </div>
-            <div className="blog-input">
+            <div className="blog-jodit-input">
             <JoditEditor
                 value={values.desc}
                 onChange={(content) => setFieldValue("desc", content)}

@@ -195,18 +195,18 @@ function Blogdetail() {
 
   return (
    <>
-      <div className="table-container">
+      <div className="blog-container" >
           <div className="table-head">
           <h1>Blog Management</h1>
           </div>
     
         <TableContainer
           sx={{
-            width: "1000px",
+            // width: "1000px",
             backgroundColor: "#f2f2f2",
             marginTop: "50px",
             borderRadius: "20px",
-            border:"4px solid",
+            // border:"4px solid",
             overflowY: "scroll",
             maxHeight: "100%"
           }}

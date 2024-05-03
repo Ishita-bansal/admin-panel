@@ -170,7 +170,7 @@ const Dashboard = () => {
     <>
       <div
         style={{
-          paddingTop: "80px",
+          // paddingTop: "80px",
           display: "flex",
           flexDirection: "column",
           gap: "20px",
@@ -184,8 +184,9 @@ const Dashboard = () => {
           style={{
             display: "flex",
             width: "100%",
-            flexWrap: "nowrap",
-            gap: "20px",
+            justifyContent:"space-around",
+            // flexWrap: "nowrap",
+            // gap: "20px",
             padding: "20px",
             color: "white",
            
@@ -228,7 +229,7 @@ const Dashboard = () => {
           <div class="col-sm" style={{background:''}}>One of three columns</div>
         </div>
       </div> */}
-      <div class="row" style={{width: "75%" }}>
+      <div class="row" style={{width: "100%" }}>
         <div
           class="col-lg-6"
           style={{

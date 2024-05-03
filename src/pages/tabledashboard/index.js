@@ -150,7 +150,7 @@ function Tabledashboard() {
       </div>
       <TableContainer
         sx={{
-          width: "fit-content",
+          width: "100%",
           // height: "650px",
           backgroundColor: "#f2f2f2",
           marginTop: "20px",

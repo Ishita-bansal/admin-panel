@@ -53,24 +53,24 @@ const Sidenav = () => {
                 <p>Blog</p>
                 </Link>
             </div>
-            <div className="sub-inputs">
+            {/* <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
                 <Link to="/category" className="table-link"> 
               <p>Category</p>
             </Link>
-            </div>
+            </div> */}
             <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
                 <Link to="/productlist" className="table-link"> 
-              <p>Product</p>
+              <p>Customers Enquiry</p>
               </Link>
             </div>
-            <div className="sub-inputs">
+            {/* <div className="sub-inputs">
                 <FontAwesomeIcon icon={faDiamond} className="font-icon"/>
                 <Link to="/order" className="table-link">
               <p>Order</p>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
     </>

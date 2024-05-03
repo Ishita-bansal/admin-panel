@@ -117,39 +117,39 @@ function Productlist() {
     setPage(0);
   };
 
-  const onModalClose = () => {
-    setOpen(false);
-  };
+  // const onModalClose = () => {
+  //   setOpen(false);
+  // };
 
-  const getcategory = async () => {
-    try {
-      const collectionRef = collection(firestore, "categories");
-      const querySnapshot = await getDocs(collectionRef);
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
-      });
-      return data;
-    } catch (error) {
-      console.error("Error fetching documents:", error);
-      return [];
-    }
-  };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getcategory();
-        setcategorydata(data);
-      } catch (error) {
-        console.error("Error fetching documents:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  // const getcategory = async () => {
+  //   try {
+  //     const collectionRef = collection(firestore, "categories");
+  //     const querySnapshot = await getDocs(collectionRef);
+  //     const data = [];
+  //     querySnapshot.forEach((doc) => {
+  //       data.push({ id: doc.id, ...doc.data() });
+  //     });
+  //     return data;
+  //   } catch (error) {
+  //     console.error("Error fetching documents:", error);
+  //     return [];
+  //   }
+  // };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const data = await getcategory();
+  //       setcategorydata(data);
+  //     } catch (error) {
+  //       console.error("Error fetching documents:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   const getdocument = async () => {
     try {
-      const collectionRef = collection(firestore, "products");
+      const collectionRef = collection(firestore, "customers");
       const querySnapshot = await getDocs(collectionRef);
       const data = [];
       querySnapshot.forEach((doc) => {
@@ -175,47 +175,47 @@ function Productlist() {
     fetchData();
   }, []);
 
-  const onActionsHandler = (obj, detail) => {
-    //  console.log("details=======>",detail);
-    if (obj.indetifier === "edit") {
-      navigate(`/editproduct/${detail.id}`);
-    }
+  // const onActionsHandler = (obj, detail) => {
+  //   //  console.log("details=======>",detail);
+  //   if (obj.indetifier === "edit") {
+  //     navigate(`/editproduct/${detail.id}`);
+  //   }
 
-    if (obj.indetifier === "delete") {
-      handleDel();
-      setSelecteddata(detail);
-      setOpen(true);
-    }
+  //   if (obj.indetifier === "delete") {
+  //     handleDel();
+  //     setSelecteddata(detail);
+  //     setOpen(true);
+  //   }
 
-    if (obj.indetifier === "view") {
-      navigate(`/viewproduct/${detail.id}`);
-    }
-  };
+  //   if (obj.indetifier === "view") {
+  //     navigate(`/viewproduct/${detail.id}`);
+  //   }
+  // };
 
   // console.log("recieveddata---------->",reciveData);
   const filteredData = reciveData.filter((item) =>
-    item.productname.includes(searchQuery)
+    item.fullname.includes(searchQuery)
   );
 
 
-  const getCategoryById=(catArray,catId)=>{
-    const obj=catArray.find((obj,i,arr)=>obj?.id===catId)
-    return obj?.title
-  }
+  // const getCategoryById=(catArray,catId)=>{
+  //   const obj=catArray.find((obj,i,arr)=>obj?.id===catId)
+  //   return obj?.title
+  // }
   return (
     <>
       <div className="table-container">
         <div className="table-head">
-          <h1>Product Management</h1>
+          <h1>Customer Enquiry Management</h1>
         </div>
 
         <TableContainer
           sx={{
-            width: "1000px",
+            // width: "1000px",
             backgroundColor: "#f2f2f2",
             marginTop: "50px",
             borderRadius: "20px",
-            border: "4px solid",
+            // border: "4px solid",
             overflowY: "scroll",
             maxHeight: "100%",
           }}
@@ -228,13 +228,13 @@ function Productlist() {
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{ margin: "10px" }}
             />
-            <button
+            {/* <button
               onClick={() => navigate("/addproduct")}
               className="table-btn"
               style={{ width: "200px" }}
             >
               <FontAwesomeIcon icon={faPlus} /> Add Product
-            </button>
+            </button> */}
           </div>
           <Table>
             <TableHead>
@@ -246,7 +246,7 @@ function Productlist() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Product Name
+                 Name
                 </TableCell>
                 <TableCell
                   style={{
@@ -255,7 +255,7 @@ function Productlist() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Product Image
+                  Email
                 </TableCell>
                 <TableCell
                   style={{
@@ -264,7 +264,7 @@ function Productlist() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Price
+                  Phone Number
                 </TableCell>
                 <TableCell
                   style={{
@@ -273,25 +273,7 @@ function Productlist() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Category
-                </TableCell>
-                <TableCell
-                  style={{
-                    textAlign: "center",
-                    fontSize: "20px",
-                    fontWeight: "bolder",
-                  }}
-                >
-                  Description
-                </TableCell>
-                <TableCell
-                  style={{
-                    textAlign: "center",
-                    fontSize: "20px",
-                    fontWeight: "bolder",
-                  }}
-                >
-                  Actions
+                 Message
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -299,21 +281,15 @@ function Productlist() {
               {filteredData
                 ?.slice(page * rowsperPage, page * rowsperPage + rowsperPage)
                 .map((detail) => (
-                  <TableRow key={detail.id}>
+                  <TableRow key={detail.email}>
                     <TableCell
                       style={{ textAlign: "center", fontSize: "18px" }}
                     >
-                      {detail.productname}
+                      {detail?.fullname}
                     </TableCell>
 
-                    <TableCell
-                      style={{ textAlign: "center", fontSize: "18px" }}
-                    >
-                      <img
-                        style={{ width: "35%" }}
-                        src={detail.img}
-                        alt="image"
-                      />
+                    <TableCell  style={{ textAlign: "center", fontSize: "18px" }}>
+                          {detail?.email}
                     </TableCell>
                     <TableCell
                       style={{
@@ -322,10 +298,10 @@ function Productlist() {
                       }}
                     >
                       <div style={{ overflowY: "scroll", maxHeight: "100px" }}>
-                        {detail.price}
+                        {detail.phonenumber}
                       </div>
                     </TableCell>
-                    <TableCell
+                    {/* <TableCell
                       style={{
                         textAlign: "center",
                         fontSize: "18px",
@@ -333,7 +309,7 @@ function Productlist() {
                       <div style={{ overflowY: "scroll", maxHeight: "100px" }}>
                       {getCategoryById(categorydata,detail.category)}  
                       </div>
-                    </TableCell>
+                    </TableCell> */}
 
                     <TableCell
                       style={{
@@ -341,12 +317,13 @@ function Productlist() {
                         fontSize: "18px",
                       }}
                     >
-                      <div
+                      {detail?.message}
+                      {/* <div
                         style={{ overflowY: "scroll", maxHeight: "100px" }}
                         dangerouslySetInnerHTML={{ __html: detail.desc }}
-                      ></div>
+                      ></div> */}
                     </TableCell>
-                    <TableCell style={{ textAlign: "center" }}>
+                    {/* <TableCell style={{ textAlign: "center" }}>
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
@@ -373,7 +350,7 @@ function Productlist() {
                           </button>
                         ))}
                       </div>
-                    </TableCell>
+                    </TableCell> */}
                   </TableRow>
                 ))}
             </TableBody>
@@ -389,7 +366,7 @@ function Productlist() {
             />
           </div>
         </TableContainer>
-        <div>
+        {/* <div>
           <Modal
             open={open}
             onClose={(event, reason) => {
@@ -434,7 +411,7 @@ function Productlist() {
               </div>
             </Box>
           </Modal>
-        </div>
+        </div> */}
       </div>
     </>
   );
