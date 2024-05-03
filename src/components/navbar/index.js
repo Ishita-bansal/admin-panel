@@ -77,7 +77,7 @@ const Navbar = ()=>{
             marginTop: "10px",
           }}
         >
-          <Typography style={{ fontSize: "35px", fontWeight: "bolder" ,marginLeft:"29%"}}>
+          <Typography style={{ fontSize: "35px", fontWeight: "bolder" ,marginLeft:"24%"}}>
           {userDetail?.name}
           </Typography>
           <Tooltip title="Open settings" >
